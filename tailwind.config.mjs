@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{astro,html,js,ts}'],
   theme: {
     extend: {
       colors: {
-        primary: '#1a1a2e',
-        accent:  '#e8b84b',
-        danger:  '#c0392b',
+        brand: '#f97316',        // orange-500
+        surface: '#141414',
+        card:    '#1c1c1c',
+        border:  '#2a2a2a',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

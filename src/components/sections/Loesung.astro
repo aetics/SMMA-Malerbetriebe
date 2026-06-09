@@ -1,0 +1,63 @@
+---
+const leistungen = [
+  {
+    num: '01',
+    title: 'Social Media Betreuung',
+    text: 'Ich erstelle und pflege eure Profile auf Instagram und Facebook. Regelmäßige Beiträge, Vorher-Nachher-Fotos, kurze Videos – alles, was zeigt, was ihr könnt.',
+    tags: ['Instagram', 'Facebook', 'Reels', 'Stories'],
+  },
+  {
+    num: '02',
+    title: 'Lokale Werbeanzeigen',
+    text: 'Gezielte Anzeigen auf Meta (Instagram/Facebook) und ggf. Google – ausgesteuert auf Freising und Umgebung. Nur Menschen, die wirklich in eurer Reichweite sind.',
+    tags: ['Meta Ads', 'Google Ads', 'Zielregion', 'Lokal'],
+  },
+  {
+    num: '03',
+    title: 'Einfache Lead-Strecke',
+    text: 'Interessenten landen auf einer klaren Seite mit Formular oder WhatsApp-Link. Kein Durchklicken, kein Suchen – direkte Anfrage in wenigen Sekunden.',
+    tags: ['Landing Page', 'WhatsApp', 'Kontaktformular'],
+  },
+  {
+    num: '04',
+    title: 'Fokus auf echte Anfragen',
+    text: 'Keine Likes-Strategie. Keine Follower-Zahlen als Ziel. Ich messe, was zählt: Wie viele Anfragen kommen rein? Welche Qualität haben sie? Was kostet ein Lead?',
+    tags: ['Leads', 'Reporting', 'Kosten pro Anfrage'],
+  },
+];
+---
+<section class="py-28 px-6 bg-neutral-950">
+  <div class="max-w-5xl mx-auto">
+
+    <p class="text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Meine Lösung</p>
+    <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight">
+      Was ich für euch übernehme.
+    </h2>
+    <p class="text-neutral-400 text-lg max-w-xl mb-16">
+      Komplett. Ohne dass ihr euch täglich darum kümmern müsst.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      {leistungen.map(l => (
+        <div class="bg-card border border-border rounded-2xl p-8 flex flex-col gap-5
+                    hover:border-brand/40 transition-colors">
+          <div class="flex items-start justify-between">
+            <span class="text-5xl font-black text-brand/20 leading-none select-none">{l.num}</span>
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-xl mb-3">{l.title}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">{l.text}</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {l.tags.map(t => (
+              <span class="text-xs font-semibold bg-brand/10 text-brand border border-brand/20 px-3 py-1 rounded-full">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

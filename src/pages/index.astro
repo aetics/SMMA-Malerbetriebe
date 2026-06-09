@@ -1,23 +1,27 @@
 ---
-import Layout   from '../layouts/Layout.astro';
-import Nav      from '../components/Nav.astro';
-import Hero     from '../components/Hero.astro';
-import Schmerzen from '../components/Schmerzen.astro';
-import Leistungen from '../components/Leistungen.astro';
-import Plan     from '../components/Plan.astro';
-import Ergebnis from '../components/Ergebnis.astro';
-import Warum    from '../components/Warum.astro';
-import CTA      from '../components/CTA.astro';
+import Layout        from '../layouts/Layout.astro';
+import NavBar        from '../components/NavBar.astro';
+import Hero          from '../components/sections/Hero.astro';
+import Problem       from '../components/sections/Problem.astro';
+import Chance        from '../components/sections/Chance.astro';
+import Loesung       from '../components/sections/Loesung.astro';
+import Testphase     from '../components/sections/Testphase.astro';
+import Nutzen        from '../components/sections/Nutzen.astro';
+import WarumFreising from '../components/sections/WarumFreising.astro';
+import Ablauf        from '../components/sections/Ablauf.astro';
+import CTA           from '../components/sections/CTA.astro';
 ---
 <Layout>
-  <Nav />
-  <main class="pt-15">
+  <NavBar />
+  <main class="pt-16">
     <Hero />
-    <Schmerzen />
-    <Leistungen />
-    <Plan />
-    <Ergebnis />
-    <Warum />
+    <div id="problem"><Problem /></div>
+    <Chance />
+    <Loesung />
+    <Testphase />
+    <Nutzen />
+    <WarumFreising />
+    <Ablauf />
     <CTA />
   </main>
 </Layout>

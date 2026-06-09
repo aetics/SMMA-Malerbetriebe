@@ -1,0 +1,80 @@
+---
+// ── Hier personalisieren ──────────────────────────────────
+const telefon   = '[Telefonnummer]';          // z. B. '+49 8161 123456'
+const email     = '[E-Mail]';                 // z. B. 'info@example.de'
+const instagram = '[Website oder Instagram]'; // z. B. '@dein_profil'
+// ─────────────────────────────────────────────────────────
+
+const kontaktFelder = [
+  { icon: '📞', label: 'Telefon / WhatsApp', wert: telefon,   href: `tel:${telefon}` },
+  { icon: '✉️',  label: 'E-Mail',             wert: email,     href: `mailto:${email}` },
+  { icon: '📷',  label: 'Instagram / Web',    wert: instagram, href: '#' },
+];
+---
+<section id="kontakt" class="py-28 px-6 bg-surface relative overflow-hidden">
+
+  <!-- orange glow bottom-right -->
+  <div class="pointer-events-none absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full"
+       style="background:radial-gradient(circle,rgba(249,115,22,.1) 0%,transparent 70%)"></div>
+
+  <div class="relative max-w-3xl mx-auto text-center">
+
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 border border-brand/30 bg-brand/10 text-brand
+                text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
+      <span class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></span>
+      Noch 1–2 Plätze frei
+    </div>
+
+    <h2 class="text-4xl sm:text-5xl font-black mb-6 leading-tight">
+      Ich suche aktuell
+      <span class="text-brand">1–2 Malerbetriebe</span><br />
+      in Freising als Testpartner.
+    </h2>
+
+    <p class="text-neutral-400 text-lg max-w-xl mx-auto mb-4">
+      Wenn ihr planbar mehr Anfragen aus eurer Region wollt und bereit seid,
+      300–500 € Werbebudget einzusetzen – dann ist das eure Chance.
+    </p>
+    <p class="text-neutral-600 text-sm mb-14">
+      Meine Arbeit ist kostenlos. Kein Vertrag. Keine Mindestlaufzeit.
+    </p>
+
+    <!-- Kontakt-Karten -->
+    <div class="grid sm:grid-cols-3 gap-4 mb-10">
+      {kontaktFelder.map(k => (
+        <a href={k.href}
+           class="bg-card border border-border rounded-2xl p-6 text-left
+                  hover:border-brand/50 hover:-translate-y-1 transition-all duration-200 group">
+          <div class="text-2xl mb-3">{k.icon}</div>
+          <p class="text-neutral-500 text-xs font-semibold uppercase tracking-wider mb-1">{k.label}</p>
+          <p class="text-white font-bold text-sm group-hover:text-brand transition-colors">{k.wert}</p>
+        </a>
+      ))}
+    </div>
+
+    <!-- Main CTA Button -->
+    <a href={`mailto:${email}?subject=Testpartner%20Anfrage&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20als%20Testpartner.%0A%0AMein%20Betrieb%3A%20%0AStadt%3A%20%0ATelefon%3A%20`}
+       class="inline-block bg-brand hover:bg-orange-400 text-white font-bold text-lg
+              px-10 py-5 rounded-xl shadow-[0_0_40px_rgba(249,115,22,.35)]
+              hover:shadow-[0_0_60px_rgba(249,115,22,.45)]
+              hover:-translate-y-0.5 transition-all duration-200 mb-8">
+      Jetzt unverbindlich melden →
+    </a>
+
+    <!-- Closing note -->
+    <p class="text-neutral-600 text-sm max-w-sm mx-auto leading-relaxed">
+      Kein Verkaufsgespräch. Ich erkläre kurz, was ich machen würde –
+      und ihr entscheidet, ob es passt.
+    </p>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-neutral-950 border-t border-border py-8 px-6 text-center">
+  <p class="text-neutral-600 text-sm">
+    Social-Media-Marketing für Malerbetriebe in Freising &amp; Umgebung ·
+    <a href={`mailto:${email}`} class="text-brand hover:underline">{email}</a>
+  </p>
+</footer>

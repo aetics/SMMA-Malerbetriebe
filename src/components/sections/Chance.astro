@@ -1,0 +1,48 @@
+---
+const chances = [
+  {
+    icon: '📸',
+    title: 'Vorher-Nachher ist King',
+    text: 'Kaum eine Branche hat so starken visuellen Content wie Maler. Ein einfaches Vorher-Nachher-Foto auf Instagram erzeugt mehr Vertrauen als jede Anzeige ohne Bild.',
+  },
+  {
+    icon: '📍',
+    title: 'Lokale Ads treffen genau eure Zielgruppe',
+    text: 'Mit Meta- oder Google-Anzeigen könnt ihr gezielt Menschen in Freising, Moosburg, Erding oder wo auch immer ihr arbeiten wollt, ansprechen. Kein Streuverlust.',
+  },
+  {
+    icon: '🚀',
+    title: 'Noch kaum Konkurrenz online',
+    text: 'Die meisten Mitbewerber in der Region haben keinen aktiven Social-Media-Auftritt. Wer jetzt anfängt, baut einen Vorsprung auf, der schwer aufzuholen ist.',
+  },
+];
+---
+<section class="py-28 px-6 bg-surface">
+  <div class="max-w-5xl mx-auto">
+
+    <p class="text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Die Chance</p>
+    <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight">
+      Maler haben einen riesigen<br />
+      <span class="text-brand">Online-Vorteil.</span><br />
+      Sie nutzen ihn nur selten.
+    </h2>
+    <p class="text-neutral-400 text-lg max-w-xl mb-16">
+      Eure Projekte sind von Natur aus visuell. Das ist das beste Rohmaterial
+      für Social Media, das man sich vorstellen kann.
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-5">
+      {chances.map(c => (
+        <div class="bg-card border border-border rounded-2xl p-8 flex flex-col gap-4
+                    hover:border-brand/40 hover:-translate-y-1 transition-all duration-200">
+          <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-2xl">
+            {c.icon}
+          </div>
+          <h3 class="text-white font-bold text-lg">{c.title}</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">{c.text}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

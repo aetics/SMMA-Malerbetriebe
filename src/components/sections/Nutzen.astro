@@ -1,0 +1,57 @@
+---
+const vorteile = [
+  {
+    zahl: '+5–15',
+    einheit: 'Anfragen',
+    title: 'Qualifizierte Anfragen aus der Region',
+    text: 'Keine Anfragen aus dem Ausland oder von Leuten, die nur Preise vergleichen. Lokale Interessenten, die wirklich in eurer Region wohnen.',
+  },
+  {
+    zahl: '100%',
+    einheit: 'sichtbar',
+    title: 'Referenzen, die man sieht',
+    text: 'Eure besten Projekte werden professionell in Szene gesetzt – als Vorher-Nachher-Fotos, als Reels, als Beweis-Content, der Vertrauen aufbaut.',
+  },
+  {
+    zahl: 'Top 3',
+    einheit: 'lokal',
+    title: 'Moderner Auftritt gegenüber Mitbewerbern',
+    text: 'Während andere Betriebe noch keinen Instagram-Account haben, baut ihr einen professionellen Online-Auftritt auf. Das fällt auf.',
+  },
+  {
+    zahl: '1 Seite',
+    einheit: 'Reporting',
+    title: 'Klarer Überblick – einfach erklärt',
+    text: 'Kein Agentur-Kauderwelsch. Ich zeige euch auf einer Seite: Wie viele Anfragen kamen? Was haben sie gekostet? Was hat funktioniert?',
+  },
+];
+---
+<section class="py-28 px-6 bg-neutral-950">
+  <div class="max-w-5xl mx-auto">
+
+    <p class="text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Euer Nutzen</p>
+    <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight">
+      Was ihr nach 4 Wochen<br />konkret habt.
+    </h2>
+    <p class="text-neutral-400 text-lg max-w-xl mb-16">
+      Kein vages Versprechen. Sondern klare, messbare Ergebnisse.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      {vorteile.map(v => (
+        <div class="bg-card border border-border rounded-2xl p-8 flex gap-6
+                    hover:border-brand/40 transition-colors">
+          <div class="shrink-0 text-right">
+            <p class="text-3xl font-black text-brand leading-none">{v.zahl}</p>
+            <p class="text-neutral-600 text-xs font-semibold mt-1">{v.einheit}</p>
+          </div>
+          <div>
+            <h3 class="text-white font-bold mb-2">{v.title}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">{v.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

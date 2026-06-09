@@ -1,0 +1,93 @@
+---
+const wochen = [
+  {
+    woche: 'Woche 1',
+    title: 'Setup & Start',
+    items: [
+      'Erstgespräch: Was wollt ihr erreichen?',
+      'Audit eures aktuellen Auftritts',
+      'Profile einrichten / optimieren',
+      'Erste Bilder & Inhalte sammeln',
+    ],
+  },
+  {
+    woche: 'Woche 2',
+    title: 'Content & Anzeigen live',
+    items: [
+      'Erste Beiträge veröffentlichen',
+      'Werbeanzeige schalten (Meta/Google)',
+      'Lead-Strecke aktivieren',
+      'Erste Reaktionen beobachten',
+    ],
+  },
+  {
+    woche: 'Woche 3',
+    title: 'Optimieren & nachjustieren',
+    items: [
+      'Anzeigen auf Basis der Daten optimieren',
+      'Weiteren Content produzieren',
+      'Anfragen tracken & qualifizieren',
+      'Erste Zwischenbilanz',
+    ],
+  },
+  {
+    woche: 'Woche 4',
+    title: 'Auswertung & Entscheidung',
+    items: [
+      'Wie viele Anfragen sind reingekommen?',
+      'Was haben sie gekostet?',
+      'Welche Kanäle funktionierten?',
+      'Gemeinsam: Weiter, anpassen oder Schluss?',
+    ],
+  },
+];
+---
+<section id="testphase" class="py-28 px-6 bg-surface">
+  <div class="max-w-5xl mx-auto">
+
+    <p class="text-brand text-xs font-bold tracking-[3px] uppercase mb-4">4-Wochen-Testphase</p>
+    <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight">
+      Ich arbeite 4 Wochen<br />
+      <span class="text-brand">kostenlos für euch.</span>
+    </h2>
+    <p class="text-neutral-400 text-lg max-w-xl mb-6">
+      Ihr zahlt nur das Werbebudget – in der Regel <strong class="text-neutral-200">300–500 €</strong>,
+      je nachdem was wir gemeinsam festlegen. Meine Zeit und Arbeit kostet euch nichts.
+    </p>
+
+    <!-- Highlight box -->
+    <div class="bg-brand/10 border border-brand/30 rounded-2xl px-7 py-5 mb-16 max-w-xl">
+      <p class="text-brand font-semibold text-sm leading-relaxed">
+        Warum kostenlos? Ich baue meine Referenzen auf und will beweisen, dass mein Ansatz funktioniert.
+        Ihr geht kein Risiko ein – ich schon. Das ist mein Anreiz, echte Ergebnisse zu liefern.
+      </p>
+    </div>
+
+    <!-- 4-Wochen-Plan -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 rounded-2xl overflow-hidden border border-border">
+      {wochen.map((w, i) => (
+        <div class:list={[
+          'p-7 border-r border-border last:border-r-0 flex flex-col gap-4',
+          i === 1 ? 'bg-brand/5' : 'bg-card',
+        ]}>
+          <div>
+            <span class:list={[
+              'text-xs font-bold tracking-widest uppercase',
+              i === 1 ? 'text-brand' : 'text-neutral-500',
+            ]}>{w.woche}</span>
+            <h3 class="text-white font-bold mt-1 text-sm">{w.title}</h3>
+          </div>
+          <ul class="flex flex-col gap-2">
+            {w.items.map(item => (
+              <li class="flex gap-2 text-xs text-neutral-400 leading-snug">
+                <span class="text-brand mt-0.5 shrink-0">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

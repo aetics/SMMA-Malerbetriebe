@@ -1,0 +1,25 @@
+---
+const links = [
+  { href: '#problem',   label: 'Das Problem' },
+  { href: '#testphase', label: 'Testphase' },
+  { href: '#kontakt',   label: 'Kontakt' },
+];
+---
+<header class="fixed top-0 inset-x-0 z-50 border-b border-border/60 bg-surface/80 backdrop-blur-md">
+  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+    <span class="font-black text-white tracking-tight">
+      SMMA <span class="text-brand">Maler</span>
+    </span>
+    <nav class="hidden md:flex items-center gap-8">
+      {links.map(l => (
+        <a href={l.href} class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">
+          {l.label}
+        </a>
+      ))}
+      <a href="#kontakt"
+         class="bg-brand hover:bg-orange-400 text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors">
+        Gespräch anfragen
+      </a>
+    </nav>
+  </div>
+</header>

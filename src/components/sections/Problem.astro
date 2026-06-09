@@ -1,0 +1,48 @@
+---
+const problems = [
+  {
+    icon: '📵',
+    title: 'Online kaum sichtbar',
+    text: 'Viele Malerbetriebe haben keinen aktiven Social-Media-Auftritt, eine veraltete Website oder nur einen Branchenbuch-Eintrag. Wer sucht, findet oft gar nichts.',
+  },
+  {
+    icon: '📞',
+    title: 'Abhängig von Empfehlungen',
+    text: 'Empfehlungen sind wertvoll – aber sie lassen sich nicht planen. In ruhigen Phasen fehlen Anfragen, obwohl die Kapazität da wäre.',
+  },
+  {
+    icon: '💸',
+    title: 'Keine Zeit fürs Marketing',
+    text: 'Nach einem langen Arbeitstag auf der Baustelle bleibt keine Energie mehr für Posts, Anzeigen oder Google-Profile. Das kennt fast jeder Inhaber.',
+  },
+  {
+    icon: '🏆',
+    title: 'Gute Arbeit bleibt unsichtbar',
+    text: 'Ihr macht tolle Projekte – aber die sieht kaum jemand. Kein Vorher-Nachher, kein Referenz-Post, keine sichtbaren Bewertungen. Die Konkurrenz profitiert.',
+  },
+];
+---
+<section class="py-28 px-6 bg-neutral-950">
+  <div class="max-w-5xl mx-auto">
+
+    <p class="text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Das Problem</p>
+    <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight">
+      Gute Arbeit reicht heute<br />nicht mehr allein.
+    </h2>
+    <p class="text-neutral-400 text-lg max-w-xl mb-16">
+      Die meisten Malerbetriebe in der Region sind online schwach aufgestellt.
+      Das ist ein Problem – aber auch eine Chance.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      {problems.map(p => (
+        <div class="bg-card border border-border rounded-2xl p-8 hover:border-brand/40 transition-colors">
+          <div class="text-3xl mb-5">{p.icon}</div>
+          <h3 class="text-white font-bold text-lg mb-3">{p.title}</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">{p.text}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
