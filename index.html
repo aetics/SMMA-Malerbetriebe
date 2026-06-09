@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMMA für Maler-Betriebe | Mehr Aufträge. Mehr Sichtbarkeit.</title>
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --accent: #e8b84b;
+      --accent2: #c0392b;
+      --light: #f4f4f4;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 24px rgba(0,0,0,0.10);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--light);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 999;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 64px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    nav .logo { color: var(--accent); font-weight: 700; font-size: 1.2rem; letter-spacing: 1px; }
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav ul li a {
+      color: #ccc; text-decoration: none; font-size: 0.9rem;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--accent); }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+
+    h1, h2, h3 { font-weight: 700; }
+    h2 { font-size: 2rem; margin-bottom: 14px; }
+    .section-label {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--gray); font-size: 1.05rem; max-width: 620px; margin-bottom: 48px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--primary) 0%, #16213e 60%, #0f3460 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 100%;
+    }
+    #hero .inner { max-width: 780px; }
+    #hero .badge {
+      display: inline-block;
+      background: rgba(232,184,75,0.15);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; padding: 6px 18px; border-radius: 50px;
+      margin-bottom: 28px;
+    }
+    #hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: var(--white); line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    #hero h1 span { color: var(--accent); }
+    #hero p {
+      color: #aaa; font-size: 1.1rem; max-width: 560px; margin: 0 auto 40px;
+    }
+    .btn {
+      display: inline-block; padding: 15px 36px;
+      background: var(--accent); color: var(--primary);
+      font-weight: 700; border-radius: 50px;
+      text-decoration: none; font-size: 1rem;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(232,184,75,0.35);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,184,75,0.45); }
+    .btn-outline {
+      background: transparent; border: 2px solid var(--accent);
+      color: var(--accent); margin-left: 16px;
+    }
+    .btn-outline:hover { background: var(--accent); color: var(--primary); }
+
+    .stats-row {
+      display: flex; gap: 40px; justify-content: center; margin-top: 64px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat .num { font-size: 2.4rem; font-weight: 800; color: var(--accent); }
+    .stat .lbl { color: #888; font-size: 0.85rem; margin-top: 4px; }
+
+    /* ── PAIN POINTS ── */
+    #schmerzen { background: var(--white); border-radius: var(--radius); }
+    .pain-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .pain-card {
+      background: var(--light);
+      border-left: 4px solid var(--accent2);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .pain-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .pain-card .icon { font-size: 2rem; margin-bottom: 12px; }
+    .pain-card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--accent2); }
+    .pain-card p { color: var(--gray); font-size: 0.9rem; }
+
+    /* ── LÖSUNG ── */
+    #loesung { background: linear-gradient(135deg, var(--primary) 0%, #16213e 100%); border-radius: var(--radius); max-width: 100%; padding: 80px 40px; }
+    #loesung h2, #loesung .section-label { color: var(--white); }
+    #loesung h2 span { color: var(--accent); }
+    #loesung .subtitle { color: #aaa; }
+
+    .solution-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .sol-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); padding: 28px;
+      transition: background .2s;
+    }
+    .sol-card:hover { background: rgba(255,255,255,0.1); }
+    .sol-card .num { font-size: 2.5rem; font-weight: 800; color: var(--accent); opacity: 0.7; }
+    .sol-card h3 { color: var(--white); margin: 8px 0 10px; font-size: 1rem; }
+    .sol-card p { color: #aaa; font-size: 0.88rem; }
+
+    /* ── PLAN ── */
+    #plan { max-width: 1100px; }
+    .timeline { position: relative; padding-left: 0; }
+    .phase {
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: 0 32px; margin-bottom: 32px; align-items: start;
+    }
+    .phase-num {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 800; font-size: 0.85rem; letter-spacing: 1px;
+      border-radius: 50px; text-align: center;
+      padding: 10px 6px;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 4px;
+    }
+    .phase-num .weeks { font-size: 0.7rem; font-weight: 600; opacity: 0.75; }
+    .phase-body {
+      background: var(--white); border-radius: var(--radius);
+      padding: 28px 32px; box-shadow: var(--shadow);
+      border-left: 4px solid var(--accent);
+    }
+    .phase-body h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .phase-body ul { padding-left: 18px; color: var(--gray); font-size: 0.92rem; }
+    .phase-body ul li { margin-bottom: 6px; }
+    .tag {
+      display: inline-block; background: rgba(232,184,75,0.15);
+      color: var(--accent); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 50px; margin-bottom: 12px;
+    }
+
+    /* ── ERGEBNISSE ── */
+    #ergebnisse { background: var(--white); border-radius: var(--radius); }
+    .result-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .result-card {
+      text-align: center; padding: 36px 20px;
+      border-radius: var(--radius);
+      background: var(--light);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .result-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .result-card .big { font-size: 2.8rem; font-weight: 800; color: var(--accent); }
+    .result-card h3 { font-size: 0.95rem; margin: 8px 0 6px; }
+    .result-card p { font-size: 0.82rem; color: var(--gray); }
+
+    /* ── PAKETE ── */
+    #pakete { max-width: 1100px; }
+    .pakete-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .paket {
+      background: var(--white); border-radius: var(--radius);
+      padding: 36px 28px; box-shadow: var(--shadow);
+      transition: transform .2s;
+      position: relative; overflow: hidden;
+    }
+    .paket:hover { transform: translateY(-6px); }
+    .paket.highlight {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .paket.highlight h3 { color: var(--white); }
+    .paket.highlight .price { color: var(--accent); }
+    .paket.highlight ul li { color: #bbb; }
+    .paket .badge-top {
+      position: absolute; top: 18px; right: 18px;
+      background: var(--accent); color: var(--primary);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 50px;
+    }
+    .paket h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .paket .desc { color: var(--gray); font-size: 0.85rem; margin-bottom: 20px; }
+    .paket.highlight .desc { color: #aaa; }
+    .paket .price { font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+    .paket .price span { font-size: 0.85rem; font-weight: 400; color: var(--gray); }
+    .paket ul { list-style: none; margin-bottom: 28px; }
+    .paket ul li {
+      padding: 7px 0; border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9rem; color: var(--gray);
+    }
+    .paket.highlight ul li { border-color: rgba(255,255,255,0.1); }
+    .paket ul li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+
+    /* ── CTA ── */
+    #cta {
+      background: linear-gradient(135deg, #e8b84b 0%, #f39c12 100%);
+      border-radius: var(--radius); text-align: center;
+      padding: 80px 40px; max-width: 100%;
+    }
+    #cta h2 { color: var(--primary); font-size: 2.2rem; }
+    #cta p { color: rgba(26,26,46,0.75); font-size: 1.05rem; max-width: 560px; margin: 16px auto 36px; }
+    .btn-dark { background: var(--primary); color: var(--accent); }
+    .btn-dark:hover { background: #0f0f1e; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary); color: #666;
+      text-align: center; padding: 36px 20px;
+      font-size: 0.85rem;
+    }
+    footer span { color: var(--accent); }
+
+    /* ── QUOTE BLOCK ── */
+    .quote-block {
+      background: var(--white); border-radius: var(--radius);
+      border-left: 5px solid var(--accent);
+      padding: 28px 32px; margin: 48px 0; box-shadow: var(--shadow);
+      font-size: 1.05rem; font-style: italic; color: var(--gray);
+    }
+    .quote-block strong { display: block; margin-top: 12px; font-style: normal; color: var(--primary); font-size: 0.88rem; }
+
+    /* ── WHY US ── */
+    #warum { max-width: 1100px; }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .why-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 28px 24px; box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .why-card .ico { font-size: 2.4rem; margin-bottom: 14px; }
+    .why-card h3 { font-size: 0.98rem; margin-bottom: 8px; }
+    .why-card p { font-size: 0.85rem; color: var(--gray); }
+
+    @media (max-width: 700px) {
+      nav ul { display: none; }
+      section { padding: 70px 20px; }
+      .phase { grid-template-columns: 1fr; }
+      .phase-num { width: 100%; flex-direction: row; justify-content: flex-start; padding: 10px 16px; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">SMMA × Maler</div>
+  <ul>
+    <li><a href="#schmerzen">Probleme</a></li>
+    <li><a href="#loesung">Lösung</a></li>
+    <li><a href="#plan">Der Plan</a></li>
+    <li><a href="#pakete">Pakete</a></li>
+    <li><a href="#cta">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="inner">
+    <div class="badge">SMMA für Maler-Betriebe</div>
+    <h1>Mehr <span>Aufträge</span>.<br>Mehr <span>Sichtbarkeit</span>.<br>Weniger Stress.</h1>
+    <p>Wir übernehmen dein Online-Marketing – damit du dich auf das konzentrierst, was du am besten kannst: <strong style="color:#fff">perfekte Malerarbeiten</strong>.</p>
+    <a href="#plan" class="btn">Kostenlos beraten lassen</a>
+    <a href="#schmerzen" class="btn btn-outline">Mehr erfahren</a>
+
+    <div class="stats-row">
+      <div class="stat"><div class="num">3×</div><div class="lbl">mehr Anfragen<br>im Schnitt</div></div>
+      <div class="stat"><div class="num">90 Tage</div><div class="lbl">bis zu ersten<br>Ergebnissen</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">Fokus auf<br>deine Region</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHMERZEN -->
+<section id="schmerzen">
+  <div class="section-label">Die Realität</div>
+  <h2>Was Maler-Betriebe wirklich beschäftigt</h2>
+  <p class="subtitle">Du bist Profi auf der Baustelle – aber das bringt dir allein keine neuen Kunden. Hier sind die größten Hürden, die wir täglich bei Betrieben sehen.</p>
+
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="icon">📉</div>
+      <h3>Zu wenig Neukundenanfragen</h3>
+      <p>Empfehlungen laufen irgendwann aus. Ohne Online-Präsenz findet dich kein Neukunde – und der Wettbewerber gewinnt den Auftrag.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">📵</div>
+      <h3>Kaum Google-Sichtbarkeit</h3>
+      <p>„Maler in [Stadt]" – wer taucht auf? Oft nicht du. 93 % aller Online-Erfahrungen beginnen mit einer Suchmaschine.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">📱</div>
+      <h3>Social Media liegt brach</h3>
+      <p>Facebook oder Instagram werden sporadisch bespielt – ohne Strategie, ohne Ergebnis. Dein Handwerk verdient bessere Bilder.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">💸</div>
+      <h3>Preiskampf & Billigkonkurrenz</h3>
+      <p>Wer online nicht als Experte wahrgenommen wird, muss immer billiger anbieten. Starkes Marketing schützt deine Marge.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">⭐</div>
+      <h3>Zu wenig Bewertungen</h3>
+      <p>Zufriedene Kunden sagen es selten weiter – jedenfalls nicht online. Dabei entscheidet Google Maps über den ersten Anruf.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">🕐</div>
+      <h3>Keine Zeit für Marketing</h3>
+      <p>Nach 10 Stunden auf der Baustelle bleibt kein Kopf mehr für Posts, Anzeigen oder Website-Updates. Das kennen wir.</p>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    „Ich hatte drei Wochen keine einzige Anfrage online – und wusste nicht warum. Jetzt kommen die Kunden zu mir."
+    <strong>— Beispiel-Kunde, Malerbetrieb Rhein-Main</strong>
+  </div>
+</section>
+
+<!-- LÖSUNG -->
+<section id="loesung" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%); border-radius:14px; max-width:100%; padding:80px 40px;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-label">Unsere Lösung</div>
+    <h2>Was wir für dich tun – <span style="color:var(--accent)">komplett & schlüsselfertig</span></h2>
+    <p class="subtitle">Wir kümmern uns um deinen gesamten digitalen Auftritt. Du bekommst alles aus einer Hand – kein Flickenteppich aus verschiedenen Anbietern.</p>
+
+    <div class="solution-grid">
+      <div class="sol-card">
+        <div class="num">01</div>
+        <h3>Lokale SEO & Google Auftritt</h3>
+        <p>Optimierung deines Google Business Profils, lokale Suchbegriffe, Bewertungsmanagement – du wirst gefunden, wenn jemand in deiner Region sucht.</p>
+      </div>
+      <div class="sol-card">
+        <div class="num">02</div>
+        <h3>Social Media Management</h3>
+        <p>Professionelle Fotos deiner Arbeit, tägliches Posten, Community-Management auf Instagram & Facebook – authentisch und konversionsstark.</p>
+      </div>
+      <div class="sol-card">
+        <div class="num">03</div>
+        <h3>Performance Ads (Meta & Google)</h3>
+        <p>Bezahlte Werbung, die direkt Anfragen generiert – kein Budget verbrennen, sondern messbare Ergebnisse in deiner Zielregion.</p>
+      </div>
+      <div class="sol-card">
+        <div class="num">04</div>
+        <h3>Website & Landing Pages</h3>
+        <p>Moderne, schnelle Website, die Vertrauen aufbaut und Besucher zu Anfragen macht – mobiloptimiert, mit klarem Call-to-Action.</p>
+      </div>
+      <div class="sol-card">
+        <div class="num">05</div>
+        <h3>Bewertungs-System</h3>
+        <p>Automatisiertes Follow-up nach Auftragsabschluss – zufriedene Kunden hinterlassen Bewertungen, du baust Reputation auf.</p>
+      </div>
+      <div class="sol-card">
+        <div class="num">06</div>
+        <h3>Monatliches Reporting</h3>
+        <p>Transparente Auswertung: Reichweite, Klicks, Anfragen, Kosten pro Lead – du weißt jederzeit, was dein Marketing bringt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section id="plan">
+  <div class="section-label">Der Fahrplan</div>
+  <h2>Dein 90-Tage-Plan zum Erfolg</h2>
+  <p class="subtitle">Keine endlosen Setups. Kein Chaos. Ein klarer Stufenplan – von Tag 1 bis zu deinen ersten messbaren Ergebnissen.</p>
+
+  <div class="timeline">
+
+    <div class="phase">
+      <div class="phase-num">
+        PHASE 1
+        <div class="weeks">Woche 1–2</div>
+      </div>
+      <div class="phase-body">
+        <div class="tag">Analyse & Strategie</div>
+        <h3>Onboarding & Marktanalyse</h3>
+        <ul>
+          <li>Tiefes Erstgespräch: Ziele, Zielgruppe, Region, Wettbewerb</li>
+          <li>Audit deiner aktuellen Online-Präsenz (Website, Google, Social)</li>
+          <li>Keyword-Analyse für deine Region</li>
+          <li>Wettbewerbsanalyse: Was machen andere Betriebe besser?</li>
+          <li>Strategie-Dokument & Redaktionsplan erstellen</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-num">
+        PHASE 2
+        <div class="weeks">Woche 3–5</div>
+      </div>
+      <div class="phase-body">
+        <div class="tag">Aufbau & Setup</div>
+        <h3>Fundament legen</h3>
+        <ul>
+          <li>Google Business Profil vollständig optimieren & verifizieren</li>
+          <li>Social-Media-Profile professionell einrichten (Instagram, Facebook)</li>
+          <li>Landing Page / Website überarbeiten oder neu aufsetzen</li>
+          <li>Foto-Shooting-Konzept erarbeiten (Vorher-Nachher, Team, Baustelle)</li>
+          <li>Bewertungs-System einrichten & erste Bestandskunden anschreiben</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-num">
+        PHASE 3
+        <div class="weeks">Woche 6–8</div>
+      </div>
+      <div class="phase-body">
+        <div class="tag">Launch & erste Reichweite</div>
+        <h3>Sichtbarkeit aufbauen</h3>
+        <ul>
+          <li>Content-Produktion starten (Posts, Stories, Reels)</li>
+          <li>Erste organische SEO-Maßnahmen (Texte, Backlinks, lokale Citations)</li>
+          <li>Google Ads & Meta Ads mit Testbudget schalten</li>
+          <li>Erstes Bewertungs-Batch – Ziel: +10 neue Google-Rezensionen</li>
+          <li>Wöchentliche Performance-Auswertung & Optimierung</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-num">
+        PHASE 4
+        <div class="weeks">Woche 9–12</div>
+      </div>
+      <div class="phase-body">
+        <div class="tag">Skalierung & Optimierung</div>
+        <h3>Gas geben & skalieren</h3>
+        <ul>
+          <li>Ad-Kampagnen optimieren auf Basis der ersten Daten</li>
+          <li>Lookalike Audiences & Retargeting aktivieren</li>
+          <li>Content-Frequenz erhöhen, Viralität-Potenzial testen</li>
+          <li>30/60/90-Tage-Review: Ergebnisse, Learnings, nächste Schritte</li>
+          <li>Quartalsplanung für die nächsten 3 Monate</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ERGEBNISSE -->
+<section id="ergebnisse">
+  <div class="section-label">Was du bekommst</div>
+  <h2>Messbare Ergebnisse – keine Versprechen</h2>
+  <p class="subtitle">Realistische Ziele, die wir gemeinsam innerhalb der ersten 90 Tage anstreben:</p>
+
+  <div class="result-grid">
+    <div class="result-card">
+      <div class="big">+3–8</div>
+      <h3>Neue Anfragen / Monat</h3>
+      <p>Qualifizierte Leads aus deiner Region – kein Streuverlust</p>
+    </div>
+    <div class="result-card">
+      <div class="big">Top 3</div>
+      <h3>Google Maps Platzierung</h3>
+      <p>Sichtbar, wenn jemand in deiner Stadt nach Malern sucht</p>
+    </div>
+    <div class="result-card">
+      <div class="big">+20</div>
+      <h3>Google-Bewertungen</h3>
+      <p>Aufgebaut in 90 Tagen durch unser Review-System</p>
+    </div>
+    <div class="result-card">
+      <div class="big">2×</div>
+      <h3>Social-Media-Reichweite</h3>
+      <p>Mehr Follower, mehr Engagement, mehr Vertrauen</p>
+    </div>
+    <div class="result-card">
+      <div class="big">€&thinsp;0</div>
+      <h3>Zeitaufwand für dich</h3>
+      <p>Wir übernehmen alles – du arbeitest, wir vermarkten</p>
+    </div>
+  </div>
+</section>
+
+<!-- WARUM WIR -->
+<section id="warum">
+  <div class="section-label">Warum wir?</div>
+  <h2>Was uns von anderen unterscheidet</h2>
+  <p class="subtitle">Wir sind kein generischer Marketing-Dienstleister. Wir kennen die Handwerksbranche und sprechen deine Sprache.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="ico">🎯</div>
+      <h3>Handwerk ist unser Fokus</h3>
+      <p>Wir spezialisieren uns auf Handwerksbetriebe – keine Ablenkung durch andere Branchen.</p>
+    </div>
+    <div class="why-card">
+      <div class="ico">📍</div>
+      <h3>Lokal gedacht</h3>
+      <p>Jede Maßnahme zielt auf deine Stadt, deinen Landkreis. Kein Streuverlust, kein Bullshit-Reichweite.</p>
+    </div>
+    <div class="why-card">
+      <div class="ico">📊</div>
+      <h3>100% transparent</h3>
+      <p>Monatliches Reporting mit echten Zahlen. Du siehst genau, wo jeder Euro landet.</p>
+    </div>
+    <div class="why-card">
+      <div class="ico">🤝</div>
+      <h3>Partnerschaft statt Agentur</h3>
+      <p>Kein nerviges Ticketsystem. Du hast einen festen Ansprechpartner, der deinen Betrieb kennt.</p>
+    </div>
+    <div class="why-card">
+      <div class="ico">⚡</div>
+      <h3>Schnelle Umsetzung</h3>
+      <p>Kein halbes Jahr bis zum ersten Post. In Woche 3 bist du live – versprochen.</p>
+    </div>
+    <div class="why-card">
+      <div class="ico">🔒</div>
+      <h3>Exklusiv pro Region</h3>
+      <p>Wir betreuen max. einen Malerbetrieb pro PLZ-Gebiet. Kein Wettbewerbskonflikt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAKETE -->
+<section id="pakete">
+  <div class="section-label">Investition</div>
+  <h2>Unsere Pakete – fair & klar</h2>
+  <p class="subtitle">Keine versteckten Kosten. Keine Vertragsfallen. Klare monatliche Investition für klare Ergebnisse.</p>
+
+  <div class="pakete-grid">
+
+    <div class="paket">
+      <h3>Starter</h3>
+      <p class="desc">Für kleine Betriebe, die online sichtbar werden wollen.</p>
+      <div class="price">ab 497 € <span>/ Monat</span></div>
+      <ul>
+        <li>Google Business Optimierung</li>
+        <li>8 Social-Media-Posts / Monat</li>
+        <li>Bewertungs-System (Basis)</li>
+        <li>Monatliches Reporting</li>
+        <li>1 Ansprechpartner</li>
+      </ul>
+      <a href="#cta" class="btn btn-outline" style="width:100%; text-align:center;">Jetzt anfragen</a>
+    </div>
+
+    <div class="paket highlight">
+      <div class="badge-top">Beliebteste Wahl</div>
+      <h3>Wachstum</h3>
+      <p class="desc">Für Betriebe, die gezielt mehr Aufträge generieren wollen.</p>
+      <div class="price">ab 997 € <span>/ Monat</span></div>
+      <ul>
+        <li>Alles aus Starter</li>
+        <li>Meta Ads (inkl. 200 € Werbebudget)</li>
+        <li>16 Posts + Reels / Monat</li>
+        <li>Landing Page Erstellung</li>
+        <li>Lokale SEO (Texte + Citations)</li>
+        <li>Wöchentliches Check-in</li>
+      </ul>
+      <a href="#cta" class="btn" style="width:100%; text-align:center;">Jetzt anfragen</a>
+    </div>
+
+    <div class="paket">
+      <h3>Marktführer</h3>
+      <p class="desc">Für ambitionierte Betriebe, die in ihrer Region dominieren wollen.</p>
+      <div class="price">ab 1.997 € <span>/ Monat</span></div>
+      <ul>
+        <li>Alles aus Wachstum</li>
+        <li>Google Ads Kampagnen</li>
+        <li>Vollständiges Website-Management</li>
+        <li>Video-Content (Reels, YouTube Shorts)</li>
+        <li>Exklusiv-Schutz deiner Region</li>
+        <li>Persönliche Strategie-Calls</li>
+      </ul>
+      <a href="#cta" class="btn btn-outline" style="width:100%; text-align:center;">Jetzt anfragen</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" style="background:linear-gradient(135deg,#e8b84b 0%,#f39c12 100%); border-radius:14px; max-width:100%; padding:80px 40px;">
+  <div style="max-width:700px; margin:0 auto; text-align:center;">
+    <h2 style="color:var(--primary); font-size:2.2rem;">Bereit für mehr Aufträge?</h2>
+    <p style="color:rgba(26,26,46,0.75); font-size:1.05rem; max-width:560px; margin:16px auto 36px;">
+      Buche jetzt ein <strong>kostenloses 30-Minuten-Strategiegespräch</strong>. Wir analysieren deinen Betrieb und zeigen dir, welches Wachstumspotenzial du gerade liegen lässt.
+    </p>
+    <p style="color:rgba(26,26,46,0.6); font-size:0.9rem; margin-bottom:28px;">
+      Kein Verkaufsdruck. Kein Kleingedrucktes. Nur ehrliche Beratung.
+    </p>
+    <a href="mailto:Ph.Breier@gmx.de?subject=Strategiegespräch%20SMMA%20Maler&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20für%20eine%20Zusammenarbeit.%20Bitte%20meldet%20euch%20bei%20mir.%0A%0AName%3A%20%0ABetrieb%3A%20%0AStadt%2FPLZ%3A%20%0ATelefon%3A%20" class="btn btn-dark" style="font-size:1.05rem; padding:16px 44px;">
+      Kostenlos Termin anfragen →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>SMMA für Maler-Betriebe</span> · Alle Rechte vorbehalten</p>
+  <p style="margin-top:8px;">Kontakt: <a href="mailto:Ph.Breier@gmx.de" style="color:var(--accent); text-decoration:none;">Ph.Breier@gmx.de</a></p>
+</footer>
+
+</body>
+</html>
