@@ -1,0 +1,50 @@
+---
+---
+<section
+  id="hero"
+  class="min-h-screen flex items-center justify-center text-center px-6"
+  style="background: linear-gradient(140deg, #0f0f1e 0%, #1a1a2e 50%, #0f3460 100%)"
+>
+  <div class="max-w-2xl">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 border border-accent/40 bg-accent/10 text-accent
+                text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full mb-8">
+      <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+      100% kostenlos · 1 Monat
+    </div>
+
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-5">
+      Ich mache dein Marketing –<br />
+      <span class="text-accent">einen Monat lang gratis.</span>
+    </h1>
+
+    <p class="text-gray-400 text-lg max-w-lg mx-auto mb-10">
+      Du konzentrierst dich auf die Arbeit auf der Baustelle.<br />
+      Ich kümmere mich um alles, was neue Kunden bringt.
+    </p>
+
+    <a
+      href="#cta"
+      class="inline-block bg-accent text-primary font-extrabold text-base px-10 py-4
+             rounded-full shadow-[0_4px_24px_rgba(232,184,75,0.35)]
+             hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(232,184,75,0.45)]
+             transition-all duration-200"
+    >
+      Jetzt kostenlos mitmachen →
+    </a>
+
+    <!-- Stats -->
+    <div class="flex flex-wrap justify-center gap-10 mt-16">
+      {[
+        { num: '+5–10',    lbl: 'neue Google-Bewertungen' },
+        { num: '12×',      lbl: 'Posts im Monat' },
+        { num: '0 €',      lbl: 'Kosten für dich' },
+      ].map(s => (
+        <div class="text-center">
+          <p class="text-3xl font-extrabold text-accent">{s.num}</p>
+          <p class="text-gray-500 text-sm mt-1">{s.lbl}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

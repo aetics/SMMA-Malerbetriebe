@@ -1,0 +1,20 @@
+---
+const links = [
+  { href: '#schmerzen', label: 'Probleme' },
+  { href: '#leistungen', label: 'Leistungen' },
+  { href: '#plan',       label: 'Der Plan' },
+  { href: '#cta',        label: 'Kontakt' },
+];
+---
+<nav class="fixed top-0 inset-x-0 z-50 bg-primary h-15 flex items-center justify-between px-8 shadow-lg">
+  <span class="text-accent font-extrabold text-lg tracking-widest">SMMA × Maler</span>
+  <ul class="hidden md:flex gap-7">
+    {links.map(l => (
+      <li>
+        <a href={l.href} class="text-gray-400 hover:text-accent text-sm transition-colors">
+          {l.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

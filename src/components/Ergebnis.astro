@@ -1,0 +1,25 @@
+---
+const results = [
+  { num: '+5–10',  title: 'Neue Google-Bewertungen',    desc: 'Aufgebaut durch gezieltes Nachfassen bei Bestandskunden' },
+  { num: '12×',    title: 'Posts & Content',             desc: 'Professionelle Beiträge auf Instagram & Facebook' },
+  { num: '100%',   title: 'Google-Profil optimiert',    desc: 'Vollständig ausgefüllt, mit Fotos und Leistungen' },
+  { num: '0 €',    title: 'Kosten für dich',             desc: 'Komplett kostenlos – du gibst nur 30 Minuten Zeit' },
+];
+---
+<section id="ergebnis" class="bg-white py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-accent text-xs font-bold tracking-[3px] uppercase mb-3">Was du danach hast</p>
+    <h2 class="text-3xl font-extrabold mb-4">Realistische Ziele für einen Monat</h2>
+    <p class="text-gray-500 max-w-lg mb-14">Kein Versprechen von Wundern – aber echte, messbare Fortschritte.</p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {results.map(r => (
+        <div class="bg-gray-50 rounded-2xl p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all">
+          <p class="text-4xl font-extrabold text-accent mb-2">{r.num}</p>
+          <h3 class="font-bold text-sm mb-1">{r.title}</h3>
+          <p class="text-gray-400 text-xs">{r.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
