@@ -1,35 +1,40 @@
 ---
 const wochen = [
-  { w:'Woche 1', title:'Setup & Start',    items:['Erstgespräch & Zieldefinition','Audit des aktuellen Auftritts','Profile einrichten & optimieren','Content-Plan erstellen'], hot:false },
-  { w:'Woche 2', title:'Live gehen',       items:['Erste Posts veröffentlichen','Werbeanzeige schalten','Lead-Strecke aktivieren','Erste Daten beobachten'], hot:true },
-  { w:'Woche 3', title:'Optimieren',       items:['Anzeigen nachjustieren','Weiteren Content produzieren','Anfragen tracken','Zwischenbilanz'], hot:false },
-  { w:'Woche 4', title:'Auswertung',       items:['Wie viele Anfragen?','Was haben sie gekostet?','Was hat funktioniert?','Gemeinsam: weiter?'], hot:false },
+  { label:'Woche 1', title:'Setup & Start',    active:false, items:['Erstgespräch & Zieldefinition','Audit des aktuellen Auftritts','Profile optimieren','Content-Plan erstellen'] },
+  { label:'Woche 2', title:'Live gehen',        active:true,  items:['Erste Posts veröffentlichen','Werbeanzeige schalten','Lead-Strecke aktivieren','Erste Daten beobachten'] },
+  { label:'Woche 3', title:'Optimieren',        active:false, items:['Anzeigen nachjustieren','Weiteren Content produzieren','Anfragen tracken','Zwischenbilanz ziehen'] },
+  { label:'Woche 4', title:'Auswertung',        active:false, items:['Wie viele Anfragen?','Was haben sie gekostet?','Was hat funktioniert?','Gemeinsam: weiter?'] },
 ];
 ---
-<section id="testphase" class="bg-ink py-32 px-6 overflow-hidden relative">
-  <div class="pointer-events-none absolute bottom-0 left-1/4 w-96 h-96 rounded-full"
-       style="background:radial-gradient(circle,rgba(249,115,22,.12) 0%,transparent 65%);filter:blur(80px);"></div>
+<section id="testphase" class="bg-zinc-950 py-28 px-6 overflow-hidden relative">
+
+  <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full
+              bg-brand/10 blur-[90px] pointer-events-none"></div>
 
   <div class="max-w-5xl mx-auto">
 
-    <p data-reveal class="text-orange text-xs font-bold tracking-[3px] uppercase mb-4">4-Wochen-Testphase</p>
+    <p class="reveal text-brand text-xs font-bold tracking-[3px] uppercase mb-4">4-Wochen-Testphase</p>
 
-    <h2 data-reveal data-reveal-delay="1"
-        class="font-black text-white leading-tight mb-6"
-        style="font-size:clamp(2.2rem,5vw,3.8rem);">
+    <h2 class="reveal reveal-d1 font-black text-white leading-tight text-4xl sm:text-5xl mb-6">
       Ich arbeite 4 Wochen<br/>
-      <span class="g-text">kostenlos für euch.</span>
+      <span class="bg-gradient-to-r from-brand to-amber-400 bg-clip-text text-transparent">
+        kostenlos für euch.
+      </span>
     </h2>
 
     <!-- Cost callout -->
-    <div data-reveal data-reveal-delay="2"
-         class="inline-flex items-center gap-6 rounded-2xl px-7 py-5 mb-16"
-         style="background:rgba(249,115,22,.08); border:1px solid rgba(249,115,22,.25);">
+    <div class="reveal reveal-d2
+                inline-flex flex-wrap items-center gap-6
+                bg-brand/8 border border-brand/25 rounded-2xl
+                px-7 py-5 mb-14">
       <div>
-        <p class="g-text font-black text-4xl leading-none">300–500 €</p>
+        <p class="bg-gradient-to-r from-brand to-amber-400 bg-clip-text text-transparent
+                  font-black text-4xl leading-none">
+          300–500 €
+        </p>
         <p class="text-zinc-600 text-xs mt-1">Nur das Werbebudget</p>
       </div>
-      <div class="w-px h-12 bg-white/10"></div>
+      <div class="w-px h-10 bg-white/10 hidden sm:block"></div>
       <p class="text-zinc-400 text-sm leading-relaxed max-w-xs">
         Meine Zeit, Strategie und Arbeit kosten euch
         <span class="text-white font-semibold">nichts</span>.
@@ -37,23 +42,27 @@ const wochen = [
       </p>
     </div>
 
-    <!-- 4-column week grid -->
-    <div data-reveal data-reveal-delay="3"
-         class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+    <!-- Week grid -->
+    <div class="reveal reveal-d3 grid grid-cols-2 lg:grid-cols-4 gap-3">
       {wochen.map(w => (
-        <div class="rounded-2xl p-6 flex flex-col gap-4"
-             style={w.hot
-               ? 'background:linear-gradient(160deg,rgba(249,115,22,.2),rgba(245,158,11,.1)); border:1px solid rgba(249,115,22,.4);'
-               : 'background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);'}>
+        <div class={`rounded-2xl p-6 flex flex-col gap-4 ${
+          w.active
+            ? 'bg-gradient-to-b from-brand/20 to-brand/5 border border-brand/40'
+            : 'bg-white/[.03] border border-white/8'
+        }`}>
           <div>
-            <p class:list={['text-xs font-bold tracking-widest uppercase mb-1', w.hot ? 'text-orange' : 'text-zinc-600']}>{w.w}</p>
-            <p class:list={['font-bold text-sm', w.hot ? 'text-white' : 'text-zinc-400']}>{w.title}</p>
+            <p class={`text-xs font-bold tracking-widest uppercase mb-1 ${w.active ? 'text-brand' : 'text-zinc-600'}`}>
+              {w.label}
+            </p>
+            <p class={`font-bold text-sm ${w.active ? 'text-white' : 'text-zinc-400'}`}>
+              {w.title}
+            </p>
           </div>
           <ul class="flex flex-col gap-2">
             {w.items.map(item => (
               <li class="flex gap-2 text-xs leading-snug">
-                <span class="text-orange mt-0.5 shrink-0">✓</span>
-                <span class:list={[w.hot ? 'text-zinc-300' : 'text-zinc-600']}>{item}</span>
+                <span class="text-brand mt-0.5 shrink-0">✓</span>
+                <span class={w.active ? 'text-zinc-300' : 'text-zinc-600'}>{item}</span>
               </li>
             ))}
           </ul>
@@ -63,4 +72,5 @@ const wochen = [
 
   </div>
 </section>
-<div class="divider"></div>
+
+<div class="h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"></div>

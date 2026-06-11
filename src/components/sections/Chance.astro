@@ -1,54 +1,54 @@
 ---
+const cards = [
+  {
+    accent: 'from-brand/20 to-amber-400/10 border-brand/25',
+    icon: '📸', n: '01',
+    title: 'Vorher-Nachher ist King',
+    text: 'Kein Content funktioniert besser auf Instagram als ein starkes Vorher-Nachher-Foto. Ihr habt das Rohmaterial – ich mache was draus.',
+  },
+  {
+    accent: 'from-violet-500/15 to-indigo-500/8 border-violet-500/25',
+    icon: '📍', n: '02',
+    title: 'Lokale Ads, null Streuverlust',
+    text: 'Anzeigen gezielt auf Freising und Umgebung. Nur Menschen in eurer Region, die gerade einen Maler suchen.',
+  },
+  {
+    accent: 'from-teal-500/15 to-emerald-500/8 border-teal-500/25',
+    icon: '🚀', n: '03',
+    title: 'Kaum Konkurrenz online',
+    text: 'Die meisten Mitbewerber haben noch keinen aktiven Auftritt. Wer jetzt startet, baut einen Vorsprung, der schwer aufzuholen ist.',
+  },
+];
 ---
-<section class="bg-ink py-32 px-6 overflow-hidden relative">
-  <div class="pointer-events-none absolute top-0 right-0 w-96 h-96 rounded-full"
-       style="background:radial-gradient(circle,rgba(245,158,11,.15) 0%,transparent 65%);filter:blur(70px);"></div>
+<section class="bg-zinc-950 py-28 px-6 overflow-hidden relative">
+
+  <div class="absolute top-0 right-0 w-96 h-96 rounded-full
+              bg-amber-400/10 blur-[90px] pointer-events-none"></div>
 
   <div class="max-w-5xl mx-auto">
 
-    <p data-reveal class="text-orange text-xs font-bold tracking-[3px] uppercase mb-4">Die Chance</p>
+    <p class="reveal text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Die Chance</p>
 
-    <h2 data-reveal data-reveal-delay="1"
-        class="font-black text-white leading-tight mb-16"
-        style="font-size:clamp(2.2rem,5vw,3.8rem);">
+    <h2 class="reveal reveal-d1 font-black text-white leading-tight
+               text-4xl sm:text-5xl mb-16 max-w-2xl">
       Maler haben einen riesigen<br/>
-      <span class="g-text">Online-Vorteil.</span><br/>
+      <span class="bg-gradient-to-r from-brand to-amber-400 bg-clip-text text-transparent">
+        Online-Vorteil.
+      </span><br/>
       <span class="text-zinc-600">Kaum einer nutzt ihn.</span>
     </h2>
 
     <div class="grid sm:grid-cols-3 gap-4">
-      {[
-        {
-          gradient:'linear-gradient(135deg,rgba(249,115,22,.15),rgba(245,158,11,.08))',
-          border:'rgba(249,115,22,.25)',
-          icon:'📸',
-          n:'01',
-          title:'Vorher-Nachher ist King',
-          text:'Kein Inhalt funktioniert besser auf Instagram als ein starkes Vorher-Nachher-Foto. Ihr habt das Rohmaterial – ich mache was draus.',
-        },
-        {
-          gradient:'linear-gradient(135deg,rgba(139,92,246,.15),rgba(99,102,241,.08))',
-          border:'rgba(139,92,246,.25)',
-          icon:'📍',
-          n:'02',
-          title:'Lokale Ads, null Streuverlust',
-          text:'Anzeigen gezielt auf Freising und Umgebung. Nur Menschen, die wirklich in eurer Region wohnen und einen Maler suchen.',
-        },
-        {
-          gradient:'linear-gradient(135deg,rgba(20,184,166,.15),rgba(16,185,129,.08))',
-          border:'rgba(20,184,166,.25)',
-          icon:'🚀',
-          n:'03',
-          title:'Kaum Konkurrenz online',
-          text:'Die meisten Mitbewerber haben keinen aktiven Auftritt. Wer jetzt anfängt, baut einen Vorsprung, der schwer aufzuholen ist.',
-        },
-      ].map((c,i) => (
-        <div data-reveal data-reveal-delay={String(i+2)}
-             class="rounded-2xl p-8 flex flex-col gap-5 hover:-translate-y-2 transition-all duration-300"
-             style={`background:${c.gradient}; border:1px solid ${c.border};`}>
+      {cards.map((c, i) => (
+        <div class={`reveal reveal-d${i + 2}
+                     bg-gradient-to-br ${c.accent}
+                     border rounded-2xl p-8
+                     flex flex-col gap-5
+                     hover:-translate-y-2 hover:scale-[1.01]
+                     transition-all duration-300`}>
           <div class="flex items-start justify-between">
             <span class="text-3xl">{c.icon}</span>
-            <span class="font-black text-5xl leading-none select-none" style="color:rgba(255,255,255,.06);">{c.n}</span>
+            <span class="text-5xl font-black text-white/5 leading-none select-none">{c.n}</span>
           </div>
           <h3 class="text-white font-bold text-base">{c.title}</h3>
           <p class="text-zinc-400 text-sm leading-relaxed">{c.text}</p>
@@ -58,4 +58,5 @@
 
   </div>
 </section>
-<div class="divider"></div>
+
+<div class="h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"></div>

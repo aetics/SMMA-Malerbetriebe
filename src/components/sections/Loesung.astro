@@ -1,47 +1,53 @@
 ---
 const items = [
-  { icon:'📱', title:'Social Media Betreuung', text:'Profile aufsetzen, Posts erstellen, Vorher-Nachher-Content, Stories & Reels – alles, was zeigt, was ihr könnt.', tags:['Instagram','Facebook','Reels','Stories'] },
-  { icon:'🎯', title:'Lokale Werbeanzeigen',    text:'Gezielte Anzeigen auf Meta und ggf. Google – ausgesteuert genau auf eure Zielregion. Nur echte potenzielle Kunden.', tags:['Meta Ads','Google Ads','Zielregion'] },
-  { icon:'⚡', title:'Einfache Lead-Strecke',   text:'Interessenten landen direkt auf einer klaren Seite mit Formular oder WhatsApp-Link. Anfrage in Sekunden.', tags:['Landing Page','WhatsApp','Formular'] },
-  { icon:'📊', title:'Klares Reporting',         text:'Kein Agentur-Kauderwelsch. Eine Seite: Wie viele Anfragen? Was haben sie gekostet? Was hat funktioniert?', tags:['Leads','Kosten/Lead','Monatlich'] },
+  { icon:'📱', title:'Social Media Betreuung', text:'Profile aufsetzen, Posts und Reels produzieren, Vorher-Nachher-Content – alles, was zeigt, was ihr wirklich könnt.', tags:['Instagram','Facebook','Reels','Stories'] },
+  { icon:'🎯', title:'Lokale Werbeanzeigen',    text:'Gezielte Anzeigen auf Meta und Google – ausgesteuert exakt auf euren Arbeitsradius in der Region Freising.', tags:['Meta Ads','Google Ads','Lokal'] },
+  { icon:'⚡', title:'Einfache Lead-Strecke',   text:'Interessenten landen direkt auf einer klaren Seite mit WhatsApp oder Formular. Anfrage in unter 30 Sekunden.', tags:['Landing Page','WhatsApp','Formular'] },
+  { icon:'📊', title:'Klares Reporting',         text:'Kein Fachjargon. Eine Seite pro Monat: Wie viele Anfragen? Was haben sie gekostet? Was hat funktioniert?', tags:['Leads','Kosten/Lead','Monatlich'] },
 ];
 ---
-<section id="loesung" class="bg-paper py-32 px-6">
+<section id="loesung" class="bg-white py-28 px-6">
   <div class="max-w-5xl mx-auto">
 
-    <p data-reveal class="text-orange text-xs font-bold tracking-[3px] uppercase mb-4">Was ich übernehme</p>
+    <p class="reveal text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Was ich übernehme</p>
 
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
-      <h2 data-reveal data-reveal-delay="1"
-          class="font-black text-ink leading-tight"
-          style="font-size:clamp(2.2rem,5vw,3.8rem);">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+      <h2 class="reveal reveal-d1 font-black text-zinc-900 leading-tight text-4xl sm:text-5xl">
         Komplett.<br/>
-        <span class="text-zinc-400">Ohne Aufwand</span><br/>
+        <span class="text-zinc-300">Ohne Aufwand</span><br/>
         für euch.
       </h2>
-      <p data-reveal data-reveal-delay="2" class="text-zinc-500 text-base max-w-xs sm:text-right sm:pb-2">
-        Alles aus einer Hand – vom ersten Post bis zur fertigen Auswertung.
+      <p class="reveal reveal-d2 text-zinc-500 text-sm max-w-xs sm:text-right sm:pb-1">
+        Alles aus einer Hand – vom ersten Post bis zur fertigen Monatsauswertung.
       </p>
     </div>
 
     <div class="grid sm:grid-cols-2 gap-4">
-      {items.map((item,i) => (
-        <div data-reveal data-reveal-delay={String(i+2)}
-             class="group rounded-2xl p-8 bg-white border border-zinc-100 shadow-sm
-                    hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col gap-5">
-          <!-- Icon circle -->
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl"
-               style="background:linear-gradient(135deg,#fff7ed,#fef3c7); border:1px solid rgba(249,115,22,.2);">
+      {items.map((item, i) => (
+        <div class={`reveal reveal-d${i + 2}
+                     group bg-zinc-50 border border-zinc-200 rounded-2xl p-8
+                     hover:bg-white hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/10
+                     hover:-translate-y-1.5
+                     transition-all duration-300
+                     flex flex-col gap-5`}>
+
+          <div class="w-12 h-12 rounded-xl
+                      bg-gradient-to-br from-orange-100 to-amber-50
+                      border border-orange-200
+                      flex items-center justify-center text-xl
+                      group-hover:scale-110 transition-transform duration-300">
             {item.icon}
           </div>
+
           <div class="flex-1">
-            <h3 class="text-ink font-bold text-lg mb-2">{item.title}</h3>
+            <h3 class="text-zinc-900 font-bold text-lg mb-2">{item.title}</h3>
             <p class="text-zinc-500 text-sm leading-relaxed">{item.text}</p>
           </div>
+
           <div class="pt-4 border-t border-zinc-100 flex flex-wrap gap-2">
             {item.tags.map(t => (
-              <span class="text-xs font-semibold px-3 py-1 rounded-full"
-                    style="background:rgba(249,115,22,.08); color:#ea580c; border:1px solid rgba(249,115,22,.15);">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full
+                           bg-brand/8 text-brand-dark border border-brand/20">
                 {t}
               </span>
             ))}
@@ -52,4 +58,5 @@ const items = [
 
   </div>
 </section>
-<div class="divider"></div>
+
+<div class="h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"></div>

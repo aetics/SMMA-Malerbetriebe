@@ -1,47 +1,56 @@
 ---
 const steps = [
-  { n:'01', title:'Kurzes Erstgespräch',   d:'~30 Min.',  text:'Telefon oder Video. Ich verstehe euren Betrieb, eure Ziele und was bisher versucht wurde.' },
-  { n:'02', title:'Audit des Auftritts',   d:'1–2 Tage',  text:'Website, Google, Social. Ich sage euch ehrlich, wo die größten Lücken sind.' },
-  { n:'03', title:'Testphase startet',     d:'4 Wochen',  text:'Klares Startdatum, klare Ziele. Ihr bekommt regelmäßige Updates – kein Fachjargon.' },
-  { n:'04', title:'Gemeinsame Auswertung', d:'Danach',    text:'Ergebnisse, Kosten, Qualität. Dann entscheidet ihr, ob und wie es weitergeht.' },
+  { n:'01', title:'Kurzes Erstgespräch',   d:'~30 Min.',  text:'Telefon oder Video-Call. Ich verstehe euren Betrieb, eure Ziele und was bisher versucht wurde.' },
+  { n:'02', title:'Audit des Auftritts',   d:'1–2 Tage',  text:'Website, Google-Profil, Social Media. Ich sage euch ehrlich, wo die größten Lücken sind.' },
+  { n:'03', title:'Testphase startet',     d:'4 Wochen',  text:'Klares Startdatum, klare Ziele. Ihr bekommt regelmäßige Updates – ohne Fachjargon.' },
+  { n:'04', title:'Gemeinsame Auswertung', d:'Danach',    text:'Anzahl Anfragen, Kosten, Qualität. Dann entscheidet ihr, ob und wie es weitergeht.' },
 ];
 ---
-<section class="bg-paper py-32 px-6">
+<section class="bg-white py-28 px-6">
   <div class="max-w-5xl mx-auto">
 
-    <p data-reveal class="text-orange text-xs font-bold tracking-[3px] uppercase mb-4">Ablauf</p>
+    <p class="reveal text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Ablauf</p>
 
-    <h2 data-reveal data-reveal-delay="1"
-        class="font-black text-ink leading-tight mb-16"
-        style="font-size:clamp(2.2rem,5vw,3.8rem);">
+    <h2 class="reveal reveal-d1 font-black text-zinc-900 leading-tight text-4xl sm:text-5xl mb-14">
       Schritt für Schritt.<br/>
-      <span class="text-zinc-400">In wenigen Tagen</span> startklar.
+      <span class="text-zinc-300">In wenigen Tagen</span> startklar.
     </h2>
 
-    <div class="flex flex-col gap-4">
-      {steps.map((s,i) => (
-        <div data-reveal data-reveal-delay={String(i+1)}
-             class="group rounded-2xl p-7 bg-white border border-zinc-100 shadow-sm
-                    hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300
-                    flex gap-6 items-center">
+    <div class="flex flex-col gap-3">
+      {steps.map((s, i) => (
+        <div class={`reveal reveal-d${i + 1}
+                     group bg-zinc-50 border border-zinc-200 rounded-2xl p-7
+                     hover:bg-white hover:border-brand/30
+                     hover:shadow-xl hover:shadow-brand/10
+                     hover:-translate-y-0.5
+                     transition-all duration-300
+                     flex gap-5 items-center`}>
+
           <!-- Number badge -->
-          <div class="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center font-black text-xl text-orange
-                      transition-all duration-300 group-hover:scale-105"
-               style="background:linear-gradient(135deg,#fff7ed,#fef3c7); border:1px solid rgba(249,115,22,.25);">
+          <div class="shrink-0 w-14 h-14 rounded-2xl
+                      bg-gradient-to-br from-orange-100 to-amber-50
+                      border border-orange-200
+                      flex items-center justify-center
+                      font-black text-xl text-brand
+                      group-hover:scale-110 group-hover:shadow-md group-hover:shadow-brand/20
+                      transition-all duration-300">
             {s.n}
           </div>
+
           <div class="flex-1 min-w-0">
             <div class="flex flex-wrap items-center gap-3 mb-1">
-              <h3 class="text-ink font-bold">{s.title}</h3>
-              <span class="text-xs font-semibold px-3 py-1 rounded-full"
-                    style="background:rgba(249,115,22,.08); color:#ea580c; border:1px solid rgba(249,115,22,.18);">
+              <h3 class="text-zinc-900 font-bold">{s.title}</h3>
+              <span class="text-xs font-bold px-3 py-1 rounded-full
+                           bg-brand/8 text-brand border border-brand/20">
                 {s.d}
               </span>
             </div>
             <p class="text-zinc-500 text-sm leading-relaxed">{s.text}</p>
           </div>
-          <!-- Arrow indicator -->
-          <svg class="shrink-0 text-zinc-200 group-hover:text-orange transition-colors duration-300 hidden sm:block" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+
+          <svg class="shrink-0 text-zinc-200 group-hover:text-brand
+                       transition-colors duration-300 hidden sm:block"
+               width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
           </svg>
         </div>

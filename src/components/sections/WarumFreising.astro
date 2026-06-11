@@ -1,74 +1,90 @@
 ---
 ---
-<section class="bg-ink py-32 px-6 overflow-hidden relative">
-  <div class="pointer-events-none absolute top-1/2 right-0 w-96 h-96 -translate-y-1/2"
-       style="background:radial-gradient(circle,rgba(245,158,11,.1) 0%,transparent 65%);filter:blur(70px);border-radius:50%;"></div>
+<section class="bg-zinc-950 py-28 px-6 overflow-hidden relative">
+
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full
+              bg-amber-400/10 blur-[80px] pointer-events-none"></div>
 
   <div class="max-w-5xl mx-auto">
 
-    <p data-reveal class="text-orange text-xs font-bold tracking-[3px] uppercase mb-4">Warum Freising?</p>
-    <h2 data-reveal data-reveal-delay="1"
-        class="font-black text-white leading-tight mb-16"
-        style="font-size:clamp(2.2rem,5vw,3.8rem);">
+    <p class="reveal text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Warum Freising?</p>
+    <h2 class="reveal reveal-d1 font-black text-white leading-tight text-4xl sm:text-5xl mb-14">
       Lokaler Fokus.<br/>
-      <span class="g-text">Echter Vorteil.</span>
+      <span class="bg-gradient-to-r from-brand to-amber-400 bg-clip-text text-transparent">
+        Echter Vorteil.
+      </span>
     </h2>
 
     <!-- Bento grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-      <!-- Wide top card -->
-      <div data-reveal data-reveal-delay="1"
-           class="lg:col-span-2 rounded-2xl p-8 flex flex-col gap-5"
-           style="background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);">
+      <div class="reveal reveal-d1 lg:col-span-2
+                  bg-white/[.03] border border-white/8 rounded-2xl p-8
+                  hover:border-brand/30 hover:bg-white/[.05]
+                  transition-all duration-300 flex flex-col gap-5">
         <span class="text-3xl">📍</span>
         <div>
           <h3 class="text-white font-bold text-lg mb-2">Nur Maler in Freising & Umgebung</h3>
-          <p class="text-zinc-500 text-sm leading-relaxed mb-4">Ich arbeite nicht mit allen Branchen – nur mit Malerbetrieben in dieser Region. Ich kenne den Markt, die Konkurrenz und die Zielgruppe. Kein Interessenkonflikt.</p>
-        </div>
-        <div class="flex flex-wrap gap-2">
-          {['Freising','Moosburg','Erding','Mainburg','Landshut','München Nord'].map(o => (
-            <span class="text-xs text-zinc-600 border border-zinc-800 px-3 py-1 rounded-full">{o}</span>
-          ))}
+          <p class="text-zinc-500 text-sm leading-relaxed mb-5">
+            Kein Branchen-Mix, kein Interessenkonflikt. Ich kenne den lokalen Markt, die
+            Konkurrenz und eure Zielgruppe.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['Freising','Moosburg','Erding','Mainburg','Landshut','München Nord'].map(o => (
+              <span class="text-xs text-zinc-600 border border-zinc-800 px-3 py-1 rounded-full">{o}</span>
+            ))}
+          </div>
         </div>
       </div>
 
-      <!-- Right card -->
-      <div data-reveal data-reveal-delay="2"
-           class="rounded-2xl p-8 flex flex-col justify-between"
-           style="background:linear-gradient(160deg,rgba(249,115,22,.12),rgba(245,158,11,.06)); border:1px solid rgba(249,115,22,.25);">
+      <div class="reveal reveal-d2
+                  bg-gradient-to-b from-brand/15 to-brand/5 border border-brand/25 rounded-2xl p-8
+                  flex flex-col justify-between
+                  hover:-translate-y-1 transition-all duration-300">
         <span class="text-3xl mb-4">🔍</span>
         <div>
           <h3 class="text-white font-bold mb-2">Mitbewerber schlafen noch</h3>
-          <p class="text-zinc-400 text-sm leading-relaxed">Kaum ein Maler in der Region hat eine aktive Social-Media-Präsenz.</p>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Kaum ein Malerbetrieb in der Region hat eine aktive Social-Media-Präsenz.
+          </p>
         </div>
-        <div class="mt-6 pt-6 border-t border-white/8">
-          <p class="g-text font-black text-2xl">Jetzt</p>
+        <div class="mt-6 pt-5 border-t border-white/8">
+          <p class="bg-gradient-to-r from-brand to-amber-400 bg-clip-text text-transparent font-black text-2xl">
+            Jetzt
+          </p>
           <p class="text-zinc-600 text-xs">ist der richtige Zeitpunkt</p>
         </div>
       </div>
 
-      <!-- Bottom left -->
-      <div data-reveal data-reveal-delay="3"
-           class="rounded-2xl p-8 flex flex-col gap-4"
-           style="background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);">
+      <div class="reveal reveal-d3
+                  bg-white/[.03] border border-white/8 rounded-2xl p-8
+                  hover:border-brand/30 hover:bg-white/[.05]
+                  transition-all duration-300 flex flex-col gap-4">
         <span class="text-3xl">⚡</span>
         <h3 class="text-white font-bold">First Mover gewinnt</h3>
-        <p class="text-zinc-500 text-sm leading-relaxed">Online-Sichtbarkeit ist kumulativ. Je früher ihr anfangt, desto schwerer ist der Vorsprung für andere aufzuholen.</p>
+        <p class="text-zinc-500 text-sm leading-relaxed">
+          Online-Sichtbarkeit ist kumulativ. Je früher ihr anfangt, desto
+          schwerer wird der Vorsprung für andere aufzuholen.
+        </p>
       </div>
 
-      <!-- Bottom right wide -->
-      <div data-reveal data-reveal-delay="4"
-           class="lg:col-span-2 rounded-2xl p-8 flex items-center gap-6"
-           style="background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);">
+      <div class="reveal reveal-d4 sm:col-span-2
+                  bg-white/[.03] border border-white/8 rounded-2xl p-8
+                  hover:border-brand/30
+                  transition-all duration-300
+                  flex items-center gap-6">
         <span class="text-4xl shrink-0">🤝</span>
         <div>
           <h3 class="text-white font-bold mb-2">Exklusiv – kein Konkurrenzkonflikt</h3>
-          <p class="text-zinc-500 text-sm leading-relaxed">Ich betreue maximal einen Malerbetrieb pro Einzugsgebiet. Eure Strategie, euer Vorteil – kein Weitergeben an Mitbewerber.</p>
+          <p class="text-zinc-500 text-sm leading-relaxed">
+            Ich betreue maximal einen Malerbetrieb pro Einzugsgebiet.
+            Eure Strategie bleibt eure Strategie.
+          </p>
         </div>
       </div>
 
     </div>
   </div>
 </section>
-<div class="divider"></div>
+
+<div class="h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"></div>
