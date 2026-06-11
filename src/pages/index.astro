@@ -1,27 +1,660 @@
 ---
-import Layout        from '../layouts/Layout.astro';
-import NavBar        from '../components/NavBar.astro';
-import Hero          from '../components/sections/Hero.astro';
-import Problem       from '../components/sections/Problem.astro';
-import Chance        from '../components/sections/Chance.astro';
-import Loesung       from '../components/sections/Loesung.astro';
-import Testphase     from '../components/sections/Testphase.astro';
-import Nutzen        from '../components/sections/Nutzen.astro';
-import WarumFreising from '../components/sections/WarumFreising.astro';
-import Ablauf        from '../components/sections/Ablauf.astro';
-import CTA           from '../components/sections/CTA.astro';
+// ─────────────────────────────────────────
+// Personalisierung – nur diese 3 Zeilen
+const TELEFON   = '[Telefonnummer]';
+const EMAIL     = '[E-Mail-Adresse]';
+const INSTAGRAM = '[Instagram / Website]';
+// ─────────────────────────────────────────
+import Layout from '../layouts/Layout.astro';
+
+const mailto = `mailto:${EMAIL}?subject=Testpartner%20Anfrage&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20als%20Testpartner.%0A%0AMein%20Betrieb%3A%20%0AStadt%2FPLZ%3A%20%0ATelefon%3A%20`;
+
+const probleme = [
+  {
+    icon: '📵',
+    titel: 'Online kaum sichtbar',
+    text: 'Kein aktiver Social-Media-Auftritt, eine veraltete Website oder nur ein Branchenbuch-Eintrag. Wer online sucht, findet euch schlicht nicht.',
+  },
+  {
+    icon: '📞',
+    titel: 'Abhängig von Empfehlungen',
+    text: 'Empfehlungen sind wertvoll – aber sie lassen sich nicht planen. In ruhigen Phasen fehlen Anfragen, obwohl die Kapazität da wäre.',
+  },
+  {
+    icon: '🏆',
+    titel: 'Gute Arbeit bleibt unsichtbar',
+    text: 'Ihr macht tolle Projekte – aber kaum jemand sieht sie. Kein Vorher-Nachher, keine Bewertungen, keine Reichweite. Die Konkurrenz profitiert.',
+  },
+  {
+    icon: '🕐',
+    titel: 'Keine Zeit fürs Marketing',
+    text: 'Nach einem langen Arbeitstag auf der Baustelle bleibt keine Energie mehr für Posts, Anzeigen oder Google-Profile. Das kennt jeder Inhaber.',
+  },
+];
+
+const chancen = [
+  {
+    icon: '📸',
+    titel: 'Vorher-Nachher ist unschlagbar',
+    text: 'Kein Content wirkt stärker auf Instagram als ein gutes Vorher-Nachher-Foto. Maler haben davon unendlich viele – sie zeigen sie nur nicht.',
+  },
+  {
+    icon: '📍',
+    titel: 'Lokale Ads treffen genau eure Zielgruppe',
+    text: 'Mit Meta- oder Google-Anzeigen sprecht ihr gezielt Menschen in Freising und Umgebung an. Kein Streuverlust, keine Anfragen von weit her.',
+  },
+  {
+    icon: '🚀',
+    titel: 'Die Konkurrenz schläft noch',
+    text: 'Die meisten Malerbetriebe in der Region haben keinen aktiven Online-Auftritt. Wer jetzt startet, baut einen Vorsprung, der schwer aufzuholen ist.',
+  },
+];
+
+const leistungen = [
+  {
+    nr: '01',
+    titel: 'Social Media Betreuung',
+    text: 'Ich übernehme Instagram und Facebook – Profil, Posts, Vorher-Nachher-Content, Stories und Reels. Ihr müsst euch um nichts kümmern.',
+    tags: ['Instagram', 'Facebook', 'Reels', 'Vorher-Nachher'],
+  },
+  {
+    nr: '02',
+    titel: 'Lokale Werbeanzeigen',
+    text: 'Gezielte Anzeigen auf Meta (Instagram/Facebook) und bei Bedarf auf Google – ausgesteuert auf Freising und Umgebung.',
+    tags: ['Meta Ads', 'Google Ads', 'Zielregion'],
+  },
+  {
+    nr: '03',
+    titel: 'Einfache Lead-Strecke',
+    text: 'Interessenten landen auf einer klaren Seite mit Formular oder direktem WhatsApp-Link. Anfragen kommen bei euch an – nicht irgendwo.',
+    tags: ['Landing Page', 'WhatsApp', 'Kontaktformular'],
+  },
+  {
+    nr: '04',
+    titel: 'Fokus auf Anfragen',
+    text: 'Ich messe nicht Likes oder Follower, sondern echte Anfragen. Ihr seht jeden Monat klar: Wie viele? Woher? Was haben sie gekostet?',
+    tags: ['Leads', 'Reporting', 'Kosten pro Anfrage'],
+  },
+];
+
+const wochen = [
+  { w: 'Woche 1', titel: 'Setup & Strategie',   punkte: ['Erstgespräch & Zieldefinition', 'Audit des aktuellen Auftritts', 'Profile optimieren', 'Content-Plan erstellen'] },
+  { w: 'Woche 2', titel: 'Start & erste Ads',    punkte: ['Erste Posts veröffentlichen', 'Werbeanzeige schalten', 'Lead-Strecke aktivieren', 'Daten beobachten'], highlight: true },
+  { w: 'Woche 3', titel: 'Optimieren',           punkte: ['Anzeigen anpassen', 'Content weiterführen', 'Anfragen tracken', 'Zwischenbilanz'] },
+  { w: 'Woche 4', titel: 'Auswertung',           punkte: ['Gesamtergebnis auswerten', 'Kosten pro Anfrage zeigen', 'Qualität besprechen', 'Gemeinsam entscheiden'] },
+];
+
+const nutzen = [
+  { wert: '+5–15',  einheit: 'Anfragen',         titel: 'Mehr qualifizierte Anfragen',      text: 'Aus eurer Region, ohne Streuverlust.' },
+  { wert: '0 €',   einheit: 'Mehrkosten',         titel: 'Meine Arbeit ist kostenlos',       text: 'Ihr zahlt nur das Werbebudget.' },
+  { wert: '100%',  einheit: 'Transparenz',        titel: 'Klares Reporting',                 text: 'Kein Fachjargon. Nur verständliche Zahlen.' },
+  { wert: 'Top 3', einheit: 'lokal bei Google',  titel: 'Sichtbarkeit vor Mitbewerbern',    text: 'Die meisten Konkurrenten sind noch gar nicht online.' },
+];
+
+const schritte = [
+  { nr: '1', titel: 'Kurzes Erstgespräch',      dauer: '~30 Min.',  text: 'Telefon oder Video-Call. Ich lerne euren Betrieb kennen und erkläre, wie ich vorgehe.' },
+  { nr: '2', titel: 'Check des Auftritts',       dauer: '1–2 Tage', text: 'Ich schaue mir Website, Google-Profil und Social Media an und sage ehrlich, was ich sehe.' },
+  { nr: '3', titel: 'Testphase startet',          dauer: '4 Wochen', text: 'Klares Startdatum, klare Ziele. Ihr bekommt regelmäßige Updates – ohne Fachchinesisch.' },
+  { nr: '4', titel: 'Gemeinsame Auswertung',     dauer: 'Danach',   text: 'Was hat funktioniert? Wie war die Qualität der Anfragen? Dann entscheidet ihr, was als nächstes kommt.' },
+];
 ---
-<Layout>
-  <NavBar />
-  <main class="pt-16">
-    <Hero />
-    <div id="problem"><Problem /></div>
-    <Chance />
-    <Loesung />
-    <Testphase />
-    <Nutzen />
-    <WarumFreising />
-    <Ablauf />
-    <CTA />
-  </main>
+
+<Layout title="Mehr Anfragen für Malerbetriebe in Freising | SMMA">
+
+  <!-- ── NAV ─────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 flex justify-center pt-3 px-4">
+    <nav class="w-full max-w-5xl flex items-center justify-between
+                px-5 h-14 rounded-2xl
+                bg-zinc-900/95 backdrop-blur-md
+                border border-white/10 shadow-xl">
+
+      <span class="font-black text-sm text-white tracking-tight">
+        SMMA <span class="text-orange-400">Maler</span>
+      </span>
+
+      <div class="hidden md:flex gap-7">
+        <a href="#problem"   class="text-zinc-400 hover:text-white text-xs font-medium transition-colors">Problem</a>
+        <a href="#loesung"   class="text-zinc-400 hover:text-white text-xs font-medium transition-colors">Leistungen</a>
+        <a href="#testphase" class="text-zinc-400 hover:text-white text-xs font-medium transition-colors">Testphase</a>
+      </div>
+
+      <a href="#kontakt"
+         class="bg-orange-500 hover:bg-orange-400 text-white text-xs font-bold
+                px-5 py-2.5 rounded-xl transition-colors shadow-lg shadow-orange-500/25">
+        Gespräch anfragen →
+      </a>
+    </nav>
+  </header>
+
+
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section class="relative bg-zinc-900 min-h-screen flex items-center
+                  overflow-hidden px-6 pt-28 pb-20">
+
+    <!-- Background accent -->
+    <div class="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full
+                bg-orange-500/10 blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full
+                bg-orange-400/8 blur-[100px] pointer-events-none"></div>
+
+    <div class="relative max-w-5xl mx-auto w-full">
+      <div class="max-w-3xl">
+
+        <!-- Tag -->
+        <div class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/30
+                    text-orange-400 text-xs font-bold uppercase tracking-widest
+                    px-4 py-2 rounded-full mb-8">
+          <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
+          Speziell für Malerbetriebe in Freising & Umgebung
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-white font-black leading-[1.04] tracking-tight
+                   text-5xl sm:text-6xl lg:text-[5.5rem] mb-6">
+          Mehr gute<br/>
+          Anfragen für<br/>
+          deinen<br/>
+          <span class="text-orange-400">Malerbetrieb.</span>
+        </h1>
+
+        <!-- Sub -->
+        <p class="text-zinc-400 text-lg sm:text-xl leading-relaxed max-w-xl mb-10">
+          Social Media & Online-Werbung speziell für Maler –
+          <strong class="text-white">4 Wochen lang kostenlos.</strong><br/>
+          Ihr zahlt nur das Werbebudget.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 items-center mb-16">
+          <a href="#kontakt"
+             class="group inline-flex items-center gap-2
+                    bg-orange-500 hover:bg-orange-400
+                    text-white font-bold text-base
+                    px-8 py-4 rounded-2xl
+                    shadow-[0_8px_30px_rgba(249,115,22,.4)]
+                    hover:shadow-[0_12px_40px_rgba(249,115,22,.55)]
+                    hover:-translate-y-0.5 transition-all duration-200">
+            Unverbindliches Gespräch anfragen
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                 fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="#testphase"
+             class="text-zinc-500 hover:text-zinc-300 text-sm underline underline-offset-4 transition-colors">
+            Wie läuft die Testphase ab?
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 max-w-md divide-x divide-white/8
+                    border border-white/8 rounded-2xl overflow-hidden">
+          {[
+            { v: '4 Wochen', l: 'Testphase' },
+            { v: '0 €',      l: 'Meine Arbeit' },
+            { v: '1–2',      l: 'Plätze frei' },
+          ].map(s => (
+            <div class="bg-white/[.03] py-5 text-center">
+              <p class="text-orange-400 font-black text-2xl leading-none">{s.v}</p>
+              <p class="text-zinc-600 text-xs mt-1.5">{s.l}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── PROBLEM ───────────────────────────────────────── -->
+  <section id="problem" class="bg-white py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <p class="text-orange-500 text-xs font-bold uppercase tracking-[3px] mb-4">Das Problem</p>
+      <h2 class="text-zinc-900 font-black text-4xl sm:text-5xl leading-tight mb-4">
+        Gute Arbeit reicht heute<br/>nicht mehr allein.
+      </h2>
+      <p class="text-zinc-500 text-lg max-w-xl mb-14">
+        Die meisten Malerbetriebe in der Region sind online kaum sichtbar.
+        Das ist ein Problem – und gleichzeitig eure größte Chance.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {probleme.map(p => (
+          <div class="group flex gap-5 items-start
+                      bg-zinc-50 hover:bg-white
+                      border border-zinc-100 hover:border-orange-200
+                      hover:shadow-xl hover:shadow-orange-50
+                      rounded-2xl p-8
+                      hover:-translate-y-1 transition-all duration-300">
+            <span class="text-3xl shrink-0 mt-0.5">{p.icon}</span>
+            <div>
+              <h3 class="text-zinc-900 font-bold text-base mb-2">{p.titel}</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">{p.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Quote -->
+      <blockquote class="mt-8 bg-orange-50 border-l-4 border-orange-400
+                         rounded-r-2xl px-8 py-6">
+        <p class="text-zinc-700 text-base leading-relaxed italic">
+          „In Freising findet man bei Google meistens nicht den besten Maler –
+          sondern den, der <strong class="not-italic text-zinc-900">online sichtbar ist</strong>.
+          Genau da setze ich an."
+        </p>
+      </blockquote>
+
+    </div>
+  </section>
+
+
+  <!-- ── CHANCE ────────────────────────────────────────── -->
+  <section class="bg-zinc-900 py-28 px-6 overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-96 h-96 rounded-full
+                bg-orange-400/10 blur-[90px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto">
+
+      <p class="text-orange-400 text-xs font-bold uppercase tracking-[3px] mb-4">Die Chance</p>
+      <h2 class="text-white font-black text-4xl sm:text-5xl leading-tight mb-5">
+        Maler haben einen riesigen<br/>
+        Online-Vorteil –
+        <span class="text-zinc-500"> sie nutzen ihn nur selten.</span>
+      </h2>
+      <p class="text-zinc-400 text-lg max-w-xl mb-14">
+        Eure Arbeit ist von Natur aus visuell. Das ist das beste Rohmaterial
+        für Social Media, das man sich vorstellen kann.
+      </p>
+
+      <div class="grid sm:grid-cols-3 gap-5">
+        {chancen.map((c, i) => (
+          <div class="bg-zinc-800/60 border border-zinc-700/60 rounded-2xl p-8
+                      hover:border-orange-500/40 hover:bg-zinc-800
+                      hover:-translate-y-1.5
+                      transition-all duration-300 flex flex-col gap-4">
+            <div class="flex items-start justify-between">
+              <span class="text-3xl">{c.icon}</span>
+              <span class="text-5xl font-black text-zinc-700 leading-none select-none">
+                0{i + 1}
+              </span>
+            </div>
+            <h3 class="text-white font-bold">{c.titel}</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">{c.text}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── LÖSUNG ────────────────────────────────────────── -->
+  <section id="loesung" class="bg-zinc-50 py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <p class="text-orange-500 text-xs font-bold uppercase tracking-[3px] mb-4">Was ich übernehme</p>
+      <h2 class="text-zinc-900 font-black text-4xl sm:text-5xl leading-tight mb-4">
+        Komplett betreut –<br/>
+        <span class="text-zinc-400">ohne Aufwand für euch.</span>
+      </h2>
+      <p class="text-zinc-500 text-lg max-w-xl mb-14">
+        Alles aus einer Hand. Ihr macht weiter euren Job –
+        ich kümmere mich um euren Online-Auftritt.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {leistungen.map(l => (
+          <div class="group bg-white border border-zinc-200 rounded-2xl p-8
+                      hover:border-orange-300 hover:shadow-2xl hover:shadow-orange-50
+                      hover:-translate-y-1 transition-all duration-300
+                      flex flex-col gap-5">
+
+            <div class="flex items-center justify-between">
+              <div class="w-11 h-11 rounded-xl bg-orange-50 border border-orange-100
+                          flex items-center justify-center
+                          group-hover:bg-orange-100 transition-colors">
+                <span class="text-orange-600 font-black text-sm">{l.nr}</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-zinc-900 font-bold text-lg mb-2">{l.titel}</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">{l.text}</p>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-3 border-t border-zinc-100">
+              {l.tags.map(t => (
+                <span class="text-xs font-semibold px-3 py-1 rounded-full
+                             bg-orange-50 text-orange-600 border border-orange-100">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── TESTPHASE ─────────────────────────────────────── -->
+  <section id="testphase" class="bg-zinc-900 py-28 px-6 overflow-hidden relative">
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full
+                bg-orange-500/8 blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto">
+
+      <p class="text-orange-400 text-xs font-bold uppercase tracking-[3px] mb-4">4-Wochen-Testphase</p>
+      <h2 class="text-white font-black text-4xl sm:text-5xl leading-tight mb-6">
+        Ich arbeite 4 Wochen<br/>
+        <span class="text-orange-400">kostenlos für euch.</span>
+      </h2>
+
+      <!-- Cost highlight -->
+      <div class="inline-flex flex-wrap items-center gap-6
+                  bg-orange-500/10 border border-orange-500/25 rounded-2xl
+                  px-8 py-5 mb-14">
+        <div>
+          <p class="text-orange-400 font-black text-4xl leading-none">300–500 €</p>
+          <p class="text-zinc-600 text-xs mt-1 font-medium">Nur das Werbebudget</p>
+        </div>
+        <div class="h-10 w-px bg-white/10 hidden sm:block"></div>
+        <p class="text-zinc-400 text-sm leading-relaxed max-w-sm">
+          Meine Zeit, Strategie und Arbeit kosten euch
+          <strong class="text-white">nichts</strong>.
+          Ich will echte Ergebnisse liefern und das mit eurem Betrieb beweisen.
+        </p>
+      </div>
+
+      <!-- Weeks -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        {wochen.map(w => (
+          <div class={`rounded-2xl p-6 flex flex-col gap-4 ${
+            w.highlight
+              ? 'bg-orange-500/15 border border-orange-500/40'
+              : 'bg-white/[.04] border border-white/8'
+          }`}>
+            <div>
+              <p class={`text-xs font-bold uppercase tracking-widest mb-1 ${
+                w.highlight ? 'text-orange-400' : 'text-zinc-600'
+              }`}>{w.w}</p>
+              <p class={`font-bold text-sm ${w.highlight ? 'text-white' : 'text-zinc-400'}`}>
+                {w.titel}
+              </p>
+            </div>
+            <ul class="flex flex-col gap-2">
+              {w.punkte.map(p => (
+                <li class="flex gap-2 text-xs leading-snug">
+                  <span class="text-orange-500 shrink-0 mt-0.5">✓</span>
+                  <span class={w.highlight ? 'text-zinc-300' : 'text-zinc-600'}>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── NUTZEN ────────────────────────────────────────── -->
+  <section class="bg-white py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <p class="text-orange-500 text-xs font-bold uppercase tracking-[3px] mb-4">Euer Nutzen</p>
+      <h2 class="text-zinc-900 font-black text-4xl sm:text-5xl leading-tight mb-14">
+        Was ihr nach 4 Wochen<br/>
+        <span class="text-orange-500">konkret habt.</span>
+      </h2>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {nutzen.map(n => (
+          <div class="group bg-zinc-50 border border-zinc-100 rounded-2xl p-8
+                      hover:bg-white hover:border-orange-200 hover:shadow-xl hover:shadow-orange-50
+                      hover:-translate-y-1 transition-all duration-300">
+            <div class="flex items-end gap-2 mb-4">
+              <span class="text-orange-500 font-black leading-none text-5xl">{n.wert}</span>
+              <span class="text-zinc-400 text-sm font-semibold mb-1">{n.einheit}</span>
+            </div>
+            <h3 class="text-zinc-900 font-bold mb-2">{n.titel}</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed">{n.text}</p>
+            <!-- hover underline accent -->
+            <div class="mt-5 h-0.5 bg-orange-400 rounded-full
+                         scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── WARUM FREISING ─────────────────────────────────── -->
+  <section class="bg-zinc-50 py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <p class="text-orange-500 text-xs font-bold uppercase tracking-[3px] mb-4">Warum Freising?</p>
+      <h2 class="text-zinc-900 font-black text-4xl sm:text-5xl leading-tight mb-14">
+        Lokaler Fokus.<br/>
+        <span class="text-orange-500">Echter Vorteil.</span>
+      </h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Wide card -->
+        <div class="lg:col-span-2 bg-white border border-zinc-100 rounded-2xl p-8
+                    hover:border-orange-200 hover:shadow-xl hover:shadow-orange-50
+                    transition-all duration-300">
+          <span class="text-3xl mb-5 block">📍</span>
+          <h3 class="text-zinc-900 font-bold text-lg mb-3">
+            Nur Malerbetriebe in Freising & Umgebung
+          </h3>
+          <p class="text-zinc-500 text-sm leading-relaxed mb-5">
+            Ich arbeite nicht mit beliebigen Branchen oder Regionen.
+            Mein Fokus liegt ausschließlich auf Malerbetrieben in dieser Region –
+            deshalb kenne ich den Markt, die Konkurrenz und eure Zielgruppe.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['Freising','Moosburg','Erding','Mainburg','Landshut','München Nord'].map(o => (
+              <span class="text-xs text-zinc-500 border border-zinc-200 px-3 py-1 rounded-full">{o}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right card -->
+        <div class="bg-orange-500 rounded-2xl p-8 flex flex-col justify-between text-white">
+          <span class="text-3xl mb-4 block">⚡</span>
+          <div>
+            <h3 class="font-bold text-lg mb-3">First Mover gewinnt</h3>
+            <p class="text-orange-100 text-sm leading-relaxed">
+              Die meisten Mitbewerber in der Region haben noch keinen aktiven
+              Online-Auftritt. Wer jetzt anfängt, baut einen Vorsprung,
+              den andere kaum noch aufholen können.
+            </p>
+          </div>
+          <div class="mt-6 pt-5 border-t border-orange-400">
+            <p class="font-black text-2xl">Jetzt</p>
+            <p class="text-orange-200 text-xs">ist der richtige Zeitpunkt</p>
+          </div>
+        </div>
+
+        <!-- Bottom left -->
+        <div class="bg-white border border-zinc-100 rounded-2xl p-8
+                    hover:border-orange-200 hover:shadow-lg hover:shadow-orange-50
+                    transition-all duration-300">
+          <span class="text-3xl mb-4 block">🔍</span>
+          <h3 class="text-zinc-900 font-bold mb-2">Ich kenne den Markt</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">
+            Ich analysiere den lokalen Wettbewerb und weiß, wo eure Chancen liegen.
+            Kein generisches Marketing – sondern Strategie für Freising.
+          </p>
+        </div>
+
+        <!-- Bottom right wide -->
+        <div class="sm:col-span-2 bg-white border border-zinc-100 rounded-2xl p-8
+                    flex items-center gap-6
+                    hover:border-orange-200 hover:shadow-lg hover:shadow-orange-50
+                    transition-all duration-300">
+          <span class="text-4xl shrink-0">🤝</span>
+          <div>
+            <h3 class="text-zinc-900 font-bold mb-2">Exklusiv – kein Konkurrenzkonflikt</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed">
+              Ich betreue maximal einen Malerbetrieb pro Einzugsgebiet.
+              Eure Strategie, eure Inhalte, eure Vorteile – die teile ich nicht mit euren Mitbewerbern.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── ABLAUF ─────────────────────────────────────────── -->
+  <section class="bg-white py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <p class="text-orange-500 text-xs font-bold uppercase tracking-[3px] mb-4">Ablauf & Zusammenarbeit</p>
+      <h2 class="text-zinc-900 font-black text-4xl sm:text-5xl leading-tight mb-5">
+        Schritt für Schritt –
+        <span class="text-zinc-400"> unkompliziert.</span>
+      </h2>
+      <p class="text-zinc-500 text-lg max-w-xl mb-14">
+        Kein langer Vorlauf, kein Papierkram. In wenigen Tagen sind wir startklar.
+      </p>
+
+      <div class="flex flex-col gap-4">
+        {schritte.map((s, i) => (
+          <div class="group flex gap-5 items-center
+                      bg-zinc-50 border border-zinc-100 rounded-2xl p-7
+                      hover:bg-white hover:border-orange-200
+                      hover:shadow-xl hover:shadow-orange-50
+                      hover:-translate-y-0.5 transition-all duration-300">
+
+            <!-- Number -->
+            <div class="shrink-0 w-14 h-14 rounded-2xl
+                        bg-orange-50 border border-orange-100
+                        flex items-center justify-center
+                        font-black text-xl text-orange-500
+                        group-hover:bg-orange-100 group-hover:scale-105
+                        transition-all duration-300">
+              {s.nr}
+            </div>
+
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-3 mb-1">
+                <h3 class="text-zinc-900 font-bold">{s.titel}</h3>
+                <span class="text-xs font-bold px-3 py-1 rounded-full
+                             bg-orange-50 text-orange-600 border border-orange-100">
+                  {s.dauer}
+                </span>
+              </div>
+              <p class="text-zinc-500 text-sm leading-relaxed">{s.text}</p>
+            </div>
+
+            <svg class="shrink-0 text-zinc-200 group-hover:text-orange-400
+                         group-hover:translate-x-1 transition-all duration-300 hidden sm:block"
+                 width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── CTA ───────────────────────────────────────────── -->
+  <section id="kontakt" class="bg-orange-500 py-28 px-6 relative overflow-hidden">
+
+    <!-- Dot texture -->
+    <div class="absolute inset-0 pointer-events-none
+                [background-image:radial-gradient(rgba(255,255,255,.1)_1px,transparent_1px)]
+                [background-size:24px_24px]"></div>
+    <!-- Top/bottom shadows for depth -->
+    <div class="absolute inset-0 pointer-events-none
+                bg-gradient-to-b from-orange-600/30 via-transparent to-orange-600/20"></div>
+
+    <div class="relative max-w-3xl mx-auto text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-white/15 border border-white/30
+                  text-white text-xs font-bold uppercase tracking-widest
+                  px-4 py-2 rounded-full mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+        Noch 1–2 Plätze frei
+      </div>
+
+      <h2 class="text-white font-black text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5">
+        Ich suche aktuell<br/>
+        1–2 Malerbetriebe<br/>
+        in Freising.
+      </h2>
+
+      <p class="text-orange-100 text-lg max-w-lg mx-auto mb-2 leading-relaxed">
+        Bereit für planbare Anfragen aus der Region?<br/>
+        Meldet euch – völlig unverbindlich.
+      </p>
+      <p class="text-orange-200/70 text-sm mb-12">
+        Keine Kosten. Kein Vertrag. Keine Mindestlaufzeit.
+      </p>
+
+      <!-- Contact cards -->
+      <div class="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10">
+        {[
+          { icon: '📞', label: 'Telefon / WhatsApp', val: TELEFON,   href: `tel:${TELEFON}` },
+          { icon: '✉️',  label: 'E-Mail',             val: EMAIL,     href: mailto },
+          { icon: '📷',  label: 'Instagram / Web',    val: INSTAGRAM, href: '#' },
+        ].map(k => (
+          <a href={k.href}
+             class="group bg-white/15 hover:bg-white/25 border border-white/25
+                    rounded-2xl p-5 text-left backdrop-blur-sm
+                    hover:-translate-y-1 transition-all duration-200">
+            <span class="text-2xl block mb-3">{k.icon}</span>
+            <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">{k.label}</p>
+            <p class="text-white font-bold text-sm">{k.val}</p>
+          </a>
+        ))}
+      </div>
+
+      <!-- Main CTA button -->
+      <a href={mailto}
+         class="group inline-flex items-center gap-3
+                bg-white hover:bg-zinc-50
+                text-orange-600 font-black text-lg
+                px-10 py-5 rounded-2xl
+                shadow-[0_8px_40px_rgba(0,0,0,.2)]
+                hover:shadow-[0_12px_50px_rgba(0,0,0,.3)]
+                hover:-translate-y-0.5 transition-all duration-200 mb-5">
+        Jetzt unverbindlich melden
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+             fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+
+      <p class="text-orange-200/60 text-sm">
+        Kein Verkaufsgespräch. Ich erkläre kurz meinen Ansatz – und ihr entscheidet.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ────────────────────────────────────────── -->
+  <footer class="bg-zinc-900 border-t border-white/5 py-8 px-6 text-center">
+    <p class="text-zinc-600 text-sm">
+      Social-Media-Marketing für Malerbetriebe · Freising & Umgebung ·
+      <a href={`mailto:${EMAIL}`}
+         class="text-orange-500/70 hover:text-orange-400 transition-colors">
+        {EMAIL}
+      </a>
+    </p>
+  </footer>
+
 </Layout>
