@@ -4,13 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: '#f97316',        // orange-500
-        surface: '#141414',
-        card:    '#1c1c1c',
-        border:  '#2a2a2a',
+        base: '#09090b',
+        surface: '#111113',
+        card: '#18181b',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-brand': 'linear-gradient(135deg, #f97316, #fbbf24)',
       },
     },
   },
