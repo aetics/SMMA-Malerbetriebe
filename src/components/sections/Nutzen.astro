@@ -1,43 +1,38 @@
 ---
 const metrics = [
-  { val: '+5–15',  unit: 'Anfragen',    title: 'Qualifizierte Leads aus der Region',     text: 'Keine Anfragen von weit her. Lokale Interessenten, die wirklich in eurem Einzugsgebiet wohnen.' },
-  { val: '100%',   unit: 'sichtbar',    title: 'Eure Referenzen online zeigen',            text: 'Vorher-Nachher-Fotos als professioneller Content, der Vertrauen aufbaut.' },
-  { val: 'Top 3',  unit: 'lokal',       title: 'Moderner Auftritt statt Branchenbuch',    text: 'Während andere noch keinen Instagram-Account haben, baut ihr einen echten Vorsprung auf.' },
-  { val: '1 Seite', unit: 'Reporting', title: 'Ergebnisse klar erklärt',                  text: 'Kein Agentur-Kauderwelsch. Ihr seht auf einen Blick, was euer Budget gebracht hat.' },
+  { v:'+5–15', u:'Anfragen',   title:'Qualifizierte Leads', text:'Lokale Interessenten aus eurem Einzugsgebiet – keine Streuverluste.' },
+  { v:'100%',  u:'sichtbar',   title:'Referenzen online',    text:'Vorher-Nachher-Content, der Vertrauen aufbaut, bevor jemand anruft.' },
+  { v:'Top 3', u:'lokal',      title:'Klarer Vorsprung',     text:'Während andere keinen Instagram-Account haben, habt ihr Reichweite.' },
+  { v:'1 S.',  u:'Reporting',  title:'Ergebnisse klar erklärt', text:'Keine Agentur-Sprache – ihr seht genau, was euer Budget gebracht hat.' },
 ];
 ---
-<section class="relative py-32 px-6 bg-surface overflow-hidden">
-
-  <div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px"
-       style="background: linear-gradient(90deg, transparent, rgba(249,115,22,.4), transparent)"></div>
-
+<section class="bg-paper py-32 px-6">
   <div class="max-w-5xl mx-auto">
 
-    <div class="reveal mb-4 flex items-center gap-3">
-      <div class="h-px flex-1 max-w-8" style="background:linear-gradient(90deg,#f97316,transparent)"></div>
-      <span class="text-orange-500 text-xs font-bold tracking-[3px] uppercase">Euer Nutzen</span>
-    </div>
+    <p data-reveal class="text-orange text-xs font-bold tracking-[3px] uppercase mb-4">Euer Nutzen</p>
 
-    <h2 class="reveal delay-1 font-black leading-tight mb-16"
-        style="font-size: clamp(2rem, 4vw, 3.2rem)">
-      Was ihr nach 4 Wochen<br />
-      <span class="grad-text">konkret habt.</span>
+    <h2 data-reveal data-reveal-delay="1"
+        class="font-black text-ink leading-tight mb-16"
+        style="font-size:clamp(2.2rem,5vw,3.8rem);">
+      Was ihr nach 4 Wochen<br/>
+      <span class="g-text">konkret habt.</span>
     </h2>
 
-    <div class="grid sm:grid-cols-2 gap-4">
-      {metrics.map((m, i) => (
-        <div class:list={['glass rounded-2xl p-8 flex gap-6 hover:-translate-y-1 transition-all duration-300 reveal', `delay-${i+2}`]}>
-          <div class="shrink-0 pt-1">
-            <p class="grad-text font-black leading-none" style="font-size:1.9rem">{m.val}</p>
-            <p class="text-zinc-700 text-xs font-semibold mt-1">{m.unit}</p>
+    <div class="grid sm:grid-cols-2 gap-5">
+      {metrics.map((m,i) => (
+        <div data-reveal data-reveal-delay={String(i+2)}
+             class="group rounded-2xl p-8 bg-white border border-zinc-100 shadow-sm
+                    hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-end gap-2 mb-4">
+            <span class="g-text font-black leading-none" style="font-size:3rem; -webkit-text-fill-color:initial; background:linear-gradient(95deg,#f97316,#f59e0b); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">{m.v}</span>
+            <span class="text-zinc-400 text-sm font-semibold mb-1">{m.u}</span>
           </div>
-          <div class="border-l border-white/6 pl-6">
-            <h3 class="text-zinc-200 font-bold text-sm mb-2">{m.title}</h3>
-            <p class="text-zinc-500 text-xs leading-relaxed">{m.text}</p>
-          </div>
+          <h3 class="text-ink font-bold mb-2">{m.title}</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">{m.text}</p>
         </div>
       ))}
     </div>
 
   </div>
 </section>
+<div class="divider"></div>

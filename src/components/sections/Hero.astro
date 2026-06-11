@@ -1,80 +1,82 @@
 ---
 ---
-<section class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-base px-6 pt-32 pb-24">
+<section class="relative min-h-screen flex flex-col justify-center overflow-hidden px-6 pt-28 pb-20 bg-ink">
 
-  <!-- Animated orbs -->
-  <div class="orb1 pointer-events-none absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full"
-       style="background:radial-gradient(circle, rgba(249,115,22,.18) 0%, transparent 65%); filter:blur(60px)"></div>
-  <div class="orb2 pointer-events-none absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full"
-       style="background:radial-gradient(circle, rgba(251,191,36,.12) 0%, transparent 65%); filter:blur(60px)"></div>
+  <!-- Vivid animated blobs -->
+  <div class="blob1 pointer-events-none absolute" style="top:10%; left:15%; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(249,115,22,.28) 0%, transparent 65%); filter:blur(80px);"></div>
+  <div class="blob2 pointer-events-none absolute" style="bottom:15%; right:10%; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle, rgba(139,92,246,.2) 0%, transparent 65%); filter:blur(80px);"></div>
+  <div class="blob3 pointer-events-none absolute" style="top:55%; left:55%; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(245,158,11,.18) 0%, transparent 65%); filter:blur(70px);"></div>
 
-  <!-- Dot grid -->
-  <div class="pointer-events-none absolute inset-0"
-       style="background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px); background-size: 32px 32px;"></div>
+  <!-- Grid texture -->
+  <div class="pointer-events-none absolute inset-0" style="background-image:radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px); background-size:36px 36px;"></div>
 
-  <!-- Gradient vignette -->
-  <div class="pointer-events-none absolute inset-0"
-       style="background: radial-gradient(ellipse at center, transparent 40%, #09090b 100%)"></div>
+  <!-- Edge vignette -->
+  <div class="pointer-events-none absolute inset-0" style="background:radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, #0a0a0a 100%);"></div>
 
-  <div class="relative max-w-4xl mx-auto">
+  <div class="relative max-w-5xl mx-auto w-full">
+    <div class="max-w-3xl">
 
-    <!-- Live-badge -->
-    <div class="reveal inline-flex items-center gap-2.5 glass rounded-full px-4 py-2 text-xs font-semibold mb-10">
-      <span class="relative flex h-2 w-2">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-      </span>
-      <span class="text-zinc-400">Noch <span class="text-zinc-200 font-bold">1–2 Plätze</span> frei · Freising & Umgebung</span>
+      <!-- Live pill -->
+      <div data-reveal class="inline-flex items-center gap-2.5 mb-10"
+           style="background:rgba(249,115,22,.1); border:1px solid rgba(249,115,22,.3); border-radius:999px; padding:8px 18px;">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background:#f97316;"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full" style="background:#f97316;"></span>
+        </span>
+        <span class="text-xs font-semibold" style="color:rgba(255,255,255,.7);">
+          Nur <strong class="text-white">1–2 Plätze</strong> frei · Freising & Umgebung
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 data-reveal data-reveal-delay="1"
+          class="font-black text-white leading-[1.02] tracking-tight mb-7"
+          style="font-size:clamp(3rem, 7.5vw, 6rem);">
+        Mehr gute<br/>
+        Anfragen für<br/>
+        deinen<br/>
+        <span class="g-text">Malerbetrieb.</span>
+      </h1>
+
+      <!-- Sub -->
+      <p data-reveal data-reveal-delay="2"
+         class="text-zinc-400 leading-relaxed mb-10 max-w-lg"
+         style="font-size:clamp(1rem,2vw,1.2rem);">
+        Social Media & lokale Werbeanzeigen –
+        <span class="text-white font-semibold">vier Wochen kostenlos.</span><br/>
+        Ihr zahlt nur das Werbebudget.
+      </p>
+
+      <!-- CTA row -->
+      <div data-reveal data-reveal-delay="3" class="flex flex-wrap gap-4 items-center mb-20">
+        <a href="#kontakt" class="g-btn inline-flex items-center gap-2 px-8 py-4 text-base">
+          Unverbindliches Gespräch anfragen
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="#testphase" class="text-zinc-500 hover:text-white text-sm transition-colors underline underline-offset-4">
+          Wie läuft die Testphase ab?
+        </a>
+      </div>
+
+      <!-- Stat bar -->
+      <div data-reveal data-reveal-delay="4"
+           class="grid grid-cols-3 divide-x"
+           style="divide-color:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; max-width:480px;">
+        {[
+          { v: '4 Wochen', l: 'Testphase' },
+          { v: '0 €',      l: 'Meine Arbeit' },
+          { v: '1–2',      l: 'Plätze frei' },
+        ].map(s => (
+          <div class="px-6 py-5 text-center" style="background:rgba(255,255,255,.02);">
+            <p class="g-text font-black text-2xl leading-none">{s.v}</p>
+            <p class="text-zinc-600 text-xs mt-1.5">{s.l}</p>
+          </div>
+        ))}
+      </div>
+
     </div>
-
-    <!-- Headline -->
-    <h1 class="reveal delay-1 font-black leading-[1.04] tracking-tight mb-7"
-        style="font-size: clamp(2.8rem, 7vw, 5.5rem)">
-      Mehr gute Anfragen<br />
-      für deinen<br />
-      <span class="grad-text">Malerbetrieb</span><br />
-      in Freising.
-    </h1>
-
-    <!-- Sub -->
-    <p class="reveal delay-2 text-zinc-400 leading-relaxed mb-10 max-w-xl"
-       style="font-size: clamp(1rem, 2vw, 1.2rem)">
-      Ich übernehme Social Media & lokale Werbeanzeigen –
-      <span class="text-zinc-200 font-medium">vier Wochen kostenlos.</span>
-      Du zahlst nur das Werbebudget.
-    </p>
-
-    <!-- CTAs -->
-    <div class="reveal delay-3 flex flex-wrap gap-3 items-center mb-16">
-      <a href="#kontakt"
-         class="group inline-flex items-center gap-2 bg-gradient-brand text-white font-bold
-                px-7 py-3.5 rounded-xl text-sm
-                shadow-[0_0_32px_rgba(249,115,22,.35)] hover:shadow-[0_0_48px_rgba(249,115,22,.5)]
-                hover:-translate-y-0.5 transition-all duration-200">
-        Unverbindliches Gespräch anfragen
-        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-        </svg>
-      </a>
-      <a href="#testphase" class="text-zinc-500 hover:text-zinc-300 text-sm transition-colors underline underline-offset-4">
-        Wie läuft die Testphase ab?
-      </a>
-    </div>
-
-    <!-- Stats row -->
-    <div class="reveal delay-4 grid grid-cols-3 gap-px rounded-2xl overflow-hidden max-w-lg"
-         style="background:rgba(255,255,255,0.06)">
-      {[
-        { val: '4 Wochen', lbl: 'Testphase' },
-        { val: '0 €',      lbl: 'Für meine Arbeit' },
-        { val: '1–2',      lbl: 'Plätze verfügbar' },
-      ].map(s => (
-        <div class="bg-base px-5 py-4 text-center">
-          <p class="grad-text font-black text-xl">{s.val}</p>
-          <p class="text-zinc-600 text-xs mt-0.5">{s.lbl}</p>
-        </div>
-      ))}
-    </div>
-
   </div>
 </section>
+
+<!-- Divider into white section -->
+<div class="divider"></div>

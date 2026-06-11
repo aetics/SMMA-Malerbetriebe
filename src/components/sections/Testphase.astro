@@ -1,84 +1,59 @@
 ---
 const wochen = [
-  {
-    label: 'Woche 1',
-    title: 'Setup & Start',
-    items: ['Erstgespräch & Zieldefinition', 'Audit des aktuellen Auftritts', 'Profile einrichten / optimieren', 'Content-Plan erstellen'],
-  },
-  {
-    label: 'Woche 2',
-    title: 'Live gehen',
-    items: ['Erste Beiträge veröffentlichen', 'Werbeanzeige schalten', 'Lead-Strecke aktivieren', 'Erste Daten beobachten'],
-    highlight: true,
-  },
-  {
-    label: 'Woche 3',
-    title: 'Optimieren',
-    items: ['Anzeigen nachjustieren', 'Weiteren Content produzieren', 'Anfragen tracken', 'Zwischenbilanz'],
-  },
-  {
-    label: 'Woche 4',
-    title: 'Auswertung',
-    items: ['Wie viele Anfragen?', 'Was haben sie gekostet?', 'Was hat funktioniert?', 'Gemeinsame Entscheidung: weiter?'],
-  },
+  { w:'Woche 1', title:'Setup & Start',    items:['Erstgespräch & Zieldefinition','Audit des aktuellen Auftritts','Profile einrichten & optimieren','Content-Plan erstellen'], hot:false },
+  { w:'Woche 2', title:'Live gehen',       items:['Erste Posts veröffentlichen','Werbeanzeige schalten','Lead-Strecke aktivieren','Erste Daten beobachten'], hot:true },
+  { w:'Woche 3', title:'Optimieren',       items:['Anzeigen nachjustieren','Weiteren Content produzieren','Anfragen tracken','Zwischenbilanz'], hot:false },
+  { w:'Woche 4', title:'Auswertung',       items:['Wie viele Anfragen?','Was haben sie gekostet?','Was hat funktioniert?','Gemeinsam: weiter?'], hot:false },
 ];
 ---
-<section id="testphase" class="relative py-32 px-6 bg-base overflow-hidden">
-
-  <div class="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full"
-       style="background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 65%); filter:blur(60px)"></div>
+<section id="testphase" class="bg-ink py-32 px-6 overflow-hidden relative">
+  <div class="pointer-events-none absolute bottom-0 left-1/4 w-96 h-96 rounded-full"
+       style="background:radial-gradient(circle,rgba(249,115,22,.12) 0%,transparent 65%);filter:blur(80px);"></div>
 
   <div class="max-w-5xl mx-auto">
 
-    <div class="reveal mb-4 flex items-center gap-3">
-      <div class="h-px flex-1 max-w-8" style="background:linear-gradient(90deg,#f97316,transparent)"></div>
-      <span class="text-orange-500 text-xs font-bold tracking-[3px] uppercase">4-Wochen-Testphase</span>
-    </div>
+    <p data-reveal class="text-orange text-xs font-bold tracking-[3px] uppercase mb-4">4-Wochen-Testphase</p>
 
-    <h2 class="reveal delay-1 font-black leading-tight mb-5"
-        style="font-size: clamp(2rem, 4vw, 3.2rem)">
-      Ich arbeite 4 Wochen<br />
-      <span class="grad-text">kostenlos für euch.</span>
+    <h2 data-reveal data-reveal-delay="1"
+        class="font-black text-white leading-tight mb-6"
+        style="font-size:clamp(2.2rem,5vw,3.8rem);">
+      Ich arbeite 4 Wochen<br/>
+      <span class="g-text">kostenlos für euch.</span>
     </h2>
 
-    <!-- Cost clarity box -->
-    <div class="reveal delay-2 glass rounded-2xl px-7 py-5 mb-16 max-w-2xl flex flex-col sm:flex-row gap-6 items-start">
-      <div class="shrink-0">
-        <p class="grad-text font-black text-3xl">300–500 €</p>
+    <!-- Cost callout -->
+    <div data-reveal data-reveal-delay="2"
+         class="inline-flex items-center gap-6 rounded-2xl px-7 py-5 mb-16"
+         style="background:rgba(249,115,22,.08); border:1px solid rgba(249,115,22,.25);">
+      <div>
+        <p class="g-text font-black text-4xl leading-none">300–500 €</p>
         <p class="text-zinc-600 text-xs mt-1">Nur das Werbebudget</p>
       </div>
-      <div class="border-l border-white/8 pl-6">
-        <p class="text-zinc-400 text-sm leading-relaxed">
-          Meine Zeit, meine Arbeit, meine Strategie – das alles kostet euch
-          <span class="text-zinc-200 font-semibold">nichts</span>.
-          Ihr investiert nur in das Werbebudget, das direkt in eure Anzeigen fließt.
-          Ich will beweisen, dass ich Ergebnisse liefere.
-        </p>
-      </div>
+      <div class="w-px h-12 bg-white/10"></div>
+      <p class="text-zinc-400 text-sm leading-relaxed max-w-xs">
+        Meine Zeit, Strategie und Arbeit kosten euch
+        <span class="text-white font-semibold">nichts</span>.
+        Ich will beweisen, dass mein Ansatz funktioniert.
+      </p>
     </div>
 
-    <!-- Timeline grid -->
-    <div class="reveal delay-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
-      {wochen.map((w, i) => (
-        <div class:list={[
-          'rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300',
-          w.highlight
-            ? 'border border-orange-500/30 bg-gradient-to-b from-orange-500/10 to-transparent'
-            : 'glass',
-        ]}>
+    <!-- 4-column week grid -->
+    <div data-reveal data-reveal-delay="3"
+         class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      {wochen.map(w => (
+        <div class="rounded-2xl p-6 flex flex-col gap-4"
+             style={w.hot
+               ? 'background:linear-gradient(160deg,rgba(249,115,22,.2),rgba(245,158,11,.1)); border:1px solid rgba(249,115,22,.4);'
+               : 'background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);'}>
           <div>
-            <p class:list={['text-xs font-bold tracking-widest uppercase mb-1', w.highlight ? 'text-orange-400' : 'text-zinc-600']}>
-              {w.label}
-            </p>
-            <h3 class:list={['font-bold text-sm', w.highlight ? 'text-zinc-100' : 'text-zinc-300']}>
-              {w.title}
-            </h3>
+            <p class:list={['text-xs font-bold tracking-widest uppercase mb-1', w.hot ? 'text-orange' : 'text-zinc-600']}>{w.w}</p>
+            <p class:list={['font-bold text-sm', w.hot ? 'text-white' : 'text-zinc-400']}>{w.title}</p>
           </div>
           <ul class="flex flex-col gap-2">
             {w.items.map(item => (
               <li class="flex gap-2 text-xs leading-snug">
-                <span class="text-orange-500 mt-0.5 shrink-0">✓</span>
-                <span class:list={[w.highlight ? 'text-zinc-400' : 'text-zinc-600']}>{item}</span>
+                <span class="text-orange mt-0.5 shrink-0">✓</span>
+                <span class:list={[w.hot ? 'text-zinc-300' : 'text-zinc-600']}>{item}</span>
               </li>
             ))}
           </ul>
@@ -88,3 +63,4 @@ const wochen = [
 
   </div>
 </section>
+<div class="divider"></div>

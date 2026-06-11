@@ -1,74 +1,58 @@
 ---
 const cards = [
-  {
-    icon: '📵',
-    title: 'Online kaum sichtbar',
-    text: 'Kein aktiver Social-Media-Auftritt, veraltete Website, nur Branchenbuch-Eintrag. Wer sucht, findet oft gar nichts.',
-  },
-  {
-    icon: '📞',
-    title: 'Abhängig von Empfehlungen',
-    text: 'Empfehlungen lassen sich nicht planen. In ruhigen Phasen fehlen Anfragen, obwohl Kapazität da wäre.',
-  },
-  {
-    icon: '🏆',
-    title: 'Gute Arbeit bleibt unsichtbar',
-    text: 'Tolle Projekte, aber keine Vorher-Nachher-Fotos, keine Bewertungen online. Die Konkurrenz profitiert.',
-  },
-  {
-    icon: '🕐',
-    title: 'Keine Zeit fürs Marketing',
-    text: 'Nach 10 Stunden auf der Baustelle bleibt keine Energie für Posts, Anzeigen oder Google-Profile.',
-  },
+  { n:'01', icon:'📵', title:'Online kaum sichtbar',        text:'Kein Social-Media-Auftritt, veraltete Website, nur ein Branchenbuch-Eintrag. Wer sucht, findet euch schlicht nicht.' },
+  { n:'02', icon:'📞', title:'Abhängig von Empfehlungen',   text:'Empfehlungen lassen sich nicht planen. In ruhigen Phasen fehlen Anfragen, obwohl die Kapazität da wäre.' },
+  { n:'03', icon:'🏆', title:'Gute Arbeit bleibt unsichtbar', text:'Tolle Projekte, keine Vorher-Nachher-Fotos online, kaum Bewertungen. Die Konkurrenz profitiert davon.' },
+  { n:'04', icon:'🕐', title:'Keine Zeit fürs Marketing',   text:'Nach 10 Stunden auf der Baustelle fehlt die Energie für Posts, Anzeigen oder Google-Profile. Das kennt jeder.' },
 ];
 ---
-<section id="problem" class="relative py-32 px-6 bg-surface overflow-hidden">
-
-  <!-- Section glow -->
-  <div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px"
-       style="background: linear-gradient(90deg, transparent, rgba(249,115,22,.4), transparent)"></div>
-
+<section id="problem" class="bg-paper py-32 px-6">
   <div class="max-w-5xl mx-auto">
 
-    <div class="reveal mb-4 flex items-center gap-3">
-      <div class="h-px flex-1 max-w-8" style="background:linear-gradient(90deg,#f97316,transparent)"></div>
-      <span class="text-orange-500 text-xs font-bold tracking-[3px] uppercase">Das Problem</span>
-    </div>
+    <p data-reveal class="text-orange text-xs font-bold tracking-[3px] uppercase mb-4">Das Problem</p>
 
-    <h2 class="reveal delay-1 font-black leading-tight mb-4"
-        style="font-size: clamp(2rem, 4vw, 3.2rem)">
-      Gute Arbeit reicht heute<br />nicht mehr allein.
+    <h2 data-reveal data-reveal-delay="1"
+        class="font-black text-ink leading-tight mb-5"
+        style="font-size:clamp(2.2rem,5vw,3.8rem);">
+      Gute Arbeit reicht heute<br/>nicht mehr allein.
     </h2>
-    <p class="reveal delay-2 text-zinc-500 text-lg max-w-lg mb-16">
-      Die meisten Betriebe in der Region sind online schwach aufgestellt –
-      das ist ein Problem, aber gleichzeitig deine Chance.
+
+    <p data-reveal data-reveal-delay="2" class="text-zinc-500 text-lg max-w-xl mb-16">
+      Die meisten Betriebe in der Region sind online schwach aufgestellt – das ist ein Problem, aber gleichzeitig eure Chance.
     </p>
 
-    <!-- Bento grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-      {cards.map((c, i) => (
-        <div class:list={[
-          'glass rounded-2xl p-7 flex flex-col gap-4 transition-all duration-300 cursor-default reveal',
-          `delay-${i + 1}`,
-          i === 0 ? 'lg:col-span-2' : '',
-        ]}>
-          <span class="text-2xl">{c.icon}</span>
+    <div class="grid sm:grid-cols-2 gap-5">
+      {cards.map((c,i) => (
+        <div data-reveal data-reveal-delay={String(i+1)}
+             class="group rounded-2xl p-8 bg-white border border-zinc-100 shadow-sm
+                    hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+                    flex gap-6 items-start">
+          <!-- Big decorative number -->
+          <span class="shrink-0 font-black text-6xl leading-none select-none"
+                style="color:rgba(249,115,22,.12); line-height:1; margin-top:-6px;">
+            {c.n}
+          </span>
           <div>
-            <h3 class="text-zinc-200 font-bold text-sm mb-2">{c.title}</h3>
+            <div class="text-2xl mb-3">{c.icon}</div>
+            <h3 class="font-bold text-ink text-base mb-2">{c.title}</h3>
             <p class="text-zinc-500 text-sm leading-relaxed">{c.text}</p>
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Pull quote -->
-    <div class="reveal delay-5 mt-8 glass rounded-2xl px-8 py-6 flex gap-5 items-start">
-      <span class="text-4xl font-black grad-text leading-none mt-1 select-none">"</span>
-      <p class="text-zinc-300 text-base leading-relaxed">
-        Wer in Freising „Maler" googelt, findet meistens nicht den besten –
-        sondern den, der <span class="text-zinc-100 font-semibold">online sichtbar ist</span>.
+    <!-- Quote -->
+    <div data-reveal data-reveal-delay="5"
+         class="mt-8 rounded-2xl p-8 flex gap-5 items-start"
+         style="background:linear-gradient(135deg,#fff7ed,#fef3c7); border:1px solid rgba(249,115,22,.2);">
+      <span class="font-black g-text text-5xl leading-none select-none shrink-0" style="-webkit-text-fill-color:#f97316;">"</span>
+      <p class="text-zinc-700 text-base leading-relaxed">
+        In Freising findet man bei Google meist nicht den besten Maler –
+        sondern den, der <strong class="text-ink">online sichtbar ist</strong>.
+        Genau da setze ich an.
       </p>
     </div>
 
   </div>
 </section>
+<div class="divider"></div>

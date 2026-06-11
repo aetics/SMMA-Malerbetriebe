@@ -1,87 +1,88 @@
 ---
-// ── Personalisieren ──────────────────
+// ── Hier anpassen ──────────────────
 const telefon   = '[Telefonnummer]';
 const email     = '[E-Mail]';
 const instagram = '[Instagram / Website]';
-// ─────────────────────────────────────
+// ───────────────────────────────────
 ---
-<section id="kontakt" class="relative py-32 px-6 bg-base overflow-hidden">
 
-  <!-- Large centered glow -->
-  <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
-    <div class="w-[700px] h-[400px] rounded-full"
-         style="background:radial-gradient(ellipse, rgba(249,115,22,.14) 0%, transparent 65%); filter:blur(80px)"></div>
-  </div>
+<!-- Full-width orange CTA -->
+<section id="kontakt" class="relative overflow-hidden"
+         style="background:linear-gradient(135deg, #ea580c 0%, #f97316 40%, #f59e0b 100%);">
 
-  <!-- Top line -->
-  <div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px"
-       style="background: linear-gradient(90deg, transparent, rgba(249,115,22,.5), transparent)"></div>
+  <!-- Pattern overlay -->
+  <div class="pointer-events-none absolute inset-0"
+       style="background-image:radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px); background-size:28px 28px;"></div>
+  <div class="pointer-events-none absolute inset-0"
+       style="background:linear-gradient(to bottom, rgba(0,0,0,.15) 0%, transparent 40%, rgba(0,0,0,.2) 100%);"></div>
 
-  <div class="relative max-w-3xl mx-auto text-center">
+  <div class="relative max-w-5xl mx-auto px-6 py-32 text-center">
 
     <!-- Badge -->
-    <div class="reveal inline-flex items-center gap-2.5 glass rounded-full px-4 py-2 text-xs font-semibold mb-10">
+    <div data-reveal
+         class="inline-flex items-center gap-2.5 mb-10 rounded-full px-4 py-2"
+         style="background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); backdrop-filter:blur(8px);">
       <span class="relative flex h-2 w-2">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
       </span>
-      <span class="text-zinc-400">Noch <span class="text-zinc-200 font-bold">1–2 Plätze</span> frei</span>
+      <span class="text-white text-xs font-semibold">Noch 1–2 Plätze frei</span>
     </div>
 
-    <h2 class="reveal delay-1 font-black leading-tight mb-5"
-        style="font-size: clamp(2.2rem, 5vw, 4rem)">
-      Ich suche aktuell<br />
-      <span class="grad-text">1–2 Malerbetriebe</span><br />
-      in Freising als Testpartner.
+    <h2 data-reveal data-reveal-delay="1"
+        class="font-black text-white leading-tight mb-5"
+        style="font-size:clamp(2.5rem,6vw,5rem); text-shadow:0 2px 20px rgba(0,0,0,.2);">
+      Ich suche aktuell<br/>
+      1–2 Malerbetriebe<br/>
+      in Freising.
     </h2>
 
-    <p class="reveal delay-2 text-zinc-400 text-lg max-w-lg mx-auto mb-3">
-      Wenn ihr planbar mehr Anfragen wollt und bereit seid,
-      300–500 € Werbebudget einzusetzen – dann ist das eure Chance.
+    <p data-reveal data-reveal-delay="2"
+       class="text-orange-100 text-lg max-w-lg mx-auto mb-3 leading-relaxed">
+      Bereit für planbare Anfragen aus der Region?<br/>
+      Dann meldet euch – unverbindlich, ohne Druck.
     </p>
-    <p class="reveal delay-3 text-zinc-700 text-sm mb-12">
-      Meine Arbeit ist kostenlos. Kein Vertrag. Keine Mindestlaufzeit.
+    <p data-reveal data-reveal-delay="3" class="text-orange-200/70 text-sm mb-12">
+      Meine Arbeit kostenlos · Kein Vertrag · Keine Mindestlaufzeit
     </p>
 
     <!-- Contact cards -->
-    <div class="reveal delay-4 grid sm:grid-cols-3 gap-3 mb-10">
+    <div data-reveal data-reveal-delay="4" class="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10">
       {[
-        { icon: '📞', label: 'Telefon / WhatsApp', val: telefon,   href: `tel:${telefon}` },
-        { icon: '✉️',  label: 'E-Mail',             val: email,     href: `mailto:${email}` },
-        { icon: '📷',  label: 'Instagram / Web',    val: instagram, href: '#' },
+        { icon:'📞', label:'Telefon / WhatsApp', val:telefon,   href:`tel:${telefon}` },
+        { icon:'✉️',  label:'E-Mail',             val:email,     href:`mailto:${email}` },
+        { icon:'📷',  label:'Instagram / Web',    val:instagram, href:'#' },
       ].map(k => (
         <a href={k.href}
-           class="glass rounded-2xl p-6 text-left group hover:-translate-y-1 transition-all duration-300">
+           class="group rounded-2xl p-5 text-left transition-all duration-200 hover:-translate-y-1"
+           style="background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(8px);">
           <div class="text-2xl mb-3">{k.icon}</div>
-          <p class="text-zinc-600 text-xs font-semibold uppercase tracking-wider mb-1">{k.label}</p>
-          <p class="text-zinc-200 font-bold text-sm group-hover:text-orange-400 transition-colors">{k.val}</p>
+          <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">{k.label}</p>
+          <p class="text-white font-bold text-sm group-hover:text-orange-100 transition-colors">{k.val}</p>
         </a>
       ))}
     </div>
 
-    <!-- Main CTA -->
-    <div class="reveal delay-5">
+    <!-- CTA button -->
+    <div data-reveal data-reveal-delay="5">
       <a href={`mailto:${email}?subject=Testpartner%20Anfrage&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20als%20Testpartner.%0A%0AMein%20Betrieb%3A%20%0AStadt%3A%20%0ATelefon%3A%20`}
-         class="group inline-flex items-center gap-3 bg-gradient-brand text-white font-black
-                text-base px-9 py-4 rounded-xl
-                shadow-[0_0_40px_rgba(249,115,22,.35)] hover:shadow-[0_0_60px_rgba(249,115,22,.5)]
-                hover:-translate-y-0.5 transition-all duration-200 mb-6">
+         class="group inline-flex items-center gap-3 font-black text-orange px-10 py-5 rounded-2xl
+                transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl mb-6"
+         style="background:#fff; font-size:1.05rem; box-shadow:0 8px 32px rgba(0,0,0,.2);">
         Jetzt unverbindlich melden
-        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
         </svg>
       </a>
-      <p class="text-zinc-700 text-sm">
-        Kein Verkaufsgespräch. Ich erkläre kurz, was ich machen würde – ihr entscheidet.
-      </p>
+      <p class="text-orange-200/60 text-sm">Kein Verkaufsgespräch. Nur ehrliche Beratung.</p>
     </div>
 
   </div>
 </section>
 
-<footer class="relative bg-surface border-t border-white/5 py-8 px-6 text-center">
+<footer class="bg-ink border-t border-white/5 py-8 px-6 text-center">
   <p class="text-zinc-700 text-sm">
-    Social-Media-Marketing für Malerbetriebe in Freising & Umgebung ·
-    <a href={`mailto:${email}`} class="text-orange-500/70 hover:text-orange-400 transition-colors">{email}</a>
+    Social-Media-Marketing für Malerbetriebe · Freising & Umgebung ·
+    <a href={`mailto:${email}`} class="text-orange/60 hover:text-orange transition-colors">{email}</a>
   </p>
 </footer>

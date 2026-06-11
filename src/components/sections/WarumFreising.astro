@@ -1,79 +1,74 @@
 ---
 ---
-<section class="relative py-32 px-6 bg-base overflow-hidden">
-
-  <div class="pointer-events-none absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full"
-       style="background:radial-gradient(circle, rgba(249,115,22,.07) 0%, transparent 65%); filter:blur(80px)"></div>
+<section class="bg-ink py-32 px-6 overflow-hidden relative">
+  <div class="pointer-events-none absolute top-1/2 right-0 w-96 h-96 -translate-y-1/2"
+       style="background:radial-gradient(circle,rgba(245,158,11,.1) 0%,transparent 65%);filter:blur(70px);border-radius:50%;"></div>
 
   <div class="max-w-5xl mx-auto">
 
-    <div class="reveal mb-4 flex items-center gap-3">
-      <div class="h-px flex-1 max-w-8" style="background:linear-gradient(90deg,#f97316,transparent)"></div>
-      <span class="text-orange-500 text-xs font-bold tracking-[3px] uppercase">Warum Freising?</span>
-    </div>
-
-    <h2 class="reveal delay-1 font-black leading-tight mb-16"
-        style="font-size: clamp(2rem, 4vw, 3.2rem)">
-      Lokaler Fokus.<br />
-      <span class="grad-text">Echter Vorteil.</span>
+    <p data-reveal class="text-orange text-xs font-bold tracking-[3px] uppercase mb-4">Warum Freising?</p>
+    <h2 data-reveal data-reveal-delay="1"
+        class="font-black text-white leading-tight mb-16"
+        style="font-size:clamp(2.2rem,5vw,3.8rem);">
+      Lokaler Fokus.<br/>
+      <span class="g-text">Echter Vorteil.</span>
     </h2>
 
-    <!-- Bento layout -->
+    <!-- Bento grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-      <!-- Wide card -->
-      <div class="reveal delay-1 glass rounded-2xl p-8 lg:col-span-2 flex flex-col gap-4">
+      <!-- Wide top card -->
+      <div data-reveal data-reveal-delay="1"
+           class="lg:col-span-2 rounded-2xl p-8 flex flex-col gap-5"
+           style="background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);">
         <span class="text-3xl">📍</span>
-        <h3 class="text-zinc-200 font-bold text-lg">Nur Malerbetriebe in Freising & Umgebung</h3>
-        <p class="text-zinc-500 text-sm leading-relaxed">
-          Ich arbeite nicht mit allen möglichen Branchen. Mein Fokus liegt auf Malerbetrieben
-          in dieser Region – deshalb kenne ich den Markt, die Konkurrenz und die Zielgruppe.
-          Kein Interessenkonflikt, kein Chaos.
-        </p>
-        <div class="mt-2 flex flex-wrap gap-2">
-          {['Freising', 'Moosburg', 'Erding', 'Mainburg', 'Landshut', 'München Nord'].map(ort => (
-            <span class="text-xs text-zinc-500 border border-zinc-800 px-2.5 py-1 rounded-full">{ort}</span>
+        <div>
+          <h3 class="text-white font-bold text-lg mb-2">Nur Maler in Freising & Umgebung</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed mb-4">Ich arbeite nicht mit allen Branchen – nur mit Malerbetrieben in dieser Region. Ich kenne den Markt, die Konkurrenz und die Zielgruppe. Kein Interessenkonflikt.</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {['Freising','Moosburg','Erding','Mainburg','Landshut','München Nord'].map(o => (
+            <span class="text-xs text-zinc-600 border border-zinc-800 px-3 py-1 rounded-full">{o}</span>
           ))}
         </div>
       </div>
 
-      <!-- Tall card -->
-      <div class="reveal delay-2 glass rounded-2xl p-8 flex flex-col gap-4">
-        <span class="text-3xl">🔍</span>
-        <h3 class="text-zinc-200 font-bold">Mitbewerber schlafen noch</h3>
-        <p class="text-zinc-500 text-sm leading-relaxed">
-          Eine kurze Google-Suche reicht: Kaum ein Malerbetrieb in der Region hat eine
-          aktive Social-Media-Präsenz.
-        </p>
-        <div class="mt-auto pt-4 border-t border-white/6">
-          <p class="grad-text font-black text-2xl">Jetzt</p>
+      <!-- Right card -->
+      <div data-reveal data-reveal-delay="2"
+           class="rounded-2xl p-8 flex flex-col justify-between"
+           style="background:linear-gradient(160deg,rgba(249,115,22,.12),rgba(245,158,11,.06)); border:1px solid rgba(249,115,22,.25);">
+        <span class="text-3xl mb-4">🔍</span>
+        <div>
+          <h3 class="text-white font-bold mb-2">Mitbewerber schlafen noch</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">Kaum ein Maler in der Region hat eine aktive Social-Media-Präsenz.</p>
+        </div>
+        <div class="mt-6 pt-6 border-t border-white/8">
+          <p class="g-text font-black text-2xl">Jetzt</p>
           <p class="text-zinc-600 text-xs">ist der richtige Zeitpunkt</p>
         </div>
       </div>
 
-      <!-- Bottom-left card -->
-      <div class="reveal delay-3 glass rounded-2xl p-8 flex flex-col gap-4">
+      <!-- Bottom left -->
+      <div data-reveal data-reveal-delay="3"
+           class="rounded-2xl p-8 flex flex-col gap-4"
+           style="background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);">
         <span class="text-3xl">⚡</span>
-        <h3 class="text-zinc-200 font-bold">First Mover gewinnt</h3>
-        <p class="text-zinc-500 text-sm leading-relaxed">
-          Online-Sichtbarkeit ist kumulativ. Mehr Bewertungen, mehr Follower, mehr Referenz-Content –
-          je früher ihr anfangt, desto schwerer ist der Vorsprung aufzuholen.
-        </p>
+        <h3 class="text-white font-bold">First Mover gewinnt</h3>
+        <p class="text-zinc-500 text-sm leading-relaxed">Online-Sichtbarkeit ist kumulativ. Je früher ihr anfangt, desto schwerer ist der Vorsprung für andere aufzuholen.</p>
       </div>
 
-      <!-- Bottom-right wide card -->
-      <div class="reveal delay-4 rounded-2xl p-8 lg:col-span-2 flex items-center gap-6"
-           style="background:linear-gradient(135deg, rgba(249,115,22,.08), rgba(251,191,36,.05)); border:1px solid rgba(249,115,22,.2)">
-        <div class="text-4xl shrink-0">🤝</div>
+      <!-- Bottom right wide -->
+      <div data-reveal data-reveal-delay="4"
+           class="lg:col-span-2 rounded-2xl p-8 flex items-center gap-6"
+           style="background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);">
+        <span class="text-4xl shrink-0">🤝</span>
         <div>
-          <h3 class="text-zinc-200 font-bold mb-2">Exklusiv – kein Konkurrenzkonflikt</h3>
-          <p class="text-zinc-500 text-sm leading-relaxed">
-            Ich betreue maximal einen Malerbetrieb pro Einzugsgebiet.
-            Eure Strategie bleibt eure Strategie.
-          </p>
+          <h3 class="text-white font-bold mb-2">Exklusiv – kein Konkurrenzkonflikt</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Ich betreue maximal einen Malerbetrieb pro Einzugsgebiet. Eure Strategie, euer Vorteil – kein Weitergeben an Mitbewerber.</p>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+<div class="divider"></div>
