@@ -1,56 +1,53 @@
 ---
-const leistungen = [
-  {
-    num: '01',
-    title: 'Social Media Betreuung',
-    text: 'Ich erstelle und pflege eure Profile auf Instagram und Facebook. Regelmäßige Beiträge, Vorher-Nachher-Fotos, kurze Videos – alles, was zeigt, was ihr könnt.',
-    tags: ['Instagram', 'Facebook', 'Reels', 'Stories'],
-  },
-  {
-    num: '02',
-    title: 'Lokale Werbeanzeigen',
-    text: 'Gezielte Anzeigen auf Meta (Instagram/Facebook) und ggf. Google – ausgesteuert auf Freising und Umgebung. Nur Menschen, die wirklich in eurer Reichweite sind.',
-    tags: ['Meta Ads', 'Google Ads', 'Zielregion', 'Lokal'],
-  },
-  {
-    num: '03',
-    title: 'Einfache Lead-Strecke',
-    text: 'Interessenten landen auf einer klaren Seite mit Formular oder WhatsApp-Link. Kein Durchklicken, kein Suchen – direkte Anfrage in wenigen Sekunden.',
-    tags: ['Landing Page', 'WhatsApp', 'Kontaktformular'],
-  },
-  {
-    num: '04',
-    title: 'Fokus auf echte Anfragen',
-    text: 'Keine Likes-Strategie. Keine Follower-Zahlen als Ziel. Ich messe, was zählt: Wie viele Anfragen kommen rein? Welche Qualität haben sie? Was kostet ein Lead?',
-    tags: ['Leads', 'Reporting', 'Kosten pro Anfrage'],
-  },
+const items = [
+  { icon:'📱', title:'Social Media Betreuung', text:'Profile aufsetzen, Posts und Reels produzieren, Vorher-Nachher-Content – alles, was zeigt, was ihr wirklich könnt.', tags:['Instagram','Facebook','Reels','Stories'] },
+  { icon:'🎯', title:'Lokale Werbeanzeigen',    text:'Gezielte Anzeigen auf Meta und Google – ausgesteuert exakt auf euren Arbeitsradius in der Region Freising.', tags:['Meta Ads','Google Ads','Lokal'] },
+  { icon:'⚡', title:'Einfache Lead-Strecke',   text:'Interessenten landen direkt auf einer klaren Seite mit WhatsApp oder Formular. Anfrage in unter 30 Sekunden.', tags:['Landing Page','WhatsApp','Formular'] },
+  { icon:'📊', title:'Klares Reporting',         text:'Kein Fachjargon. Eine Seite pro Monat: Wie viele Anfragen? Was haben sie gekostet? Was hat funktioniert?', tags:['Leads','Kosten/Lead','Monatlich'] },
 ];
 ---
-<section class="py-28 px-6 bg-neutral-950">
+<section id="loesung" class="bg-white py-28 px-6">
   <div class="max-w-5xl mx-auto">
 
-    <p class="text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Meine Lösung</p>
-    <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight">
-      Was ich für euch übernehme.
-    </h2>
-    <p class="text-neutral-400 text-lg max-w-xl mb-16">
-      Komplett. Ohne dass ihr euch täglich darum kümmern müsst.
-    </p>
+    <p class="reveal text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Was ich übernehme</p>
 
-    <div class="grid sm:grid-cols-2 gap-5">
-      {leistungen.map(l => (
-        <div class="bg-card border border-border rounded-2xl p-8 flex flex-col gap-5
-                    hover:border-brand/40 transition-colors">
-          <div class="flex items-start justify-between">
-            <span class="text-5xl font-black text-brand/20 leading-none select-none">{l.num}</span>
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+      <h2 class="reveal reveal-d1 font-black text-zinc-900 leading-tight text-4xl sm:text-5xl">
+        Komplett.<br/>
+        <span class="text-zinc-300">Ohne Aufwand</span><br/>
+        für euch.
+      </h2>
+      <p class="reveal reveal-d2 text-zinc-500 text-sm max-w-xs sm:text-right sm:pb-1">
+        Alles aus einer Hand – vom ersten Post bis zur fertigen Monatsauswertung.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      {items.map((item, i) => (
+        <div class={`reveal reveal-d${i + 2}
+                     group bg-zinc-50 border border-zinc-200 rounded-2xl p-8
+                     hover:bg-white hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/10
+                     hover:-translate-y-1.5
+                     transition-all duration-300
+                     flex flex-col gap-5`}>
+
+          <div class="w-12 h-12 rounded-xl
+                      bg-gradient-to-br from-orange-100 to-amber-50
+                      border border-orange-200
+                      flex items-center justify-center text-xl
+                      group-hover:scale-110 transition-transform duration-300">
+            {item.icon}
           </div>
-          <div>
-            <h3 class="text-white font-bold text-xl mb-3">{l.title}</h3>
-            <p class="text-neutral-400 text-sm leading-relaxed">{l.text}</p>
+
+          <div class="flex-1">
+            <h3 class="text-zinc-900 font-bold text-lg mb-2">{item.title}</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed">{item.text}</p>
           </div>
-          <div class="flex flex-wrap gap-2">
-            {l.tags.map(t => (
-              <span class="text-xs font-semibold bg-brand/10 text-brand border border-brand/20 px-3 py-1 rounded-full">
+
+          <div class="pt-4 border-t border-zinc-100 flex flex-wrap gap-2">
+            {item.tags.map(t => (
+              <span class="text-xs font-semibold px-3 py-1 rounded-full
+                           bg-brand/8 text-brand-dark border border-brand/20">
                 {t}
               </span>
             ))}
@@ -61,3 +58,5 @@ const leistungen = [
 
   </div>
 </section>
+
+<div class="h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"></div>

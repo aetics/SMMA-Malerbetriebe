@@ -1,48 +1,67 @@
 ---
-const problems = [
-  {
-    icon: '📵',
-    title: 'Online kaum sichtbar',
-    text: 'Viele Malerbetriebe haben keinen aktiven Social-Media-Auftritt, eine veraltete Website oder nur einen Branchenbuch-Eintrag. Wer sucht, findet oft gar nichts.',
-  },
-  {
-    icon: '📞',
-    title: 'Abhängig von Empfehlungen',
-    text: 'Empfehlungen sind wertvoll – aber sie lassen sich nicht planen. In ruhigen Phasen fehlen Anfragen, obwohl die Kapazität da wäre.',
-  },
-  {
-    icon: '💸',
-    title: 'Keine Zeit fürs Marketing',
-    text: 'Nach einem langen Arbeitstag auf der Baustelle bleibt keine Energie mehr für Posts, Anzeigen oder Google-Profile. Das kennt fast jeder Inhaber.',
-  },
-  {
-    icon: '🏆',
-    title: 'Gute Arbeit bleibt unsichtbar',
-    text: 'Ihr macht tolle Projekte – aber die sieht kaum jemand. Kein Vorher-Nachher, kein Referenz-Post, keine sichtbaren Bewertungen. Die Konkurrenz profitiert.',
-  },
+const cards = [
+  { n:'01', icon:'📵', title:'Online kaum sichtbar',         text:'Kein Social-Media-Auftritt, veraltete Website, nur ein Branchenbuch-Eintrag. Wer sucht, findet euch schlicht nicht.' },
+  { n:'02', icon:'📞', title:'Abhängig von Empfehlungen',    text:'Empfehlungen lassen sich nicht planen. In ruhigen Phasen fehlen Anfragen, obwohl die Kapazität da wäre.' },
+  { n:'03', icon:'🏆', title:'Gute Arbeit bleibt unsichtbar', text:'Tolle Projekte, keine Vorher-Nachher-Fotos online, kaum Bewertungen. Die Konkurrenz profitiert davon.' },
+  { n:'04', icon:'🕐', title:'Keine Zeit fürs Marketing',    text:'Nach 10 Stunden auf der Baustelle fehlt die Energie für Posts, Anzeigen oder Google-Profile. Das kennt jeder.' },
 ];
 ---
-<section class="py-28 px-6 bg-neutral-950">
+<section id="problem" class="bg-zinc-50 py-28 px-6">
   <div class="max-w-5xl mx-auto">
 
-    <p class="text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Das Problem</p>
-    <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight">
-      Gute Arbeit reicht heute<br />nicht mehr allein.
-    </h2>
-    <p class="text-neutral-400 text-lg max-w-xl mb-16">
-      Die meisten Malerbetriebe in der Region sind online schwach aufgestellt.
-      Das ist ein Problem – aber auch eine Chance.
+    <p class="reveal text-brand text-xs font-bold tracking-[3px] uppercase mb-4">
+      Das Problem
     </p>
 
-    <div class="grid sm:grid-cols-2 gap-5">
-      {problems.map(p => (
-        <div class="bg-card border border-border rounded-2xl p-8 hover:border-brand/40 transition-colors">
-          <div class="text-3xl mb-5">{p.icon}</div>
-          <h3 class="text-white font-bold text-lg mb-3">{p.title}</h3>
-          <p class="text-neutral-400 text-sm leading-relaxed">{p.text}</p>
+    <h2 class="reveal reveal-d1
+               font-black text-zinc-900 leading-tight
+               text-4xl sm:text-5xl mb-5">
+      Gute Arbeit reicht heute<br/>nicht mehr allein.
+    </h2>
+
+    <p class="reveal reveal-d2 text-zinc-500 text-lg max-w-xl mb-14">
+      Die meisten Betriebe in der Region sind online schwach aufgestellt –
+      das ist ein Problem, aber gleichzeitig eure Chance.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      {cards.map((c, i) => (
+        <div class={`reveal reveal-d${i + 1}
+                     group bg-white rounded-2xl p-8
+                     border border-zinc-100
+                     shadow-sm hover:shadow-2xl hover:shadow-zinc-200/60
+                     hover:-translate-y-1.5
+                     transition-all duration-300
+                     flex gap-5 items-start`}>
+          <!-- Decorative number -->
+          <span class="shrink-0 font-black text-7xl leading-none
+                        text-brand/10 group-hover:text-brand/20
+                        transition-colors duration-300 select-none -mt-2">
+            {c.n}
+          </span>
+          <div>
+            <p class="text-2xl mb-3">{c.icon}</p>
+            <h3 class="text-zinc-900 font-bold text-base mb-2">{c.title}</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed">{c.text}</p>
+          </div>
         </div>
       ))}
     </div>
 
+    <!-- Pull quote -->
+    <div class="reveal reveal-d5 mt-6 rounded-2xl p-7
+                bg-gradient-to-br from-orange-50 to-amber-50
+                border border-orange-100
+                flex gap-4 items-start">
+      <span class="font-black text-5xl text-brand leading-none shrink-0 select-none">"</span>
+      <p class="text-zinc-700 text-base leading-relaxed">
+        In Freising findet man bei Google meistens nicht den besten Maler –
+        sondern den, der <strong class="text-zinc-900">online sichtbar ist</strong>.
+        Genau da setze ich an.
+      </p>
+    </div>
+
   </div>
 </section>
+
+<div class="h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"></div>

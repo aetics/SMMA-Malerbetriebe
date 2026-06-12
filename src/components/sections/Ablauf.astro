@@ -1,67 +1,60 @@
 ---
-const schritte = [
-  {
-    nr: '1',
-    title: 'Kurzes Erstgespräch',
-    text: '20–30 Minuten per Telefon oder Video. Ich verstehe, wie euer Betrieb tickt, welche Aufträge ihr wollt und was bisher schon versucht wurde.',
-    dauer: '~30 Min.',
-  },
-  {
-    nr: '2',
-    title: 'Check des Online-Auftritts',
-    text: 'Ich schaue mir an, was ihr aktuell habt – Website, Google-Profil, Social Media. Dann sage ich euch ehrlich, wo die größten Lücken sind.',
-    dauer: '1–2 Tage',
-  },
-  {
-    nr: '3',
-    title: 'Testphase startet',
-    text: 'Klares Startdatum, klare Ziele. Ich lege los: Profile, Content, Anzeigen. Ihr bekommt regelmäßige Updates – ohne Fachjargon.',
-    dauer: '4 Wochen',
-  },
-  {
-    nr: '4',
-    title: 'Gemeinsame Auswertung',
-    text: 'Nach 4 Wochen sitzen wir zusammen. Was hat funktioniert? Wie war die Qualität der Anfragen? Dann entscheidet ihr, ob ihr weitermachen wollt.',
-    dauer: 'Danach',
-  },
+const steps = [
+  { n:'01', title:'Kurzes Erstgespräch',   d:'~30 Min.',  text:'Telefon oder Video-Call. Ich verstehe euren Betrieb, eure Ziele und was bisher versucht wurde.' },
+  { n:'02', title:'Audit des Auftritts',   d:'1–2 Tage',  text:'Website, Google-Profil, Social Media. Ich sage euch ehrlich, wo die größten Lücken sind.' },
+  { n:'03', title:'Testphase startet',     d:'4 Wochen',  text:'Klares Startdatum, klare Ziele. Ihr bekommt regelmäßige Updates – ohne Fachjargon.' },
+  { n:'04', title:'Gemeinsame Auswertung', d:'Danach',    text:'Anzahl Anfragen, Kosten, Qualität. Dann entscheidet ihr, ob und wie es weitergeht.' },
 ];
 ---
-<section class="py-28 px-6 bg-neutral-950">
+<section class="bg-white py-28 px-6">
   <div class="max-w-5xl mx-auto">
 
-    <p class="text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Ablauf & Zusammenarbeit</p>
-    <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight">
-      Wie es läuft –<br />Schritt für Schritt.
+    <p class="reveal text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Ablauf</p>
+
+    <h2 class="reveal reveal-d1 font-black text-zinc-900 leading-tight text-4xl sm:text-5xl mb-14">
+      Schritt für Schritt.<br/>
+      <span class="text-zinc-300">In wenigen Tagen</span> startklar.
     </h2>
-    <p class="text-neutral-400 text-lg max-w-xl mb-16">
-      Kein komplizierter Prozess. Kein monatelanger Vorlauf.
-      In wenigen Tagen sind wir startklar.
-    </p>
 
-    <div class="relative">
-      <!-- vertical line -->
-      <div class="hidden sm:block absolute left-7 top-10 bottom-10 w-px bg-border"></div>
+    <div class="flex flex-col gap-3">
+      {steps.map((s, i) => (
+        <div class={`reveal reveal-d${i + 1}
+                     group bg-zinc-50 border border-zinc-200 rounded-2xl p-7
+                     hover:bg-white hover:border-brand/30
+                     hover:shadow-xl hover:shadow-brand/10
+                     hover:-translate-y-0.5
+                     transition-all duration-300
+                     flex gap-5 items-center`}>
 
-      <div class="flex flex-col gap-6">
-        {schritte.map(s => (
-          <div class="sm:pl-20 relative flex flex-col sm:flex-row gap-5 items-start">
-            <!-- circle -->
-            <div class="hidden sm:flex absolute left-0 top-0 w-14 h-14 rounded-full bg-brand/10 border border-brand/30
-                        items-center justify-center text-brand font-black text-lg shrink-0 z-10">
-              {s.nr}
-            </div>
-            <div class="bg-card border border-border rounded-2xl p-7 flex-1 hover:border-brand/40 transition-colors">
-              <div class="flex items-start justify-between gap-4 mb-3">
-                <h3 class="text-white font-bold text-lg">{s.title}</h3>
-                <span class="shrink-0 text-xs font-semibold bg-brand/10 text-brand border border-brand/20 px-3 py-1 rounded-full">
-                  {s.dauer}
-                </span>
-              </div>
-              <p class="text-neutral-400 text-sm leading-relaxed">{s.text}</p>
-            </div>
+          <!-- Number badge -->
+          <div class="shrink-0 w-14 h-14 rounded-2xl
+                      bg-gradient-to-br from-orange-100 to-amber-50
+                      border border-orange-200
+                      flex items-center justify-center
+                      font-black text-xl text-brand
+                      group-hover:scale-110 group-hover:shadow-md group-hover:shadow-brand/20
+                      transition-all duration-300">
+            {s.n}
           </div>
-        ))}
-      </div>
+
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-3 mb-1">
+              <h3 class="text-zinc-900 font-bold">{s.title}</h3>
+              <span class="text-xs font-bold px-3 py-1 rounded-full
+                           bg-brand/8 text-brand border border-brand/20">
+                {s.d}
+              </span>
+            </div>
+            <p class="text-zinc-500 text-sm leading-relaxed">{s.text}</p>
+          </div>
+
+          <svg class="shrink-0 text-zinc-200 group-hover:text-brand
+                       transition-colors duration-300 hidden sm:block"
+               width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </div>
+      ))}
     </div>
 
   </div>

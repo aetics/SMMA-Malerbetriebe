@@ -1,25 +1,31 @@
 ---
-const links = [
-  { href: '#problem',   label: 'Das Problem' },
-  { href: '#testphase', label: 'Testphase' },
-  { href: '#kontakt',   label: 'Kontakt' },
-];
 ---
-<header class="fixed top-0 inset-x-0 z-50 border-b border-border/60 bg-surface/80 backdrop-blur-md">
-  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-    <span class="font-black text-white tracking-tight">
-      SMMA <span class="text-brand">Maler</span>
+<header class="fixed top-0 inset-x-0 z-50 flex justify-center pt-4 px-4">
+  <nav class="w-full max-w-5xl h-14 flex items-center justify-between
+              px-5 rounded-2xl
+              bg-zinc-950/90 backdrop-blur-xl
+              border border-white/10
+              shadow-xl shadow-black/30">
+
+    <span class="font-black text-sm tracking-tight">
+      <span class="bg-gradient-to-r from-brand to-amber-400 bg-clip-text text-transparent">SMMA</span>
+      <span class="text-zinc-400 font-medium"> Maler</span>
     </span>
-    <nav class="hidden md:flex items-center gap-8">
-      {links.map(l => (
-        <a href={l.href} class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">
-          {l.label}
-        </a>
-      ))}
-      <a href="#kontakt"
-         class="bg-brand hover:bg-orange-400 text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors">
-        Gespräch anfragen
-      </a>
-    </nav>
-  </div>
+
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#problem"   class="text-zinc-500 hover:text-white text-xs font-medium transition-colors duration-150">Problem</a>
+      <a href="#loesung"   class="text-zinc-500 hover:text-white text-xs font-medium transition-colors duration-150">Leistungen</a>
+      <a href="#testphase" class="text-zinc-500 hover:text-white text-xs font-medium transition-colors duration-150">Testphase</a>
+    </div>
+
+    <a href="#kontakt"
+       class="bg-gradient-to-r from-brand to-amber-400
+              text-white text-xs font-bold
+              px-5 py-2.5 rounded-xl
+              shadow-lg shadow-brand/30
+              hover:shadow-brand/50 hover:opacity-95
+              transition-all duration-200">
+      Gespräch anfragen →
+    </a>
+  </nav>
 </header>

@@ -1,57 +1,48 @@
 ---
-const vorteile = [
-  {
-    zahl: '+5–15',
-    einheit: 'Anfragen',
-    title: 'Qualifizierte Anfragen aus der Region',
-    text: 'Keine Anfragen aus dem Ausland oder von Leuten, die nur Preise vergleichen. Lokale Interessenten, die wirklich in eurer Region wohnen.',
-  },
-  {
-    zahl: '100%',
-    einheit: 'sichtbar',
-    title: 'Referenzen, die man sieht',
-    text: 'Eure besten Projekte werden professionell in Szene gesetzt – als Vorher-Nachher-Fotos, als Reels, als Beweis-Content, der Vertrauen aufbaut.',
-  },
-  {
-    zahl: 'Top 3',
-    einheit: 'lokal',
-    title: 'Moderner Auftritt gegenüber Mitbewerbern',
-    text: 'Während andere Betriebe noch keinen Instagram-Account haben, baut ihr einen professionellen Online-Auftritt auf. Das fällt auf.',
-  },
-  {
-    zahl: '1 Seite',
-    einheit: 'Reporting',
-    title: 'Klarer Überblick – einfach erklärt',
-    text: 'Kein Agentur-Kauderwelsch. Ich zeige euch auf einer Seite: Wie viele Anfragen kamen? Was haben sie gekostet? Was hat funktioniert?',
-  },
+const metrics = [
+  { v:'+5–15', u:'Anfragen/Monat',  title:'Qualifizierte Leads',      text:'Lokale Interessenten – keine Streuverluste, kein Aufwand eurerseits.' },
+  { v:'100%',  u:'sichtbar',         title:'Referenzen online',          text:'Vorher-Nachher-Content, der Vertrauen aufbaut, bevor jemand anruft.' },
+  { v:'Top 3', u:'bei Google lokal', title:'Klarer Vorsprung',           text:'Während andere keinen Instagram-Account haben, habt ihr Reichweite.' },
+  { v:'0 €',   u:'Mehrkosten',       title:'Komplett kostenlos testen',  text:'Nur das Werbebudget. Meine Arbeit ist in der Testphase gratis.' },
 ];
 ---
-<section class="py-28 px-6 bg-neutral-950">
+<section class="bg-zinc-50 py-28 px-6">
   <div class="max-w-5xl mx-auto">
 
-    <p class="text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Euer Nutzen</p>
-    <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight">
-      Was ihr nach 4 Wochen<br />konkret habt.
-    </h2>
-    <p class="text-neutral-400 text-lg max-w-xl mb-16">
-      Kein vages Versprechen. Sondern klare, messbare Ergebnisse.
-    </p>
+    <p class="reveal text-brand text-xs font-bold tracking-[3px] uppercase mb-4">Euer Nutzen</p>
 
-    <div class="grid sm:grid-cols-2 gap-5">
-      {vorteile.map(v => (
-        <div class="bg-card border border-border rounded-2xl p-8 flex gap-6
-                    hover:border-brand/40 transition-colors">
-          <div class="shrink-0 text-right">
-            <p class="text-3xl font-black text-brand leading-none">{v.zahl}</p>
-            <p class="text-neutral-600 text-xs font-semibold mt-1">{v.einheit}</p>
+    <h2 class="reveal reveal-d1 font-black text-zinc-900 leading-tight text-4xl sm:text-5xl mb-14">
+      Was ihr nach 4 Wochen<br/>
+      <span class="bg-gradient-to-r from-brand to-amber-400 bg-clip-text text-transparent">
+        konkret habt.
+      </span>
+    </h2>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      {metrics.map((m, i) => (
+        <div class={`reveal reveal-d${i + 2}
+                     group bg-white rounded-2xl p-8
+                     border border-zinc-100
+                     shadow-sm hover:shadow-2xl hover:shadow-zinc-200/80
+                     hover:-translate-y-1.5
+                     transition-all duration-300`}>
+          <div class="flex items-end gap-2 mb-4">
+            <span class="bg-gradient-to-r from-brand to-amber-400 bg-clip-text text-transparent
+                          font-black leading-none text-5xl">
+              {m.v}
+            </span>
+            <span class="text-zinc-400 text-sm font-semibold mb-1.5">{m.u}</span>
           </div>
-          <div>
-            <h3 class="text-white font-bold mb-2">{v.title}</h3>
-            <p class="text-neutral-400 text-sm leading-relaxed">{v.text}</p>
-          </div>
+          <h3 class="text-zinc-900 font-bold mb-2">{m.title}</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">{m.text}</p>
+          <!-- bottom accent line -->
+          <div class="mt-6 h-0.5 rounded-full bg-gradient-to-r from-brand/30 to-transparent
+                       scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
         </div>
       ))}
     </div>
 
   </div>
 </section>
+
+<div class="h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"></div>
