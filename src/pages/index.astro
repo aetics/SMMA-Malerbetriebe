@@ -10,238 +10,232 @@ import Layout from '../layouts/Layout.astro';
 const mailto = `mailto:${EMAIL}?subject=Testpartner%20Anfrage&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20als%20Testpartner.%0A%0AMein%20Betrieb%3A%20%0AStadt%2FPLZ%3A%20%0ATelefon%3A%20`;
 
 const probleme = [
-  { icon: '📵', titel: 'Online kaum sichtbar',       text: 'Kein aktiver Social-Media-Auftritt, eine veraltete Website oder nur ein Branchenbuch-Eintrag. Wer online sucht, findet euch schlicht nicht.' },
-  { icon: '📞', titel: 'Abhängig von Empfehlungen',  text: 'Empfehlungen sind wertvoll – aber sie lassen sich nicht planen. In ruhigen Phasen fehlen Anfragen, obwohl die Kapazität da wäre.' },
-  { icon: '🏆', titel: 'Gute Arbeit bleibt unsichtbar', text: 'Ihr macht tolle Projekte – aber kaum jemand sieht sie. Kein Vorher-Nachher, keine Bewertungen, keine Reichweite.' },
-  { icon: '🕐', titel: 'Keine Zeit fürs Marketing',  text: 'Nach einem langen Arbeitstag auf der Baustelle bleibt keine Energie für Posts, Anzeigen oder Google-Profile.' },
+  {
+    titel: 'Online kaum sichtbar',
+    text: 'Kein aktiver Social-Media-Auftritt, eine veraltete Website oder nur ein Branchenbuch-Eintrag. Wer heute online sucht, findet euch schlicht nicht.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3z"/></svg>`,
+  },
+  {
+    titel: 'Abhängig von Empfehlungen',
+    text: 'Empfehlungen sind wertvoll – aber unplanbar. In ruhigen Phasen fehlen Anfragen, obwohl die Kapazität da wäre.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25z"/></svg>`,
+  },
+  {
+    titel: 'Gute Arbeit bleibt unsichtbar',
+    text: 'Ihr macht hervorragende Projekte – aber kaum jemand sieht sie. Kein Vorher-Nachher-Content, keine Bewertungen, keine Reichweite.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>`,
+  },
+  {
+    titel: 'Keine Zeit fürs Marketing',
+    text: 'Nach einem langen Arbeitstag auf der Baustelle bleibt keine Energie für Posts, Anzeigen oder Google-Profile. Das kennt jeder Inhaber.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>`,
+  },
 ];
 
 const leistungen = [
-  { nr: '01', icon: '📸', titel: 'Social Media Betreuung',  text: 'Ich übernehme Instagram und Facebook vollständig – Profil, Posts, Vorher-Nachher-Content, Stories und Reels.', tags: ['Instagram', 'Facebook', 'Reels'] },
-  { nr: '02', icon: '🎯', titel: 'Lokale Werbeanzeigen',    text: 'Gezielte Meta- und Google-Anzeigen für Freising und Umgebung. Kein Streuverlust, nur qualifizierte Anfragen.', tags: ['Meta Ads', 'Google Ads'] },
-  { nr: '03', icon: '⚡', titel: 'Einfache Lead-Strecke',   text: 'Klare Seite mit Formular oder direktem WhatsApp-Link. Anfragen kommen direkt bei euch an – ohne Umwege.', tags: ['Landing Page', 'WhatsApp'] },
-  { nr: '04', icon: '📊', titel: 'Klares Reporting',        text: 'Nicht Likes, sondern echte Anfragen. Jeden Monat: Wie viele? Woher? Was haben sie gekostet?', tags: ['Leads', 'Reporting'] },
+  {
+    nr: '01',
+    titel: 'Social Media Betreuung',
+    text: 'Ich übernehme Instagram und Facebook vollständig – Profil-Optimierung, Vorher-Nachher-Content, Stories und Reels. Ihr müsst euch um nichts kümmern.',
+    tags: ['Instagram', 'Facebook', 'Reels', 'Vorher-Nachher'],
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0z"/></svg>`,
+  },
+  {
+    nr: '02',
+    titel: 'Lokale Werbeanzeigen',
+    text: 'Gezielte Anzeigen auf Meta und Google – ausgesteuert auf Freising und Umgebung. Kein Streuverlust, keine Anfragen von weit her.',
+    tags: ['Meta Ads', 'Google Ads', 'Zielregion Freising'],
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z"/></svg>`,
+  },
+  {
+    nr: '03',
+    titel: 'Einfache Lead-Strecke',
+    text: 'Interessenten landen auf einer klaren Seite mit Formular oder direktem WhatsApp-Link. Anfragen kommen strukturiert bei euch an.',
+    tags: ['Landing Page', 'WhatsApp', 'Kontaktformular'],
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>`,
+  },
+  {
+    nr: '04',
+    titel: 'Transparentes Reporting',
+    text: 'Ich messe nicht Likes oder Follower, sondern echte Anfragen. Jeden Monat ein verständlicher Bericht: Wie viele? Woher? Was haben sie gekostet?',
+    tags: ['Leads', 'Monatsbericht', 'Kosten pro Anfrage'],
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125z"/></svg>`,
+  },
 ];
 
 const wochen = [
-  { w: '01', label: 'Woche 1', titel: 'Setup & Strategie',  punkte: ['Erstgespräch & Zieldefinition', 'Audit des aktuellen Auftritts', 'Profile optimieren', 'Content-Plan erstellen'] },
-  { w: '02', label: 'Woche 2', titel: 'Start & erste Ads',  punkte: ['Erste Posts veröffentlichen', 'Werbeanzeige schalten', 'Lead-Strecke aktivieren', 'Daten beobachten'], hot: true },
-  { w: '03', label: 'Woche 3', titel: 'Optimieren',         punkte: ['Anzeigen anpassen', 'Content weiterführen', 'Anfragen tracken', 'Zwischenbilanz'] },
-  { w: '04', label: 'Woche 4', titel: 'Auswertung',         punkte: ['Gesamtergebnis auswerten', 'Kosten pro Anfrage', 'Qualität besprechen', 'Gemeinsam entscheiden'] },
+  { label: 'Woche 1', titel: 'Setup & Strategie',  punkte: ['Erstgespräch & Zieldefinition', 'Audit des aktuellen Auftritts', 'Profile optimieren', 'Content-Plan erstellen'] },
+  { label: 'Woche 2', titel: 'Start & erste Ads',  punkte: ['Erste Posts veröffentlichen', 'Werbeanzeige live schalten', 'Lead-Strecke aktivieren', 'Erste Daten beobachten'], featured: true },
+  { label: 'Woche 3', titel: 'Analyse & Optimierung', punkte: ['Anzeigen anpassen', 'Content weiterführen', 'Anfragen tracken', 'Zwischenbilanz ziehen'] },
+  { label: 'Woche 4', titel: 'Auswertung',         punkte: ['Gesamtergebnis auswerten', 'Kosten pro Anfrage zeigen', 'Qualität der Leads besprechen', 'Gemeinsam entscheiden'] },
 ];
 
 const nutzen = [
-  { wert: '+5–15',  einheit: 'Anfragen/Monat',  titel: 'Qualifizierte Leads',          text: 'Aus eurer Region, ohne Streuverlust, kein Aufwand eurerseits.' },
-  { wert: '0 €',   einheit: 'Mehrkosten',        titel: 'Meine Arbeit ist gratis',      text: 'Ihr zahlt nur das Werbebudget – meine Zeit und Strategie nicht.' },
-  { wert: '100%',  einheit: 'Transparenz',       titel: 'Klares Reporting',             text: 'Kein Fachjargon. Verständliche Zahlen, jeden Monat.' },
-  { wert: 'Top 3', einheit: 'lokal bei Google', titel: 'Vorsprung vor Mitbewerbern',   text: 'Die meisten Konkurrenten sind noch gar nicht online aktiv.' },
+  { wert: '+5–15',  einheit: 'Anfragen / Monat', titel: 'Mehr qualifizierte Anfragen',   text: 'Lokale Interessenten aus Freising und Umgebung – ohne Streuverlust.' },
+  { wert: '0 €',   einheit: 'Agenturkosten',      titel: 'Meine Arbeit ist kostenlos',    text: 'Ihr zahlt ausschließlich das Werbebudget. Meine Zeit und Strategie nicht.' },
+  { wert: '100 %', einheit: 'Transparenz',         titel: 'Verständliches Reporting',     text: 'Kein Fachjargon. Klare Zahlen, monatlich, ohne Überraschungen.' },
+  { wert: 'Top 3', einheit: 'Google lokal',        titel: 'Sichtbarkeit vor Mitbewerbern', text: 'Die meisten Konkurrenten in der Region sind online noch gar nicht aktiv.' },
 ];
 
 const schritte = [
-  { nr: '01', titel: 'Kurzes Erstgespräch',   dauer: '~30 Min.',  text: 'Telefon oder Video-Call. Ich lerne euren Betrieb kennen und erkläre, wie ich vorgehe.' },
-  { nr: '02', titel: 'Check des Auftritts',   dauer: '1–2 Tage', text: 'Website, Google-Profil und Social Media. Ich sage ehrlich, was ich sehe und wo die größten Chancen liegen.' },
-  { nr: '03', titel: 'Testphase startet',      dauer: '4 Wochen', text: 'Klares Startdatum, klare Ziele. Regelmäßige Updates – ohne Fachchinesisch.' },
-  { nr: '04', titel: 'Gemeinsame Auswertung', dauer: 'Danach',   text: 'Ergebnisse, Kosten pro Anfrage, Qualität. Dann entscheidet ihr, ob und wie es weitergeht.' },
+  { nr: '01', titel: 'Kurzes Erstgespräch',   dauer: '30 Minuten', text: 'Telefon oder Video-Call. Ich lerne euren Betrieb kennen, erkläre meinen Ansatz und beantworte alle Fragen – ohne Druck.' },
+  { nr: '02', titel: 'Analyse des Auftritts', dauer: '1–2 Tage',   text: 'Ich prüfe Website, Google-Profil und Social Media. Danach wisst ihr genau, wo die größten Chancen liegen.' },
+  { nr: '03', titel: 'Testphase startet',      dauer: '4 Wochen',   text: 'Klares Startdatum, klare Ziele. Regelmäßige Updates ohne Fachchinesisch. Ihr behaltet jederzeit den Überblick.' },
+  { nr: '04', titel: 'Gemeinsame Auswertung', dauer: 'Im Anschluss', text: 'Ergebnisse, Kosten pro Anfrage, Qualität der Leads – danach entscheidet ihr in aller Ruhe, ob und wie es weitergeht.' },
 ];
 ---
 
-<Layout title="Mehr Anfragen für Malerbetriebe in Freising | SMMA">
+<Layout title="Mehr Anfragen für Malerbetriebe in Freising">
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     NAV
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<header class="fixed top-0 inset-x-0 z-50 flex justify-center pt-4 px-4">
-  <nav class="w-full max-w-5xl flex items-center justify-between
-              px-5 h-[52px] rounded-2xl
-              bg-zinc-950/90 backdrop-blur-xl
-              border border-white/[0.08]
-              shadow-[0_4px_24px_rgba(0,0,0,.4)]">
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     NAVIGATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/70">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
-    <span class="font-black text-sm tracking-tight text-white">
-      SMMA<span class="text-orange-500">.</span>
+    <span class="font-semibold text-slate-900 tracking-tight text-sm">
+      SMMA <span class="text-indigo-600 font-bold">Malerbetriebe</span>
     </span>
 
-    <div class="hidden md:flex items-center gap-7">
-      {[['#problem','Problem'],['#loesung','Leistungen'],['#testphase','Testphase'],['#ablauf','Ablauf']].map(([h,l]) => (
-        <a href={h} class="text-zinc-500 hover:text-zinc-200 text-xs font-medium transition-colors duration-150">{l}</a>
+    <nav class="hidden md:flex items-center gap-8">
+      {[['#problem','Herausforderungen'],['#loesung','Leistungen'],['#testphase','Testphase'],['#ablauf','Ablauf']].map(([h,l]) => (
+        <a href={h} class="text-slate-500 hover:text-slate-900 text-sm transition-colors duration-200">{l}</a>
       ))}
-    </div>
+    </nav>
 
     <a href="#kontakt"
-       class="group flex items-center gap-1.5
-              bg-orange-500 hover:bg-orange-400
-              text-white text-xs font-bold
-              px-4 py-2 rounded-xl
-              transition-all duration-150
-              shadow-[0_2px_12px_rgba(249,115,22,.4)]">
+       class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium
+              px-5 py-2.5 rounded-xl transition-colors duration-200">
       Gespräch anfragen
-      <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-      </svg>
     </a>
-  </nav>
+  </div>
 </header>
 
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      HERO
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section class="relative bg-zinc-950 min-h-screen flex flex-col justify-center overflow-hidden px-6 pt-24 pb-0">
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="bg-white pt-36 pb-24 px-6">
+  <div class="max-w-6xl mx-auto">
 
-  <!-- Ambient glow -->
-  <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[600px]
-              bg-[radial-gradient(ellipse_at_center,rgba(249,115,22,.13)_0%,transparent_70%)]"></div>
-  <div class="pointer-events-none absolute bottom-0 right-0 w-[500px] h-[500px]
-              bg-[radial-gradient(ellipse_at_bottom_right,rgba(251,146,60,.07)_0%,transparent_65%)]"></div>
+    <div class="max-w-3xl">
 
-  <!-- Grid overlay -->
-  <div class="pointer-events-none absolute inset-0 opacity-[0.03]
-              [background-image:linear-gradient(rgba(255,255,255,.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.6)_1px,transparent_1px)]
-              [background-size:60px_60px]"></div>
+      <!-- Eyebrow -->
+      <div class="reveal inline-flex items-center gap-2 bg-indigo-50 text-indigo-700
+                  text-xs font-semibold px-3.5 py-1.5 rounded-full mb-8 border border-indigo-100">
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+        Noch 1–2 Plätze in Freising verfügbar
+      </div>
 
-  <div class="relative max-w-5xl mx-auto w-full flex flex-col items-center text-center py-16">
+      <!-- Headline -->
+      <h1 class="reveal reveal-d1 text-slate-900 font-bold tracking-tight leading-[1.08]
+                 text-5xl sm:text-6xl lg:text-7xl mb-6">
+        Mehr planbare<br/>
+        Anfragen für<br/>
+        <span class="text-indigo-600">Malerbetriebe.</span>
+      </h1>
 
-    <!-- Badge -->
-    <div class="reveal inline-flex items-center gap-2
-                bg-orange-500/10 border border-orange-500/25 rounded-full
-                px-4 py-1.5 mb-8">
-      <span class="relative flex h-1.5 w-1.5">
-        <span class="absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
-        <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-orange-500"></span>
-      </span>
-      <span class="text-orange-400 text-xs font-semibold tracking-wide">
-        Speziell für Malerbetriebe in Freising &amp; Umgebung
-      </span>
-    </div>
+      <!-- Subtext -->
+      <p class="reveal reveal-d2 text-slate-600 text-xl leading-relaxed max-w-xl mb-10">
+        Social Media &amp; lokale Werbeanzeigen speziell für Maler –
+        professionell umgesetzt, <strong class="text-slate-800 font-semibold">4 Wochen lang ohne Agenturkosten</strong>.
+        Ihr zahlt nur das Werbebudget.
+      </p>
 
-    <!-- Headline -->
-    <h1 class="reveal reveal-d1 text-white font-black leading-[1.04] tracking-tight
-               text-5xl sm:text-6xl lg:text-7xl mb-6 max-w-4xl">
-      Mehr gute Anfragen<br/>
-      für deinen<br/>
-      <span class="bg-gradient-to-r from-orange-400 via-orange-500 to-amber-400
-                   bg-clip-text text-transparent">
-        Malerbetrieb.
-      </span>
-    </h1>
+      <!-- CTAs -->
+      <div class="reveal reveal-d3 flex flex-wrap gap-4 items-center mb-20">
+        <a href="#kontakt"
+           class="inline-flex items-center gap-2
+                  bg-indigo-600 hover:bg-indigo-700
+                  text-white font-semibold text-base
+                  px-8 py-4 rounded-xl
+                  shadow-sm hover:shadow-md
+                  transition duration-200">
+          Kostenloses Erstgespräch anfragen
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+          </svg>
+        </a>
+        <a href="#testphase"
+           class="text-slate-500 hover:text-slate-800 text-base font-medium
+                  underline underline-offset-4 decoration-slate-300 hover:decoration-slate-500
+                  transition duration-200">
+          Wie läuft die Testphase ab?
+        </a>
+      </div>
 
-    <!-- Sub -->
-    <p class="reveal reveal-d2 text-zinc-400 text-lg sm:text-xl leading-relaxed max-w-xl mb-10">
-      Social Media &amp; Online-Werbung speziell für Maler –<br/>
-      <span class="text-white font-semibold">4 Wochen lang komplett kostenlos.</span>
-    </p>
+      <!-- Metrics strip -->
+      <div class="reveal reveal-d4 grid grid-cols-3 max-w-lg
+                  border border-slate-200/60 rounded-2xl divide-x divide-slate-200/60
+                  shadow-sm overflow-hidden">
+        {[
+          { v: '4 Wochen', l: 'Testphase' },
+          { v: '0 €',      l: 'Agenturkosten' },
+          { v: '1–2',      l: 'Plätze frei' },
+        ].map(s => (
+          <div class="bg-slate-50/80 py-5 px-4 text-center">
+            <p class="text-indigo-600 font-bold text-2xl leading-none tracking-tight">{s.v}</p>
+            <p class="text-slate-400 text-xs mt-2 font-medium">{s.l}</p>
+          </div>
+        ))}
+      </div>
 
-    <!-- CTAs -->
-    <div class="reveal reveal-d3 flex flex-wrap justify-center gap-4 mb-20">
-      <a href="#kontakt"
-         class="group inline-flex items-center gap-2
-                bg-orange-500 hover:bg-orange-400
-                text-white font-bold text-base
-                px-8 py-4 rounded-2xl
-                shadow-[0_8px_32px_rgba(249,115,22,.45)]
-                hover:shadow-[0_12px_40px_rgba(249,115,22,.6)]
-                hover:-translate-y-0.5 transition-all duration-200">
-        Jetzt kostenlos starten
-        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-        </svg>
-      </a>
-      <a href="#testphase"
-         class="inline-flex items-center gap-2 text-zinc-500 hover:text-zinc-300 text-sm
-                border border-white/10 hover:border-white/20
-                px-6 py-4 rounded-2xl transition-all duration-200 bg-white/[.03]">
-        Wie funktioniert es?
-      </a>
-    </div>
-
-    <!-- Stats strip -->
-    <div class="reveal reveal-d4 w-full max-w-2xl grid grid-cols-3
-                border border-white/[.07] rounded-2xl overflow-hidden
-                bg-white/[.025] backdrop-blur-sm divide-x divide-white/[.07]">
-      {[
-        { v: '4 Wochen', l: 'Kostenlose Testphase' },
-        { v: '1–2',      l: 'Plätze noch frei' },
-        { v: '0 €',      l: 'Meine Arbeitskosten' },
-      ].map(s => (
-        <div class="py-5 text-center">
-          <p class="text-orange-400 font-black text-2xl leading-none">{s.v}</p>
-          <p class="text-zinc-600 text-xs mt-2">{s.l}</p>
-        </div>
-      ))}
-    </div>
-
-  </div>
-
-  <!-- Scroll cue -->
-  <div class="relative flex justify-center pb-10">
-    <div class="flex flex-col items-center gap-1.5 text-zinc-700">
-      <span class="text-[10px] font-medium uppercase tracking-widest">Mehr erfahren</span>
-      <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-      </svg>
     </div>
   </div>
-
 </section>
 
-<!-- Section divider -->
-<div class="h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
 
-
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      PROBLEM
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section id="problem" class="bg-white py-28 px-6">
-  <div class="max-w-5xl mx-auto">
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="problem" class="bg-slate-50 py-24 px-6">
+  <div class="max-w-6xl mx-auto">
 
-    <div class="reveal inline-flex items-center gap-2 bg-orange-50 border border-orange-200
-                text-orange-600 text-xs font-bold uppercase tracking-[2.5px]
-                px-3.5 py-1.5 rounded-full mb-6">
-      Das Problem
+    <!-- Section header -->
+    <div class="max-w-2xl mb-16">
+      <p class="reveal text-indigo-600 text-xs font-semibold uppercase tracking-[2.5px] mb-4">
+        Herausforderungen
+      </p>
+      <h2 class="reveal reveal-d1 text-slate-900 font-bold tracking-tight
+                 text-4xl sm:text-5xl leading-tight mb-5">
+        Gute Handwerksarbeit<br/>allein genügt heute nicht mehr.
+      </h2>
+      <p class="reveal reveal-d2 text-slate-600 text-lg leading-relaxed">
+        Die meisten Malerbetriebe in Freising sind online kaum sichtbar.
+        Das ist ein Problem – und gleichzeitig eure größte Chance.
+      </p>
     </div>
 
-    <h2 class="reveal reveal-d1 font-black text-zinc-900 leading-tight
-               text-4xl sm:text-5xl mb-4 max-w-2xl">
-      Gute Arbeit reicht heute<br/>nicht mehr allein.
-    </h2>
-    <p class="reveal reveal-d2 text-zinc-500 text-lg max-w-xl mb-14">
-      Die meisten Malerbetriebe in der Region sind online kaum sichtbar –
-      das ist ein Problem und gleichzeitig eure größte Chance.
-    </p>
-
-    <div class="grid sm:grid-cols-2 gap-4">
+    <!-- Cards -->
+    <div class="grid sm:grid-cols-2 gap-5">
       {probleme.map((p, i) => (
-        <div class={`reveal reveal-d${i + 1} group
-                     flex gap-5 items-start
-                     bg-zinc-50 hover:bg-white
-                     border border-zinc-100 hover:border-orange-200
-                     hover:shadow-[0_8px_40px_rgba(249,115,22,.08)]
-                     rounded-2xl p-7
-                     hover:-translate-y-1 transition-all duration-300`}>
-          <div class="shrink-0 w-12 h-12 rounded-xl
-                      bg-white border border-zinc-100 shadow-sm
-                      flex items-center justify-center text-2xl
-                      group-hover:border-orange-100 group-hover:shadow-orange-50/80
-                      transition-all duration-300">
-            {p.icon}
+        <div class={`reveal reveal-d${i + 1}
+                     group bg-white border border-slate-200/60 rounded-2xl p-8
+                     shadow-sm hover:shadow-md transition duration-300
+                     hover:-translate-y-0.5`}>
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100/80
+                      flex items-center justify-center text-indigo-600 mb-6
+                      group-hover:bg-indigo-100 transition duration-300">
+            <div class="w-5 h-5" set:html={p.icon}></div>
           </div>
-          <div>
-            <h3 class="text-zinc-900 font-bold text-base mb-2">{p.titel}</h3>
-            <p class="text-zinc-500 text-sm leading-relaxed">{p.text}</p>
-          </div>
+          <h3 class="text-slate-900 font-semibold text-lg mb-3">{p.titel}</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">{p.text}</p>
         </div>
       ))}
     </div>
 
-    <!-- Quote -->
-    <div class="reveal reveal-d5 mt-6 flex gap-4 items-start
-                bg-gradient-to-r from-orange-50 to-amber-50
-                border border-orange-100 rounded-2xl px-7 py-6">
-      <div class="shrink-0 text-3xl text-orange-300 font-serif leading-none select-none">"</div>
-      <p class="text-zinc-700 text-base leading-relaxed">
-        In Freising findet man bei Google meistens nicht den besten Maler –
-        sondern den, der
-        <strong class="text-zinc-900 font-bold">online sichtbar ist</strong>.
+    <!-- Pull quote -->
+    <div class="reveal reveal-d5 mt-8 bg-white border-l-2 border-indigo-500
+                rounded-r-2xl shadow-sm px-8 py-7 flex gap-5 items-start max-w-2xl">
+      <div class="shrink-0 w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100
+                  flex items-center justify-center mt-0.5">
+        <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+        </svg>
+      </div>
+      <p class="text-slate-700 text-base leading-relaxed">
+        In Freising findet man bei Google nicht den besten Maler –
+        sondern den, der <strong class="text-slate-900 font-semibold">online sichtbar ist</strong>.
         Genau da setze ich an.
       </p>
     </div>
@@ -249,117 +243,51 @@ const schritte = [
   </div>
 </section>
 
-<div class="h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent"></div>
 
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     LEISTUNGEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="loesung" class="bg-white py-24 px-6">
+  <div class="max-w-6xl mx-auto">
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     CHANCE  (dark)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section class="bg-zinc-950 py-28 px-6 relative overflow-hidden">
-  <div class="pointer-events-none absolute top-0 right-0 w-[600px] h-[600px]
-              bg-[radial-gradient(ellipse_at_top_right,rgba(249,115,22,.1)_0%,transparent_60%)]"></div>
-
-  <div class="max-w-5xl mx-auto">
-
-    <div class="reveal inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20
-                text-orange-400 text-xs font-bold uppercase tracking-[2.5px]
-                px-3.5 py-1.5 rounded-full mb-6">
-      Die Chance
+    <div class="max-w-2xl mb-16">
+      <p class="reveal text-indigo-600 text-xs font-semibold uppercase tracking-[2.5px] mb-4">
+        Leistungen
+      </p>
+      <h2 class="reveal reveal-d1 text-slate-900 font-bold tracking-tight
+                 text-4xl sm:text-5xl leading-tight mb-5">
+        Komplett betreut –<br/>
+        <span class="text-slate-400 font-medium">ohne Aufwand für euch.</span>
+      </h2>
+      <p class="reveal reveal-d2 text-slate-600 text-lg leading-relaxed">
+        Alles aus einer Hand. Ihr konzentriert euch auf euer Handwerk –
+        ich kümmere mich um euren gesamten Online-Auftritt.
+      </p>
     </div>
 
-    <h2 class="reveal reveal-d1 font-black text-white leading-tight
-               text-4xl sm:text-5xl mb-5 max-w-2xl">
-      Maler haben einen riesigen<br/>
-      Online-Vorteil –
-      <span class="text-zinc-600"> sie nutzen ihn nur selten.</span>
-    </h2>
-    <p class="reveal reveal-d2 text-zinc-400 text-lg max-w-xl mb-14">
-      Eure Arbeit ist von Natur aus visuell. Das ist das beste Rohmaterial
-      für Social Media, das man sich vorstellen kann.
-    </p>
-
-    <div class="grid sm:grid-cols-3 gap-4">
-      {[
-        { icon:'📸', titel:'Vorher-Nachher ist unschlagbar', text:'Kein Content wirkt stärker auf Instagram als ein gutes Vorher-Nachher-Foto. Maler haben davon unendlich viele – sie zeigen sie nur nicht.' },
-        { icon:'📍', titel:'Lokale Ads treffen genau eure Zielgruppe', text:'Mit Meta- oder Google-Anzeigen sprecht ihr gezielt Menschen in Freising und Umgebung an. Kein Streuverlust.' },
-        { icon:'🚀', titel:'Die Konkurrenz schläft noch', text:'Kaum ein Malerbetrieb in der Region hat einen aktiven Online-Auftritt. Wer jetzt startet, baut einen Vorsprung auf.' },
-      ].map((c, i) => (
-        <div class={`reveal reveal-d${i + 1}
-                     group relative overflow-hidden
-                     bg-white/[.04] border border-white/[.07]
-                     hover:border-orange-500/30 hover:bg-white/[.07]
-                     rounded-2xl p-7
-                     hover:-translate-y-1.5 transition-all duration-300`}>
-          <span class="absolute top-4 right-5 text-6xl font-black text-white/[.04] leading-none select-none">
-            0{i + 1}
-          </span>
-          <span class="text-3xl block mb-5">{c.icon}</span>
-          <h3 class="text-white font-bold mb-3">{c.titel}</h3>
-          <p class="text-zinc-500 text-sm leading-relaxed">{c.text}</p>
-        </div>
-      ))}
-    </div>
-
-  </div>
-</section>
-
-<div class="h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
-
-
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     LÖSUNG
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section id="loesung" class="bg-white py-28 px-6">
-  <div class="max-w-5xl mx-auto">
-
-    <div class="reveal inline-flex items-center gap-2 bg-orange-50 border border-orange-200
-                text-orange-600 text-xs font-bold uppercase tracking-[2.5px]
-                px-3.5 py-1.5 rounded-full mb-6">
-      Was ich übernehme
-    </div>
-
-    <h2 class="reveal reveal-d1 font-black text-zinc-900 leading-tight
-               text-4xl sm:text-5xl mb-4 max-w-2xl">
-      Komplett betreut –<br/>
-      <span class="text-zinc-300">ohne Aufwand für euch.</span>
-    </h2>
-    <p class="reveal reveal-d2 text-zinc-500 text-lg max-w-xl mb-14">
-      Alles aus einer Hand. Ihr macht weiter euren Job –
-      ich kümmere mich um den Rest.
-    </p>
-
-    <div class="grid sm:grid-cols-2 gap-4">
+    <div class="grid sm:grid-cols-2 gap-5">
       {leistungen.map((l, i) => (
         <div class={`reveal reveal-d${i + 1}
-                     group bg-zinc-50 hover:bg-white
-                     border border-zinc-100 hover:border-orange-200
-                     hover:shadow-[0_8px_40px_rgba(249,115,22,.08)]
-                     rounded-2xl p-7
-                     hover:-translate-y-1 transition-all duration-300
-                     flex flex-col gap-5`}>
+                     group bg-white border border-slate-200/60 rounded-2xl p-8
+                     shadow-sm hover:shadow-md transition duration-300
+                     hover:-translate-y-0.5`}>
 
-          <div class="flex items-center justify-between">
-            <div class="w-11 h-11 rounded-xl
-                        bg-orange-50 border border-orange-100
-                        flex items-center justify-center text-lg
-                        group-hover:bg-orange-100 group-hover:scale-110
-                        transition-all duration-300">
-              {l.icon}
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100/80
+                        flex items-center justify-center text-indigo-600
+                        group-hover:bg-indigo-100 transition duration-300">
+              <div class="w-5 h-5" set:html={l.icon}></div>
             </div>
-            <span class="text-3xl font-black text-zinc-100 select-none leading-none">
-              {l.nr}
-            </span>
+            <span class="text-slate-200 font-bold text-2xl leading-none select-none">{l.nr}</span>
           </div>
 
-          <div>
-            <h3 class="text-zinc-900 font-bold text-lg mb-2">{l.titel}</h3>
-            <p class="text-zinc-500 text-sm leading-relaxed">{l.text}</p>
-          </div>
+          <h3 class="text-slate-900 font-semibold text-lg mb-3">{l.titel}</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">{l.text}</p>
 
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-zinc-100">
+          <div class="flex flex-wrap gap-2 pt-5 border-t border-slate-100">
             {l.tags.map(t => (
-              <span class="text-xs font-semibold px-3 py-1 rounded-full
-                           bg-orange-50 text-orange-600 border border-orange-100">
+              <span class="text-xs font-medium px-3 py-1.5 rounded-lg
+                           bg-slate-50 text-slate-600 border border-slate-200/60">
                 {t}
               </span>
             ))}
@@ -372,74 +300,72 @@ const schritte = [
 </section>
 
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     TESTPHASE  (dark)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section id="testphase" class="bg-zinc-950 py-28 px-6 relative overflow-hidden">
-  <div class="pointer-events-none absolute bottom-0 left-0 w-[600px] h-[600px]
-              bg-[radial-gradient(ellipse_at_bottom_left,rgba(249,115,22,.09)_0%,transparent_60%)]"></div>
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     TESTPHASE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="testphase" class="bg-slate-50 py-24 px-6">
+  <div class="max-w-6xl mx-auto">
 
-  <div class="max-w-5xl mx-auto">
-
-    <div class="reveal inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20
-                text-orange-400 text-xs font-bold uppercase tracking-[2.5px]
-                px-3.5 py-1.5 rounded-full mb-6">
-      4-Wochen-Testphase
-    </div>
-
-    <h2 class="reveal reveal-d1 font-black text-white leading-tight
-               text-4xl sm:text-5xl mb-5">
-      Ich arbeite 4 Wochen<br/>
-      <span class="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
-        kostenlos für euch.
-      </span>
-    </h2>
-
-    <!-- Cost callout -->
-    <div class="reveal reveal-d2 flex flex-wrap items-center gap-6
-                bg-white/[.04] border border-white/[.07] rounded-2xl px-8 py-6 mb-12
-                max-w-2xl">
-      <div>
-        <p class="text-orange-400 font-black text-4xl leading-none tracking-tight">300–500 €</p>
-        <p class="text-zinc-600 text-xs mt-1.5 font-medium">Werbebudget (geschätzt)</p>
-      </div>
-      <div class="h-10 w-px bg-white/10 hidden sm:block shrink-0"></div>
-      <p class="text-zinc-400 text-sm leading-relaxed">
-        Meine Zeit, Strategie und Umsetzung kosten euch
-        <strong class="text-white">nichts</strong>.
-        Ich will echte Ergebnisse beweisen.
+    <div class="max-w-2xl mb-16">
+      <p class="reveal text-indigo-600 text-xs font-semibold uppercase tracking-[2.5px] mb-4">
+        4-Wochen-Testphase
+      </p>
+      <h2 class="reveal reveal-d1 text-slate-900 font-bold tracking-tight
+                 text-4xl sm:text-5xl leading-tight mb-5">
+        Ich arbeite 4 Wochen<br/>kostenlos für euch.
+      </h2>
+      <p class="reveal reveal-d2 text-slate-600 text-lg leading-relaxed">
+        Meine Zeit und Strategie kosten euch nichts. Ihr zahlt nur das Werbebudget.
       </p>
     </div>
 
-    <!-- Weeks grid -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+    <!-- Budget callout -->
+    <div class="reveal reveal-d3 bg-white border border-slate-200/60 rounded-2xl shadow-sm
+                px-8 py-7 mb-10 flex flex-wrap items-center gap-8 max-w-2xl">
+      <div>
+        <p class="text-indigo-600 font-bold text-4xl leading-none tracking-tight">300 – 500 €</p>
+        <p class="text-slate-400 text-sm mt-2 font-medium">Empfohlenes Werbebudget</p>
+      </div>
+      <div class="h-10 w-px bg-slate-200 hidden sm:block"></div>
+      <p class="text-slate-600 text-sm leading-relaxed flex-1 min-w-[200px]">
+        Meine Planung, Umsetzung und Betreuung sind in der Testphase
+        <strong class="text-slate-800 font-semibold">vollständig kostenlos</strong>.
+        Keine versteckten Gebühren.
+      </p>
+    </div>
+
+    <!-- Week cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {wochen.map((w, i) => (
         <div class={`reveal reveal-d${i + 1} rounded-2xl p-6 flex flex-col gap-4 ${
-          w.hot
-            ? 'bg-orange-500/[.12] border border-orange-500/40 shadow-[0_0_40px_rgba(249,115,22,.12)]'
-            : 'bg-white/[.03] border border-white/[.07]'
+          w.featured
+            ? 'bg-indigo-600 border border-indigo-500 shadow-md shadow-indigo-100'
+            : 'bg-white border border-slate-200/60 shadow-sm'
         }`}>
           <div>
-            <p class={`text-[10px] font-black uppercase tracking-[3px] mb-1.5 ${
-              w.hot ? 'text-orange-400' : 'text-zinc-700'
+            <p class={`text-[10px] font-bold uppercase tracking-[2.5px] mb-1.5 ${
+              w.featured ? 'text-indigo-200' : 'text-slate-400'
             }`}>{w.label}</p>
-            <p class={`font-bold text-sm leading-snug ${w.hot ? 'text-white' : 'text-zinc-400'}`}>
-              {w.titel}
-            </p>
+            <p class={`font-semibold text-sm leading-snug ${
+              w.featured ? 'text-white' : 'text-slate-900'
+            }`}>{w.titel}</p>
           </div>
-          <ul class="flex flex-col gap-2 mt-1">
+          <ul class="flex flex-col gap-2.5">
             {w.punkte.map(p => (
-              <li class="flex gap-2 text-xs leading-snug">
-                <span class="text-orange-500 shrink-0 mt-0.5 font-bold">✓</span>
-                <span class={w.hot ? 'text-zinc-300' : 'text-zinc-600'}>{p}</span>
+              <li class="flex gap-2.5 text-xs leading-snug">
+                <svg class={`w-3.5 h-3.5 shrink-0 mt-0.5 ${w.featured ? 'text-indigo-200' : 'text-indigo-500'}`}
+                     fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                </svg>
+                <span class={w.featured ? 'text-indigo-100' : 'text-slate-600'}>{p}</span>
               </li>
             ))}
           </ul>
-          {w.hot && (
-            <div class="mt-auto pt-3 border-t border-orange-500/20">
-              <span class="text-orange-400 text-[10px] font-bold uppercase tracking-widest">
-                ← Ergebnisse spürbar
-              </span>
+          {w.featured && (
+            <div class="mt-auto pt-4 border-t border-indigo-500/60">
+              <p class="text-indigo-200 text-[10px] font-semibold uppercase tracking-wider">
+                Erste Ergebnisse sichtbar
+              </p>
             </div>
           )}
         </div>
@@ -449,54 +375,43 @@ const schritte = [
   </div>
 </section>
 
-<div class="h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
 
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     NUTZEN / ERGEBNISSE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="bg-white py-24 px-6">
+  <div class="max-w-6xl mx-auto">
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     NUTZEN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section class="bg-white py-28 px-6">
-  <div class="max-w-5xl mx-auto">
-
-    <div class="reveal inline-flex items-center gap-2 bg-orange-50 border border-orange-200
-                text-orange-600 text-xs font-bold uppercase tracking-[2.5px]
-                px-3.5 py-1.5 rounded-full mb-6">
-      Euer Nutzen
+    <div class="max-w-2xl mb-16">
+      <p class="reveal text-indigo-600 text-xs font-semibold uppercase tracking-[2.5px] mb-4">
+        Eure Ergebnisse
+      </p>
+      <h2 class="reveal reveal-d1 text-slate-900 font-bold tracking-tight
+                 text-4xl sm:text-5xl leading-tight mb-5">
+        Was ihr nach 4 Wochen<br/>konkret habt.
+      </h2>
+      <p class="reveal reveal-d2 text-slate-600 text-lg leading-relaxed">
+        Keine vagen Versprechen – messbare, konkrete Ergebnisse nach 4 Wochen Zusammenarbeit.
+      </p>
     </div>
 
-    <h2 class="reveal reveal-d1 font-black text-zinc-900 leading-tight
-               text-4xl sm:text-5xl mb-4 max-w-2xl">
-      Was ihr nach 4 Wochen<br/>
-      <span class="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
-        konkret habt.
-      </span>
-    </h2>
-    <p class="reveal reveal-d2 text-zinc-500 text-lg max-w-lg mb-14">
-      Kein vager Versprechen. Klare, messbare Ergebnisse nach 4 Wochen.
-    </p>
-
-    <div class="grid sm:grid-cols-2 gap-4">
+    <div class="grid sm:grid-cols-2 gap-5">
       {nutzen.map((n, i) => (
         <div class={`reveal reveal-d${i + 1}
-                     group bg-zinc-50 hover:bg-white
-                     border border-zinc-100 hover:border-orange-200
-                     hover:shadow-[0_8px_40px_rgba(249,115,22,.08)]
-                     rounded-2xl p-8
-                     hover:-translate-y-1 transition-all duration-300
-                     overflow-hidden relative`}>
-          <!-- Accent corner -->
-          <div class="absolute top-0 right-0 w-24 h-24
-                      bg-gradient-to-bl from-orange-50 to-transparent
-                      group-hover:from-orange-100 transition-colors duration-300 rounded-bl-[80px]">
+                     group bg-slate-50 hover:bg-white
+                     border border-slate-200/60 rounded-2xl p-8
+                     shadow-sm hover:shadow-md transition duration-300
+                     hover:-translate-y-0.5 overflow-hidden relative`}>
+          <div class="flex items-end gap-3 mb-4">
+            <span class="text-indigo-600 font-bold leading-none text-5xl tracking-tight">{n.wert}</span>
+            <span class="text-slate-400 text-sm font-medium mb-1 leading-snug">{n.einheit}</span>
           </div>
-          <div class="flex items-end gap-2 mb-4">
-            <span class="font-black leading-none text-5xl text-orange-500">{n.wert}</span>
-            <span class="text-zinc-400 text-sm font-semibold mb-1 leading-tight">{n.einheit}</span>
-          </div>
-          <h3 class="text-zinc-900 font-bold mb-2">{n.titel}</h3>
-          <p class="text-zinc-500 text-sm leading-relaxed">{n.text}</p>
-          <div class="mt-6 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full
-                       scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+          <h3 class="text-slate-900 font-semibold text-lg mb-2">{n.titel}</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">{n.text}</p>
+          <div class="absolute bottom-0 left-0 h-0.5 w-full
+                       bg-gradient-to-r from-indigo-500 to-indigo-300
+                       scale-x-0 group-hover:scale-x-100 origin-left
+                       transition-transform duration-500 ease-out"></div>
         </div>
       ))}
     </div>
@@ -505,99 +420,112 @@ const schritte = [
 </section>
 
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     WARUM FREISING  (dark)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section class="bg-zinc-950 py-28 px-6 relative overflow-hidden">
-  <div class="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px]
-              bg-[radial-gradient(ellipse_at_right,rgba(249,115,22,.08)_0%,transparent_65%)]"></div>
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     WARUM FREISING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="bg-slate-50 py-24 px-6">
+  <div class="max-w-6xl mx-auto">
 
-  <div class="max-w-5xl mx-auto">
-
-    <div class="reveal inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20
-                text-orange-400 text-xs font-bold uppercase tracking-[2.5px]
-                px-3.5 py-1.5 rounded-full mb-6">
-      Warum Freising?
+    <div class="max-w-2xl mb-16">
+      <p class="reveal text-indigo-600 text-xs font-semibold uppercase tracking-[2.5px] mb-4">
+        Warum Freising?
+      </p>
+      <h2 class="reveal reveal-d1 text-slate-900 font-bold tracking-tight
+                 text-4xl sm:text-5xl leading-tight mb-5">
+        Lokaler Fokus.<br/>
+        <span class="text-slate-400 font-medium">Echter Wettbewerbsvorteil.</span>
+      </h2>
+      <p class="reveal reveal-d2 text-slate-600 text-lg leading-relaxed">
+        Ich arbeite ausschließlich mit Malerbetrieben in dieser Region –
+        kein Branchen-Mix, kein Interessenkonflikt.
+      </p>
     </div>
 
-    <h2 class="reveal reveal-d1 font-black text-white leading-tight
-               text-4xl sm:text-5xl mb-14 max-w-xl">
-      Lokaler Fokus.<br/>
-      <span class="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
-        Echter Vorteil.
-      </span>
-    </h2>
-
-    <!-- Bento grid -->
+    <!-- Bento -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-      <!-- Wide top-left -->
+      <!-- Wide -->
       <div class="reveal reveal-d1 lg:col-span-2
-                  bg-white/[.04] border border-white/[.07]
-                  hover:border-orange-500/25 hover:bg-white/[.06]
-                  rounded-2xl p-8 transition-all duration-300">
-        <span class="text-3xl block mb-5">📍</span>
-        <h3 class="text-white font-bold text-lg mb-3">
-          Nur Malerbetriebe in Freising &amp; Umgebung
+                  bg-white border border-slate-200/60 rounded-2xl p-8
+                  shadow-sm hover:shadow-md transition duration-300">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100
+                    flex items-center justify-center text-indigo-600 mb-6">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-slate-900 font-semibold text-lg mb-3">
+          Ausschließlich Maler in Freising &amp; Umgebung
         </h3>
-        <p class="text-zinc-500 text-sm leading-relaxed mb-5">
-          Mein Fokus liegt ausschließlich auf Malerbetrieben in dieser Region –
-          deshalb kenne ich den Markt, die Konkurrenz und eure Zielgruppe genau.
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          Kein Branchen-Mix, kein Interessenkonflikt. Ich kenne den lokalen Markt,
+          eure Mitbewerber und eure Zielgruppe – das unterscheidet mich von einer Generalagentur.
         </p>
         <div class="flex flex-wrap gap-2">
           {['Freising','Moosburg','Erding','Mainburg','Landshut','München Nord'].map(o => (
-            <span class="text-xs text-zinc-600 border border-zinc-800 px-3 py-1 rounded-full
-                         hover:border-orange-500/40 hover:text-zinc-400 transition-colors cursor-default">
+            <span class="text-xs text-slate-500 border border-slate-200 px-3 py-1.5 rounded-lg font-medium">
               {o}
             </span>
           ))}
         </div>
       </div>
 
-      <!-- Solid orange card -->
+      <!-- Accent card -->
       <div class="reveal reveal-d2
-                  bg-gradient-to-br from-orange-500 to-orange-600
-                  rounded-2xl p-8 flex flex-col justify-between
-                  shadow-[0_8px_40px_rgba(249,115,22,.3)]">
-        <span class="text-3xl block mb-4">⚡</span>
+                  bg-indigo-600 rounded-2xl p-8 flex flex-col justify-between
+                  shadow-md">
         <div>
-          <h3 class="text-white font-bold text-lg mb-3">First Mover gewinnt</h3>
-          <p class="text-orange-100 text-sm leading-relaxed">
-            Die meisten Mitbewerber haben noch keinen aktiven Online-Auftritt.
-            Wer jetzt anfängt, baut einen Vorsprung, den andere kaum aufholen.
+          <p class="text-indigo-200 text-xs font-semibold uppercase tracking-[2.5px] mb-6">
+            Timing
+          </p>
+          <h3 class="text-white font-bold text-xl mb-3">
+            First Mover gewinnt.
+          </h3>
+          <p class="text-indigo-200 text-sm leading-relaxed">
+            Die meisten Mitbewerber in der Region haben noch keinen aktiven Online-Auftritt.
+            Wer jetzt startet, baut einen Vorsprung, den andere kaum noch aufholen.
           </p>
         </div>
-        <div class="mt-6 pt-5 border-t border-orange-400/40">
-          <p class="text-white font-black text-2xl">Jetzt.</p>
-          <p class="text-orange-200/70 text-xs mt-0.5">ist der richtige Zeitpunkt</p>
+        <div class="mt-8 pt-6 border-t border-indigo-500/60">
+          <p class="text-white font-bold text-2xl tracking-tight">Jetzt.</p>
+          <p class="text-indigo-300 text-xs mt-1">ist der richtige Zeitpunkt</p>
         </div>
       </div>
 
       <!-- Bottom left -->
       <div class="reveal reveal-d3
-                  bg-white/[.04] border border-white/[.07]
-                  hover:border-orange-500/25 hover:bg-white/[.06]
-                  rounded-2xl p-8 transition-all duration-300">
-        <span class="text-3xl block mb-4">🔍</span>
-        <h3 class="text-white font-bold mb-2">Ich kenne den Markt</h3>
-        <p class="text-zinc-500 text-sm leading-relaxed">
-          Ich analysiere den lokalen Wettbewerb und weiß, wo eure Chancen liegen.
-          Kein generisches Marketing – Strategie für Freising.
+                  bg-white border border-slate-200/60 rounded-2xl p-8
+                  shadow-sm hover:shadow-md transition duration-300">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100
+                    flex items-center justify-center text-indigo-600 mb-6">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z"/>
+          </svg>
+        </div>
+        <h3 class="text-slate-900 font-semibold mb-2">Marktkenntnis</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Ich analysiere den lokalen Wettbewerb kontinuierlich und weiß, wo eure
+          Chancen liegen. Strategie für Freising – nicht irgendwo.
         </p>
       </div>
 
       <!-- Bottom right wide -->
       <div class="reveal reveal-d4 sm:col-span-2
-                  bg-white/[.04] border border-white/[.07]
-                  hover:border-orange-500/25 hover:bg-white/[.06]
-                  rounded-2xl p-8 flex items-center gap-6
-                  transition-all duration-300">
-        <span class="text-4xl shrink-0">🤝</span>
+                  bg-white border border-slate-200/60 rounded-2xl p-8
+                  flex items-center gap-6
+                  shadow-sm hover:shadow-md transition duration-300">
+        <div class="shrink-0 w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100
+                    flex items-center justify-center text-indigo-600">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0z"/>
+          </svg>
+        </div>
         <div>
-          <h3 class="text-white font-bold mb-2">Exklusiv – kein Konkurrenzkonflikt</h3>
-          <p class="text-zinc-500 text-sm leading-relaxed">
-            Ich betreue maximal einen Malerbetrieb pro Einzugsgebiet.
-            Eure Strategie, eure Inhalte, eure Vorteile – die teile ich nicht mit euren Mitbewerbern.
+          <h3 class="text-slate-900 font-semibold mb-1.5">Exklusiv – kein Konkurrenzkonflikt</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Ich betreue maximal einen Malerbetrieb pro Einzugsgebiet. Eure Strategie,
+            eure Inhalte und eure Vorteile teile ich nicht mit euren Mitbewerbern.
           </p>
         </div>
       </div>
@@ -606,67 +534,64 @@ const schritte = [
   </div>
 </section>
 
-<div class="h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
 
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     ABLAUF (Timeline)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="ablauf" class="bg-white py-24 px-6">
+  <div class="max-w-6xl mx-auto">
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     ABLAUF  (timeline)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section id="ablauf" class="bg-white py-28 px-6">
-  <div class="max-w-5xl mx-auto">
-
-    <div class="reveal inline-flex items-center gap-2 bg-orange-50 border border-orange-200
-                text-orange-600 text-xs font-bold uppercase tracking-[2.5px]
-                px-3.5 py-1.5 rounded-full mb-6">
-      Ablauf & Zusammenarbeit
+    <div class="max-w-2xl mb-16">
+      <p class="reveal text-indigo-600 text-xs font-semibold uppercase tracking-[2.5px] mb-4">
+        Ablauf &amp; Zusammenarbeit
+      </p>
+      <h2 class="reveal reveal-d1 text-slate-900 font-bold tracking-tight
+                 text-4xl sm:text-5xl leading-tight mb-5">
+        Schritt für Schritt –<br/>
+        <span class="text-slate-400 font-medium">unkompliziert.</span>
+      </h2>
+      <p class="reveal reveal-d2 text-slate-600 text-lg leading-relaxed">
+        Kein langer Vorlauf, kein Papierkram. In wenigen Tagen seid ihr startklar.
+      </p>
     </div>
 
-    <h2 class="reveal reveal-d1 font-black text-zinc-900 leading-tight
-               text-4xl sm:text-5xl mb-4 max-w-2xl">
-      Schritt für Schritt –<br/>
-      <span class="text-zinc-300">unkompliziert.</span>
-    </h2>
-    <p class="reveal reveal-d2 text-zinc-500 text-lg max-w-xl mb-16">
-      Kein langer Vorlauf, kein Papierkram. In wenigen Tagen seid ihr startklar.
-    </p>
-
     <!-- Timeline -->
-    <div class="relative">
-      <!-- Vertical line -->
-      <div class="absolute left-[26px] sm:left-[31px] top-6 bottom-6
-                  w-px bg-gradient-to-b from-orange-200 via-orange-300 to-orange-100">
-      </div>
+    <div class="relative max-w-2xl">
 
-      <div class="flex flex-col gap-6">
+      <!-- Vertical connector line -->
+      <div class="absolute left-5 top-6 bottom-6 w-px bg-slate-200"></div>
+
+      <div class="flex flex-col gap-5">
         {schritte.map((s, i) => (
-          <div class={`reveal reveal-d${i + 1}
-                       group relative flex gap-5 sm:gap-7 items-start`}>
+          <div class={`reveal reveal-d${i + 1} group relative flex gap-6 items-start`}>
 
-            <!-- Circle node on the line -->
-            <div class="shrink-0 relative z-10
-                        w-[52px] h-[52px] sm:w-[62px] sm:h-[62px] rounded-full
-                        bg-white border-2 border-orange-300
+            <!-- Step node -->
+            <div class="relative z-10 shrink-0
+                        w-11 h-11 rounded-full
+                        bg-white border-2 border-slate-200
+                        group-hover:border-indigo-400 group-hover:bg-indigo-50
                         flex items-center justify-center
-                        group-hover:border-orange-500 group-hover:shadow-[0_0_20px_rgba(249,115,22,.3)]
-                        transition-all duration-300">
-              <span class="text-orange-500 font-black text-sm sm:text-base">{s.nr}</span>
+                        transition duration-300">
+              <span class="text-slate-400 group-hover:text-indigo-600 font-bold text-xs transition duration-300">
+                {s.nr}
+              </span>
             </div>
 
-            <!-- Content card -->
-            <div class="flex-1 bg-zinc-50 hover:bg-white
-                        border border-zinc-100 hover:border-orange-200
-                        hover:shadow-[0_8px_40px_rgba(249,115,22,.07)]
-                        rounded-2xl p-6 sm:p-7 mb-0
-                        hover:-translate-y-0.5 transition-all duration-300">
-              <div class="flex flex-wrap items-center gap-3 mb-2">
-                <h3 class="text-zinc-900 font-bold">{s.titel}</h3>
-                <span class="text-xs font-bold px-3 py-1 rounded-full
-                             bg-orange-50 text-orange-600 border border-orange-100">
+            <!-- Content -->
+            <div class="flex-1 bg-slate-50 hover:bg-white
+                        border border-slate-200/60 rounded-2xl p-6
+                        shadow-sm hover:shadow-md transition duration-300
+                        hover:-translate-y-0.5">
+              <div class="flex flex-wrap items-center gap-3 mb-2.5">
+                <h3 class="text-slate-900 font-semibold">{s.titel}</h3>
+                <span class="text-xs font-medium px-3 py-1 rounded-lg
+                             bg-indigo-50 text-indigo-600 border border-indigo-100">
                   {s.dauer}
                 </span>
               </div>
-              <p class="text-zinc-500 text-sm leading-relaxed">{s.text}</p>
+              <p class="text-slate-600 text-sm leading-relaxed">{s.text}</p>
             </div>
+
           </div>
         ))}
       </div>
@@ -676,109 +601,115 @@ const schritte = [
 </section>
 
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      CTA
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section id="kontakt" class="relative bg-zinc-950 overflow-hidden">
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="kontakt" class="bg-slate-900 py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-4xl mx-auto">
 
-  <!-- Top transition -->
-  <div class="h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
+      <!-- Top row -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
+        <div>
+          <div class="reveal inline-flex items-center gap-2 bg-indigo-500/15 border border-indigo-400/20
+                      text-indigo-300 text-xs font-semibold uppercase tracking-[2.5px]
+                      px-3.5 py-1.5 rounded-full mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+            Noch 1–2 Plätze verfügbar
+          </div>
+          <h2 class="reveal reveal-d1 text-white font-bold tracking-tight
+                     text-4xl sm:text-5xl leading-tight mb-5">
+            Ich suche aktuell<br/>
+            1–2 Malerbetriebe<br/>
+            in Freising.
+          </h2>
+          <p class="reveal reveal-d2 text-slate-400 text-lg leading-relaxed max-w-md">
+            Bereit für planbare Anfragen aus der Region?
+            Meldet euch – völlig unverbindlich und ohne Druck.
+          </p>
+          <p class="reveal reveal-d3 text-slate-600 text-sm mt-3">
+            Keine Kosten · Kein Vertrag · Keine Mindestlaufzeit
+          </p>
+        </div>
 
-  <!-- Full orange CTA block -->
-  <div class="relative bg-gradient-to-br from-orange-500 via-orange-500 to-amber-500 py-28 px-6 overflow-hidden">
-
-    <!-- Dot texture -->
-    <div class="absolute inset-0 pointer-events-none opacity-[0.12]
-                [background-image:radial-gradient(circle,rgba(255,255,255,1)_1px,transparent_1px)]
-                [background-size:22px_22px]"></div>
-
-    <!-- Depth shadows -->
-    <div class="absolute inset-0 pointer-events-none
-                bg-gradient-to-b from-orange-600/40 via-transparent to-orange-700/30"></div>
-
-    <!-- Glow blobs -->
-    <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px]
-                bg-white/10 blur-[80px] rounded-full"></div>
-
-    <div class="relative max-w-3xl mx-auto text-center">
-
-      <!-- Badge -->
-      <div class="reveal inline-flex items-center gap-2 bg-white/20 border border-white/30
-                  text-white text-xs font-bold uppercase tracking-[2.5px]
-                  px-4 py-1.5 rounded-full mb-8">
-        <span class="relative flex h-1.5 w-1.5">
-          <span class="absolute inline-flex h-full w-full rounded-full bg-white opacity-75 animate-ping"></span>
-          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-white"></span>
-        </span>
-        Noch 1–2 Plätze frei
+        <!-- CTA button -->
+        <div class="reveal reveal-d4 shrink-0">
+          <a href={mailto}
+             class="group inline-flex items-center gap-3
+                    bg-indigo-600 hover:bg-indigo-500
+                    text-white font-semibold text-lg
+                    px-10 py-5 rounded-xl
+                    shadow-sm hover:shadow-md
+                    transition duration-200">
+            Jetzt unverbindlich melden
+            <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform duration-200"
+                 fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+            </svg>
+          </a>
+          <p class="text-slate-600 text-sm mt-4 text-center">
+            Kein Verkaufsgespräch. Nur ehrliche Beratung.
+          </p>
+        </div>
       </div>
 
-      <h2 class="reveal reveal-d1 text-white font-black leading-tight
-                 text-4xl sm:text-5xl lg:text-6xl mb-5">
-        Ich suche aktuell<br/>
-        1–2 Malerbetriebe<br/>
-        in Freising.
-      </h2>
-
-      <p class="reveal reveal-d2 text-orange-100 text-lg max-w-lg mx-auto mb-2 leading-relaxed">
-        Bereit für planbare Anfragen aus der Region?<br/>
-        Meldet euch – völlig unverbindlich.
-      </p>
-      <p class="reveal reveal-d3 text-orange-200/70 text-sm mb-12">
-        Keine Kosten · Kein Vertrag · Keine Mindestlaufzeit
-      </p>
+      <!-- Divider -->
+      <div class="border-t border-white/5 mb-12"></div>
 
       <!-- Contact cards -->
-      <div class="reveal reveal-d4 grid sm:grid-cols-3 gap-3 max-w-2xl mx-auto mb-10">
+      <div class="reveal reveal-d5 grid sm:grid-cols-3 gap-4">
         {[
-          { icon: '📞', label: 'Telefon / WhatsApp', val: TELEFON,   href: `tel:${TELEFON}` },
-          { icon: '✉️',  label: 'E-Mail',             val: EMAIL,     href: mailto },
-          { icon: '📷',  label: 'Instagram / Web',    val: INSTAGRAM, href: '#' },
+          {
+            label: 'Telefon & WhatsApp',
+            val: TELEFON,
+            href: `tel:${TELEFON}`,
+            icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25z"/></svg>`,
+          },
+          {
+            label: 'E-Mail',
+            val: EMAIL,
+            href: mailto,
+            icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>`,
+          },
+          {
+            label: 'Instagram / Website',
+            val: INSTAGRAM,
+            href: '#',
+            icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0z"/></svg>`,
+          },
         ].map(k => (
           <a href={k.href}
-             class="group bg-white/15 hover:bg-white/25 border border-white/25 hover:border-white/40
-                    rounded-2xl p-5 text-left
-                    hover:-translate-y-1 transition-all duration-200">
-            <span class="text-2xl block mb-3">{k.icon}</span>
-            <p class="text-white/60 text-[10px] font-bold uppercase tracking-wider mb-1">{k.label}</p>
-            <p class="text-white font-bold text-sm break-all">{k.val}</p>
+             class="group bg-white/[.04] hover:bg-white/[.07]
+                    border border-white/[.07] hover:border-white/[.12]
+                    rounded-xl p-5 flex items-start gap-4
+                    transition duration-200">
+            <div class="shrink-0 w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-400/20
+                        flex items-center justify-center text-indigo-400">
+              <div class="w-4 h-4" set:html={k.icon}></div>
+            </div>
+            <div class="min-w-0">
+              <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider mb-1">{k.label}</p>
+              <p class="text-slate-300 font-medium text-sm truncate">{k.val}</p>
+            </div>
           </a>
         ))}
       </div>
 
-      <!-- Main CTA -->
-      <div class="reveal reveal-d5 flex flex-col items-center gap-4">
-        <a href={mailto}
-           class="group inline-flex items-center gap-3
-                  bg-white hover:bg-zinc-50
-                  text-orange-600 font-black text-lg
-                  px-10 py-5 rounded-2xl
-                  shadow-[0_8px_40px_rgba(0,0,0,.2)]
-                  hover:shadow-[0_16px_50px_rgba(0,0,0,.3)]
-                  hover:-translate-y-0.5 transition-all duration-200">
-          Jetzt unverbindlich melden
-          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-        <p class="text-orange-200/60 text-sm">
-          Kein Verkaufsgespräch. Ich erkläre meinen Ansatz – ihr entscheidet.
-        </p>
-      </div>
-
     </div>
   </div>
-
-  <!-- Footer inside dark wrapper -->
-  <footer class="bg-zinc-950 border-t border-white/[.05] py-8 px-6 text-center">
-    <p class="text-zinc-700 text-sm">
-      Social-Media-Marketing für Malerbetriebe · Freising &amp; Umgebung ·
-      <a href={`mailto:${EMAIL}`} class="text-orange-500/60 hover:text-orange-400 transition-colors">
-        {EMAIL}
-      </a>
-    </p>
-  </footer>
-
 </section>
+
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     FOOTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<footer class="bg-slate-950 border-t border-white/[.04] py-8 px-6 text-center">
+  <p class="text-slate-600 text-sm">
+    Social-Media-Marketing für Malerbetriebe · Freising &amp; Umgebung ·
+    <a href={`mailto:${EMAIL}`} class="text-indigo-500/70 hover:text-indigo-400 transition-colors duration-200">
+      {EMAIL}
+    </a>
+  </p>
+</footer>
 
 </Layout>
